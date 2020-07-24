@@ -1,0 +1,370 @@
+{
+  "contractName": "IByteCounter",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "countBytes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "zeroBytes",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nonZeroBytes",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"countBytes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"zeroBytes\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"nonZeroBytes\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol\":\"IByteCounter\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol\":{\"keccak256\":\"0xca85bde5ca4669d5fec21cd5c7005d305468056dd69f53b1d5c7a31d67aca152\",\"urls\":[\"bzz-raw://7a23a644e2bc1b32d577a148a45e2f082fb8472d0113ae674ba0df5484201d9f\",\"dweb:/ipfs/QmQFuFASYHCtTYi7XM79Zfvo1k6oxg492jQeEKf1i2brhF\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\n\ninterface IByteCounter {\n  function countBytes(bytes calldata data) external view returns (uint256 zeroBytes, uint256 nonZeroBytes);\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol",
+    "exportedSymbols": {
+      "IByteCounter": [
+        1960
+      ]
+    },
+    "id": 1961,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1950,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:12"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 1960,
+        "linearizedBaseContracts": [
+          1960
+        ],
+        "name": "IByteCounter",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "9fa6b496",
+            "id": 1959,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "countBytes",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 1953,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1952,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "72:19:12",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1951,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "72:5:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "71:21:12"
+            },
+            "returnParameters": {
+              "id": 1958,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1955,
+                  "mutability": "mutable",
+                  "name": "zeroBytes",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "116:17:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1954,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "116:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1957,
+                  "mutability": "mutable",
+                  "name": "nonZeroBytes",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "135:20:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1956,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "135:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "115:41:12"
+            },
+            "scope": 1960,
+            "src": "52:105:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1961,
+        "src": "25:134:12"
+      }
+    ],
+    "src": "0:159:12"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol",
+    "exportedSymbols": {
+      "IByteCounter": [
+        1960
+      ]
+    },
+    "id": 1961,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1950,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:12"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 1960,
+        "linearizedBaseContracts": [
+          1960
+        ],
+        "name": "IByteCounter",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "9fa6b496",
+            "id": 1959,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "countBytes",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 1953,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1952,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "72:19:12",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1951,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "72:5:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "71:21:12"
+            },
+            "returnParameters": {
+              "id": 1958,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1955,
+                  "mutability": "mutable",
+                  "name": "zeroBytes",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "116:17:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1954,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "116:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1957,
+                  "mutability": "mutable",
+                  "name": "nonZeroBytes",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1959,
+                  "src": "135:20:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1956,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "135:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "115:41:12"
+            },
+            "scope": 1960,
+            "src": "52:105:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1961,
+        "src": "25:134:12"
+      }
+    ],
+    "src": "0:159:12"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.544Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

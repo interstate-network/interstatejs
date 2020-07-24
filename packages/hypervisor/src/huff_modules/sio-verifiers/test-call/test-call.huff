@@ -1,0 +1,44 @@
+#include "./mock-machine.huff"
+#include "../call-verifier.huff"
+
+#define macro TEST_CALL = takes(0) returns(0) {
+  0xffff 0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mstore
+  VERIFY_CALL<sio_revert, sm_revert>()
+  0x01 eq iszero bad_success_revert jumpi
+  0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mload
+  0xff 0xf8 shl 0xffff or eq iszero returndata_revert jumpi
+  0xffbbcc stop
+  0x00 0x00 mstore 0x00 0x00 return
+  sio_revert: 0xaa stop
+  sm_revert:  0xbb stop
+  bad_success_revert: 0xcc stop
+  returndata_revert: 0xdd stop
+}
+
+#define macro TEST_STATIC_CALL = takes(0) returns(0) {
+  0xffff 0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mstore
+  VERIFY_STATICCALL<sio_revert, sm_revert>()
+  0x01 eq iszero bad_success_revert jumpi
+  0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mload
+  0xff 0xf8 shl 0xffff or eq iszero returndata_revert jumpi
+  0xffbbcc stop
+  0x00 0x00 mstore 0x00 0x00 return
+  sio_revert: 0xaa stop
+  sm_revert:  0xbb stop
+  bad_success_revert: 0xcc stop
+  returndata_revert: 0xdd stop
+}
+
+#define macro TEST_DELEGATE_CALL = takes(0) returns(0) {
+  0xffff 0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mstore
+  VERIFY_DELEGATECALL<sio_revert, sm_revert>()
+  0x01 eq iszero bad_success_revert jumpi
+  0x00 ADD_GUEST_PTR_OFFSET<sm_revert>() mload
+  0xff 0xf8 shl 0xffff or eq iszero returndata_revert jumpi
+  0xffbbcc stop
+  0x00 0x00 mstore 0x00 0x00 return
+  sio_revert: 0xaa stop
+  sm_revert:  0xbb stop
+  bad_success_revert: 0xcc stop
+  returndata_revert: 0xdd stop
+}

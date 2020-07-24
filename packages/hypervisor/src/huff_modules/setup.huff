@@ -1,0 +1,74 @@
+#include "./utils/masks.huff"
+#include "./utils/safemath.huff"
+#include "./opcode-table.huff"
+#include "./io/header.huff"
+
+#define macro COPY_JUMPTABLE = takes(0) returns(0) {
+  __tablesize(OPCODE__TABLE)
+  __tablestart(OPCODE__TABLE)
+  0x0
+  codecopy
+}
+
+#define macro INIT_PROGRAMCOUNTER = takes(0) returns(0) {
+  GUEST_CODE_PTR()
+  SET_PC()
+}
+
+#define macro COPY_GUEST_CODE = takes(0) returns(0) {
+  GUEST_CODE_PTR()            // [ codeloc ]
+  GET_GUEST_ADDRESS()         // [ address, codeloc ]
+  dup1                        // [ address, address, codeloc ]
+  extcodesize                 // [ size, address, codeloc ]
+  dup1                        // [ size, size, address, codeloc ]
+  dup1                        // [ size, size, size, address, codeloc ]
+  SET_CODESIZE()              // [ size, size, address, codeloc ]
+  0x0                         // [ 0, size, size, address, codeloc ]
+  dup5                        // [ codeloc, 0, size, size, address, codeloc ]
+  dup5                        // [ address, codeloc, 0, size, size, address, codeloc ]
+  extcodecopy                 // [ size, address, codeloc ]
+  swap1                       // [ address, size, codeloc ]
+  pop                         // [ size, codeloc ]
+  add                         // [ size + codeloc]
+  0x1                         // [ 1, size + codeloc ]
+  add                         // [ 1 + size + codeloc ]
+  /*
+  Since msize considers the highest offset touched in memory, but only counts words,
+  we need to make sure guest memory starts on a multiple of 32, otherwise we will need to
+  perform extra calculation for guest msize ops
+  */
+  /* // [ end_of_code ]
+  0x20 dup2 mod 0x20 sub add 0x32 add // end_of_code + (32 - (end_of_code % 32))
+  SET_GUEST_MEM_PTR()         // [] */
+  dup1                          // [ end_of_code, end_of_code ]
+  0x20 dup2 mod                 // [ end_of_code % 32, end_of_code, end_of_code ]
+  0x3f sub                      // [ (32 - (end_of_code % 32)), end_of_code, end_of_code ]
+  dup1 swap2                    // [ end_of_code, (32 - (end_of_code % 32)), (32 - (end_of_code % 32)), end_of_code ]
+  add 0x01 add                  // [ end_of_code + (32 - (end_of_code % 32)), (32 - (end_of_code % 32)), end_of_code ]
+  SET_GUEST_MEM_PTR()           // [ (32 - (end_of_code % 32)), end_of_code ]
+  0x01 add
+  swap1 calldatasize swap1      // [ end_of_code, calldatasize, (32 - (end_of_code % 32)) ]
+  calldatacopy
+}
+
+/* dup1                          // [ end_of_code, end_of_code ]
+  0x20 dup2 mod                 // [ end_of_code % 32, end_of_code, end_of_code ]
+  0x20 sub                      // [ (32 - (end_of_code % 32)), end_of_code, end_of_code ]
+  dup1 swap2                    // [ end_of_code, (32 - (end_of_code % 32)), (32 - (end_of_code % 32)), end_of_code ]
+  add                           // [ end_of_code + (32 - (end_of_code % 32)), (32 - (end_of_code % 32)), end_of_code ]
+  SET_GUEST_MEM_PTR()           // [ (32 - (end_of_code % 32)), end_of_code ]
+  0x01 add
+  swap1 calldatasize swap1      // [ end_of_code, calldatasize, (32 - (end_of_code % 32)) ]
+  calldatacopy */
+
+#define macro INIT_SIO_PTR = takes(0) returns(0) {
+  GET_TX_SIO_CDPTR()
+  SET_CURRENT_SIO_CDPTR()
+}
+
+#define macro PREPARE_HYPERVISOR = takes(0) returns(0) {
+  COPY_JUMPTABLE() // []
+  INIT_PROGRAMCOUNTER()
+  COPY_GUEST_CODE()
+  INIT_SIO_PTR()
+}

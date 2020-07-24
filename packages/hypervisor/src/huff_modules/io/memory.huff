@@ -1,0 +1,59 @@
+/* program counter */
+#define macro GET_PC = takes(0) returns(0)              { LOAD<PC_PTR>() }
+#define macro SET_PC = takes(0) returns(0)              { STORE<PC_PTR>() }
+
+/* codesize */
+#define macro GET_CODESIZE = takes(0) returns(0)        { LOAD<CODESIZE_PTR>() }
+#define macro SET_CODESIZE = takes(0) returns(0)        { STORE<CODESIZE_PTR>() }
+
+#define macro CALC_GUEST_CODE_PTR = takes(0) returns(0)       { GUEST_CODE_PTR() add }
+#define macro GET_CODE = takes(0) returns(0)            { CALC_GUEST_CODE_PTR() mload }
+
+#define macro GET_GUEST_MEM_PTR = takes(0) returns(0)      { LOAD<GUEST_MEM_PPTR>() }
+#define macro SET_GUEST_MEM_PTR = takes(0) returns(0)      { STORE<GUEST_MEM_PPTR>() }
+
+/*
+  Calculates an offset into guest memory
+*/
+template <safemath_error_label>
+#define macro ADD_GUEST_PTR_OFFSET = takes(1) returns(1) {
+  GET_GUEST_MEM_PTR()
+  SM_ADD<safemath_error_label>()
+}
+
+/*
+  Loads a word from an offset in guest memory
+*/
+template <safemath_error_label>
+#define macro RESOLVE_GUEST_PTR = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  mload
+}
+
+// /** @dev Get the calldata offset to the state access array body */
+// #define macro GET_STATE_ACCESS_BODY_CDPTR = takes(0) returns(1) {
+//   LOAD<STATE_ACCESS_BODY_CDPPTR>()
+// }
+
+// /** @dev Set the calldata offset to the state access array body */
+// #define macro INIT_STATE_ACCESS_BODY_CDPTR = takes(0) returns(0) {
+//   GET_TX_SIO_SIZE_CDPTR()
+//   STORE<STATE_ACCESS_BODY_CDPPTR>()
+// }
+
+/** @dev Get the calldata offset for current SIO */
+#define macro GET_CURRENT_SIO_CDPTR = takes(0) returns(1) { LOAD<CURRENT_SIO_CDPPTR>() }
+
+/** @dev Set the offset for current SIO */
+#define macro SET_CURRENT_SIO_CDPTR = takes(1) returns(0) { STORE<CURRENT_SIO_CDPPTR>() }
+
+/** @dev Get the calldata offset for the most recent returndatasize */
+#define macro GET_LAST_RETURNDATASIZE_CDPTR = takes(0) returns(1) { LOAD<LAST_RETURNDATASIZE_CDPTR_PTR>() }
+
+/** @dev Set the calldata offset for the most recent returndatasize */
+#define macro SET_LAST_RETURNDATASIZE_CDPTR = takes(0) returns(1) { STORE<LAST_RETURNDATASIZE_CDPTR_PTR>() }
+
+/** @dev Get the most recent returndatasize */
+#define macro GET_LAST_RETURNDATASIZE = takes(0) returns(1) { CDLOAD<GET_LAST_RETURNDATASIZE_CDPTR>() }
+
+#define macro ADD_GUEST_RETURNDATA_PTR_OFFSET = takes(1) returns(1) { GET_LAST_RETURNDATASIZE_CDPTR() 0x20 add add }

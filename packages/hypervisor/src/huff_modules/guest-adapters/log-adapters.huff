@@ -1,0 +1,31 @@
+#include "./io/header.huff"
+
+template <safemath_error_label>
+#define macro GUEST_LOG0 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  log0
+}
+
+template <safemath_error_label>
+#define macro GUEST_LOG1 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  log1
+}
+
+template <safemath_error_label>
+#define macro GUEST_LOG2 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  log2
+}
+
+template <safemath_error_label>
+#define macro GUEST_LOG3 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  log3
+}
+
+template <safemath_error_label>
+#define macro GUEST_LOG4 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()
+  log4
+}

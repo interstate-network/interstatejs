@@ -1,0 +1,1101 @@
+{
+  "contractName": "CommitmentHeaderLib",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol\":\"CommitmentHeaderLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol\":{\"keccak256\":\"0x2be6de7a673cd22e24917d72aa2a532aa0ce9edc593b1da23a778dca14b998e1\",\"urls\":[\"bzz-raw://5239c501bb18361f2a31d0676b6f4142d774089bbb80533a931ad6fa718771ce\",\"dweb:/ipfs/QmNxteoQDEdekZwhDjpg8gsGFtRs3hhEPxeCrejkVeDDtC\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220826b721378dd17d27d1c3a7beb917ee7b76fbe09bb8a03815746bab4570f67d264736f6c634300060b0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220826b721378dd17d27d1c3a7beb917ee7b76fbe09bb8a03815746bab4570f67d264736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "60:1083:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "60:1083:6:-:0;;;;;;;;",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\n\nlibrary CommitmentHeaderLib {\n  /**\n   * @dev CommitmentHeaderQuery\n   * @notice Used to show that a commitment header exists in the `pendingBlocks` mapping.\n  */\n  struct CommitmentHeaderQuery {\n    bytes32 parentHash;\n    uint256 childIndex;\n    uint256 blockNumber;\n    CommitmentHeader commitment;\n  }\n\n  /**\n   * @dev CommitmentHeader\n   * @notice The purpose of this struct is to ensure that for common operations,\n   * where fraud is not being proven and challenges are not made, gas costs are low.\n   * Parent hash is not needed since we can prove bad parent hashes with fraud proofs.\n   */\n  struct CommitmentHeader {\n    uint256 submittedAt;\n    bytes32 exitsRoot;\n    address coinbase;\n    bytes32 blockHash;\n  }\n\n  /**\n   * @dev commitmentHash\n   * @notice Hashes a commitment header.\n   * @param commitment - commitment header\n   * @return _commitmentHash - hash of the commitment header\n   */\n  function commitmentHash(CommitmentHeader memory commitment)\n  internal pure returns (bytes32 _commitmentHash) {\n    _commitmentHash = keccak256(abi.encode(commitment));\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol",
+    "exportedSymbols": {
+      "CommitmentHeaderLib": [
+        1283
+      ]
+    },
+    "id": 1284,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1245,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "id": 1246,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1283,
+        "linearizedBaseContracts": [
+          1283
+        ],
+        "name": "CommitmentHeaderLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "CommitmentHeaderLib.CommitmentHeaderQuery",
+            "id": 1255,
+            "members": [
+              {
+                "constant": false,
+                "id": 1248,
+                "mutability": "mutable",
+                "name": "parentHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "260:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1247,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "260:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1250,
+                "mutability": "mutable",
+                "name": "childIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "284:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1249,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "284:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1252,
+                "mutability": "mutable",
+                "name": "blockNumber",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "308:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1251,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "308:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1254,
+                "mutability": "mutable",
+                "name": "commitment",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "333:27:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                  "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1253,
+                  "name": "CommitmentHeader",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1264,
+                  "src": "333:16:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "CommitmentHeaderQuery",
+            "nodeType": "StructDefinition",
+            "scope": 1283,
+            "src": "225:140:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "CommitmentHeaderLib.CommitmentHeader",
+            "id": 1264,
+            "members": [
+              {
+                "constant": false,
+                "id": 1257,
+                "mutability": "mutable",
+                "name": "submittedAt",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "691:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1256,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "691:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1259,
+                "mutability": "mutable",
+                "name": "exitsRoot",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "716:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1258,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "716:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1261,
+                "mutability": "mutable",
+                "name": "coinbase",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "739:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1260,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "739:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1263,
+                "mutability": "mutable",
+                "name": "blockHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "761:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1262,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "761:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "CommitmentHeader",
+            "nodeType": "StructDefinition",
+            "scope": 1283,
+            "src": "661:122:6",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1281,
+              "nodeType": "Block",
+              "src": "1079:62:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1279,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1272,
+                      "name": "_commitmentHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1270,
+                      "src": "1085:15:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 1276,
+                              "name": "commitment",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1267,
+                              "src": "1124:10:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                                "typeString": "struct CommitmentHeaderLib.CommitmentHeader memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                                "typeString": "struct CommitmentHeaderLib.CommitmentHeader memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1274,
+                              "name": "abi",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -1,
+                              "src": "1113:3:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_abi",
+                                "typeString": "abi"
+                              }
+                            },
+                            "id": 1275,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "encode",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "1113:10:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                              "typeString": "function () pure returns (bytes memory)"
+                            }
+                          },
+                          "id": 1277,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1113:22:6",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "id": 1273,
+                        "name": "keccak256",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -8,
+                        "src": "1103:9:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                          "typeString": "function (bytes memory) pure returns (bytes32)"
+                        }
+                      },
+                      "id": 1278,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1103:33:6",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "1085:51:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 1280,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1085:51:6"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1265,
+              "nodeType": "StructuredDocumentation",
+              "src": "787:179:6",
+              "text": " @dev commitmentHash\n @notice Hashes a commitment header.\n @param commitment - commitment header\n @return _commitmentHash - hash of the commitment header"
+            },
+            "id": 1282,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "commitmentHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 1268,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1267,
+                  "mutability": "mutable",
+                  "name": "commitment",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1282,
+                  "src": "993:34:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1266,
+                    "name": "CommitmentHeader",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1264,
+                    "src": "993:16:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                      "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "992:36:6"
+            },
+            "returnParameters": {
+              "id": 1271,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1270,
+                  "mutability": "mutable",
+                  "name": "_commitmentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1282,
+                  "src": "1054:23:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1269,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1054:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1053:25:6"
+            },
+            "scope": 1283,
+            "src": "969:172:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1284,
+        "src": "60:1083:6"
+      }
+    ],
+    "src": "0:1143:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol",
+    "exportedSymbols": {
+      "CommitmentHeaderLib": [
+        1283
+      ]
+    },
+    "id": 1284,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1245,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "id": 1246,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1283,
+        "linearizedBaseContracts": [
+          1283
+        ],
+        "name": "CommitmentHeaderLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "CommitmentHeaderLib.CommitmentHeaderQuery",
+            "id": 1255,
+            "members": [
+              {
+                "constant": false,
+                "id": 1248,
+                "mutability": "mutable",
+                "name": "parentHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "260:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1247,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "260:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1250,
+                "mutability": "mutable",
+                "name": "childIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "284:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1249,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "284:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1252,
+                "mutability": "mutable",
+                "name": "blockNumber",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "308:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1251,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "308:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1254,
+                "mutability": "mutable",
+                "name": "commitment",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1255,
+                "src": "333:27:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                  "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1253,
+                  "name": "CommitmentHeader",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1264,
+                  "src": "333:16:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "CommitmentHeaderQuery",
+            "nodeType": "StructDefinition",
+            "scope": 1283,
+            "src": "225:140:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "CommitmentHeaderLib.CommitmentHeader",
+            "id": 1264,
+            "members": [
+              {
+                "constant": false,
+                "id": 1257,
+                "mutability": "mutable",
+                "name": "submittedAt",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "691:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1256,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "691:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1259,
+                "mutability": "mutable",
+                "name": "exitsRoot",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "716:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1258,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "716:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1261,
+                "mutability": "mutable",
+                "name": "coinbase",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "739:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1260,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "739:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1263,
+                "mutability": "mutable",
+                "name": "blockHash",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1264,
+                "src": "761:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1262,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "761:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "CommitmentHeader",
+            "nodeType": "StructDefinition",
+            "scope": 1283,
+            "src": "661:122:6",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1281,
+              "nodeType": "Block",
+              "src": "1079:62:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1279,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1272,
+                      "name": "_commitmentHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1270,
+                      "src": "1085:15:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 1276,
+                              "name": "commitment",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1267,
+                              "src": "1124:10:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                                "typeString": "struct CommitmentHeaderLib.CommitmentHeader memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                                "typeString": "struct CommitmentHeaderLib.CommitmentHeader memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1274,
+                              "name": "abi",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -1,
+                              "src": "1113:3:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_abi",
+                                "typeString": "abi"
+                              }
+                            },
+                            "id": 1275,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "encode",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "1113:10:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                              "typeString": "function () pure returns (bytes memory)"
+                            }
+                          },
+                          "id": 1277,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1113:22:6",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "id": 1273,
+                        "name": "keccak256",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -8,
+                        "src": "1103:9:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                          "typeString": "function (bytes memory) pure returns (bytes32)"
+                        }
+                      },
+                      "id": 1278,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1103:33:6",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "1085:51:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 1280,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1085:51:6"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1265,
+              "nodeType": "StructuredDocumentation",
+              "src": "787:179:6",
+              "text": " @dev commitmentHash\n @notice Hashes a commitment header.\n @param commitment - commitment header\n @return _commitmentHash - hash of the commitment header"
+            },
+            "id": 1282,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "commitmentHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 1268,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1267,
+                  "mutability": "mutable",
+                  "name": "commitment",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1282,
+                  "src": "993:34:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeader_$1264_memory_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1266,
+                    "name": "CommitmentHeader",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1264,
+                    "src": "993:16:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_CommitmentHeader_$1264_storage_ptr",
+                      "typeString": "struct CommitmentHeaderLib.CommitmentHeader"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "992:36:6"
+            },
+            "returnParameters": {
+              "id": 1271,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1270,
+                  "mutability": "mutable",
+                  "name": "_commitmentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1282,
+                  "src": "1054:23:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1269,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1054:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1053:25:6"
+            },
+            "scope": 1283,
+            "src": "969:172:6",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1284,
+        "src": "60:1083:6"
+      }
+    ],
+    "src": "0:1143:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.538Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,42 @@
+template <op>
+#define macro DO_OP_HASH_OUTPUT = takes(1) returns(1) {
+  <op> 0x00 mstore
+  0x20 0x00 sha3
+}
+
+#define macro GET_BLOCKHASH = takes(0) returns(1) {
+  0x0 blockhash
+}
+
+#define macro GET_BALANCE = takes(0) returns(1) {
+  address balance
+}
+
+#define macro GET_CODESIZE = takes(0) returns(1) {
+  address extcodesize
+}
+
+#define macro TEST = takes(0) returns(0) {
+  // DO_OP_HASH_OUTPUT<getpc>()
+  // DO_OP_HASH_OUTPUT<callvalue>() xor
+  // DO_OP_HASH_OUTPUT<caller>() xor
+  // DO_OP_HASH_OUTPUT<origin>() xor
+  // DO_OP_HASH_OUTPUT<address>() xor
+  // DO_OP_HASH_OUTPUT<msize>() xor
+  // DO_OP_HASH_OUTPUT<coinbase>() xor
+  // DO_OP_HASH_OUTPUT<gas>() xor
+  // DO_OP_HASH_OUTPUT<gaslimit>() xor
+  // DO_OP_HASH_OUTPUT<gasprice>() xor
+  // DO_OP_HASH_OUTPUT<number>() xor
+  // DO_OP_HASH_OUTPUT<GET_BLOCKHASH>() xor
+  // DO_OP_HASH_OUTPUT<GET_BALANCE>() xor
+  // DO_OP_HASH_OUTPUT<timestamp>() xor
+  // DO_OP_HASH_OUTPUT<codesize>() xor
+  // DO_OP_HASH_OUTPUT<GET_CODESIZE>() xor
+  // address extcodehash xor
+  // dup1 
+  0x60 0x00 sstore
+  0x00 sload
+  0x00 mstore
+  0x20 0x00 revert
+}

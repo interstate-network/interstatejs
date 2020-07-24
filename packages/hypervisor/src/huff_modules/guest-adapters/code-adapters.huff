@@ -1,0 +1,84 @@
+template <prefixedAddressDeployer, addressDerivationBuffer, initCodeHash, addressMask>
+#define macro DERIVE_ADDRESS = takes(1) returns(0) {
+  // [ address ]
+  <initCodeHash> swap1 // [ address, initcodehash ]  init code -- change to hash of init code
+  <prefixedAddressDeployer> // [ 0xff<address>, address, initcodehash ] */
+  /* 21 bytes, shifted left 11 bytes (96 bits) */
+  0x58 shl <addressDerivationBuffer> // [ addressDerivationBuffer, 0xff<address>, address, initcodehash ]                  
+  mstore // // [ address, initcodehash ] 
+  0x58 shl 0x15 <addressDerivationBuffer> add mstore // [ initcodehash ]
+  0x29 <addressDerivationBuffer> add mstore
+  0x49
+  <addressDerivationBuffer> 
+  sha3 <addressMask> and
+}
+
+#define macro GUEST_CODESIZE = takes(0) returns(1) {
+  GET_CODESIZE()
+}
+
+template <safemath_error_label>
+#define macro GUEST_CODECOPY = takes(0) returns(0) {
+  // [destOffset, offset, length]
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()  // [destOffset+freeptr, offset, length]
+  GET_GUEST_ADDRESS()                           // [guestAddress, destOffset+freeptr, offset, length]
+  extcodecopy                                   // []
+}
+
+
+// DERIVE_ADDRESS()             // [archiveAddress]
+// 0x01                         // [1, archiveAddress]
+// swap1                        // [archiveAddress, 1]
+// extcodesize                  // [archiveSize, 1]
+// SM_SUB<sm_revert_label>()    // [archiveSize-1]
+template <sio_error_label>
+#define macro GUEST_EXTCODESIZE = takes(1) returns(1) {
+  // [address]
+  READ_EXTCODESIZE_RECORD<sio_error_label>()
+}
+
+
+template <sio_error_label>
+#define macro GUEST_EXTCODEHASH = takes(1) returns(1) {
+  // [address]
+  READ_EXTCODEHASH_RECORD<sio_error_label>()
+}
+/**
+guest_extcodecopy = (address, destOffset, offset, length) => {
+  address = deriveArchiveAddress(address)
+  destOffset += guestPtr
+  offset += 1
+  extcodecopy(address, destOffset, offset, length)
+}
+*/
+template <sio_error_label, safemath_error_label>
+#define macro GUEST_EXTCODECOPY = takes(4) returns(0) {
+                                                      // [address, destOffset, offset, length]
+  // DERIVE_ADDRESS()                                 // [archiveAddress, destOffset, offset, length]
+  swap1                                               // [destOffset, archiveAddress, offset, length]
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>()        // [destOffset+freeptr, archiveAddress, offset, length]
+  swap1                                               // [archiveAddress, destOffset+freeptr, offset, length]
+  swap2                                               // [offset, destOffset+freeptr, archiveAddress, length]
+  0x01                                                // [1, offset, destOffset+freeptr, archiveAddress, length]
+  add                                                 // [offset+1, destOffset+freeptr, archiveAddress, length]
+  swap2                                               // [destOffset+freeptr, offset+1, archiveAddress, length]
+  extcodecopy                                         // []
+}
+
+
+/* template <prefixedAddressDeployer, addressDerivationBuffer, initCodeHash, addressMask>
+#define macro DERIVE_ADDRESS = takes(1) returns(0) {
+  // [ address ]
+  <initCodeHash> swap1 // [ address, initcodehash ]  init code -- change to hash of init code
+  <prefixedAddressDeployer> // [ 0xff<address>, address, initcodehash ] */
+  /* 21 bytes, shifted left 11 bytes (96 bits) */
+/*   0x58 shl <addressDerivationBuffer> // [ addressDerivationBuffer, 0xff<address>, address, initcodehash ]                  
+  mstore // // [ address, initcodehash ] 
+  0x58 shl 0x15 <addressDerivationBuffer> add mstore // [ initcodehash ]
+  0x29 <addressDerivationBuffer> add mstore
+  0x49
+  <addressDerivationBuffer> 
+  sha3 <addressMask> and
+}
+
+ */

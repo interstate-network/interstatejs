@@ -1,0 +1,50 @@
+{
+  "outputPath": "./lib",
+  "contracts": {
+    "ChainPeg": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ChainPeg.json"
+    },
+    "ParentRelay": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ParentRelay.json"
+    },
+    "ChildRelay": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ChildRelay.json"
+    },
+    "ChallengeManager": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ChallengeManager.json"
+    },
+    "AccessErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/AccessErrorProver.json"
+    },
+    "BlockErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/BlockErrorProver.json"
+    },
+    "ExecutionErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ExecutionErrorProver.json"
+    },
+    "TransactionErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/TransactionErrorProver.json"
+    },
+    "EncodingErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/EncodingErrorProver.json"
+    },
+    "WitnessErrorProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/WitnessErrorProver.json"
+    },
+    "MockStateProofLib": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/MockStateProofLib.json"
+
+    }
+  }
+}

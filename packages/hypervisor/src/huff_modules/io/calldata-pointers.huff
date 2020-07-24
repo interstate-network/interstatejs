@@ -1,0 +1,37 @@
+/*
+offset     range       name
+-------------------------------------
+0x00     | [0-32]    | state_root_enter
+0x20     | [32-64]   | state_root_leave
+0x40     | [64-96]   | is_static
+0x60     | [96-128]  | origin
+0x80     | [128-160] | caller
+0xa0     | [160-192] | to
+0xc0     | [192-224] | context
+0xe0     | [224-256] | callvalue
+0x100    | [256-288] | gas_price
+0x120    | [288-320] | gas_available
+0x140    | [320-352] | gas_used
+0x160    | [352-384] | gas_refund
+0x180    | [384-416] | state_access_list_offset
+0x1a0    | [416-448] | status
+0x1c0    | [448-480] | return_data_hash
+0x1e0    | [480-512] | calldata_offset
+*/
+
+#define macro STATE_ROOT_ENTER_CDPTR = takes(0) returns(1) { 0x00 }
+#define macro STATE_ROOT_LEAVE_CDPTR = takes(0) returns(1) { 0x20 }
+#define macro IS_STATIC_CDPTR = takes(0) returns(1) { 0x40 }
+#define macro ORIGIN_CDPTR = takes(0) returns(1) { 0x60 }
+#define macro CALLER_CDPTR = takes(0) returns(1) { 0x80 }
+#define macro TO_CDPTR = takes(0) returns(1) { 0xa0 }
+#define macro CONTEXT_CDPTR = takes(0) returns(1) { 0xc0 }
+#define macro CALLVALUE_CDPTR = takes(0) returns(1) { 0xe0 }
+#define macro GASPRICE_CDPTR = takes(0) returns(1) { 0x100 }
+#define macro GAS_AVAILABLE_CDPTR = takes(0) returns(1) { 0x120 }
+#define macro GAS_USED_CDPTR = takes(0) returns(1) { 0x140 }
+#define macro GAS_REFUND_CDPTR = takes(0) returns(1) { 0x160 }
+#define macro SIO_SIZE_CDPPTR = takes(0) returns(1) { 0x180 }
+#define macro TX_STATUS_CDPTR = takes(0) returns(1) { 0x1a0 }
+#define macro TX_RETURNDATAHASH_CDPTR = takes(0) returns(1) { 0x1c0 }
+#define macro CALLDATASIZE_CDPPTR = takes(0) returns(1) { 0x1e0 }

@@ -1,0 +1,23 @@
+template <safemath_error_label>
+#define macro GUEST_MLOAD = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>() mload
+}
+
+template <safemath_error_label>
+#define macro GUEST_MSTORE = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>() mstore
+}
+
+template <safemath_error_label>
+#define macro GUEST_MSTORE8 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>() mstore8
+}
+
+#define macro GUEST_MSIZE = takes(0) returns(0) {
+  GET_GUEST_MEM_PTR() msize sub
+}
+
+template <safemath_error_label>
+#define macro GUEST_SHA3 = takes(0) returns(0) {
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>() sha3
+}

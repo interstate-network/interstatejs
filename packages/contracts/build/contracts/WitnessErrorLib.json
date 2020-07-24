@@ -1,0 +1,761 @@
+{
+  "contractName": "WitnessErrorLib",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "stateRootEnter",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "stateRootLeave",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bool",
+              "name": "isStatic",
+              "type": "bool"
+            },
+            {
+              "internalType": "address",
+              "name": "origin",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "context",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "callvalue",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasAvailable",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasUsed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasRefund",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes[]",
+              "name": "access_list",
+              "type": "bytes[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "status",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "returndataHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct MessageWitnessLib.MessageWitness",
+          "name": "witness",
+          "type": "tuple"
+        }
+      ],
+      "name": "validateGasExceededErrorProof",
+      "outputs": [],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"stateRootEnter\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"stateRootLeave\",\"type\":\"bytes32\"},{\"internalType\":\"bool\",\"name\":\"isStatic\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"context\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"callvalue\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gasPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gasAvailable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gasUsed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gasRefund\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"access_list\",\"type\":\"bytes[]\"},{\"internalType\":\"uint256\",\"name\":\"status\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"returndataHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct MessageWitnessLib.MessageWitness\",\"name\":\"witness\",\"type\":\"tuple\"}],\"name\":\"validateGasExceededErrorProof\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/fraud-proofs/WitnessErrorLib.sol\":\"WitnessErrorLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol\":{\"keccak256\":\"0x2be6de7a673cd22e24917d72aa2a532aa0ce9edc593b1da23a778dca14b998e1\",\"urls\":[\"bzz-raw://5239c501bb18361f2a31d0676b6f4142d774089bbb80533a931ad6fa718771ce\",\"dweb:/ipfs/QmNxteoQDEdekZwhDjpg8gsGFtRs3hhEPxeCrejkVeDDtC\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/ISO_HeaderLib.sol\":{\"keccak256\":\"0xfdb154c1f7df2af5cdc2020d6644628842702b2f39874094088da960b7ecd0a4\",\"urls\":[\"bzz-raw://2ac22e6168c7d8382e606253e8005d4c8dd0622f4b020f3533ad1a9282115137\",\"dweb:/ipfs/QmSYUYpTpBtdpxE9XGkJTun8gGYSnmpm6DNfQTPZFmHpha\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/MerkleProofLib.sol\":{\"keccak256\":\"0x535f15037edd52d86808142ca24dc4ca3b954752dc5b3d67d7f7c4ca803fd80e\",\"urls\":[\"bzz-raw://947a8bde3c332ca023cf151676f2ea7066183d5428f6d9157582cf3c331ab8b0\",\"dweb:/ipfs/QmRchFrz3d3WpiR6tuZa6rnEYZ2SEvxCYty1xRj7Q6ybtw\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/witness/MessageWitnessLib.sol\":{\"keccak256\":\"0xcbbcc2edb8679ae761b6b031b65928b960715e80d25fa6e87a3ccf91943fb55b\",\"urls\":[\"bzz-raw://f7783a0c7d4a25b37d281034856774ad8fb451dbc35b48e1a25f1f5b545d2d98\",\"dweb:/ipfs/QmT3w1GWa9zBsraJ3NDDB57w7axJ89k8AH91ZBzyhpXB3N\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/fraud-proofs/WitnessErrorLib.sol\":{\"keccak256\":\"0xe329996f738790f101c6960b26f1cd42f379d3bd8db17861802b9574840cbfe8\",\"urls\":[\"bzz-raw://a74d8d7a1c92a9f805ec705b8e4231a3ff2956e7535c2a9b4d1bf5ec757a45ae\",\"dweb:/ipfs/QmWagRnJ6SaLWRyJt4gadLRGRo4ReRpavuy3kuZb61HxeM\"]}},\"version\":1}",
+  "bytecode": "0x610378610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c8063e7f997af1461003a575b600080fd5b61004d610048366004610191565b61004f565b005b806101200151816101400151116100815760405162461bcd60e51b8152600401610078906102e4565b60405180910390fd5b50565b80356001600160a01b038116811461009b57600080fd5b92915050565b600082601f8301126100b1578081fd5b813567ffffffffffffffff8111156100c7578182fd5b60206100d6818284020161031b565b828152925080830184820160005b8481101561010d576100fb888584358a0101610128565b835291830191908301906001016100e4565b505050505092915050565b8035801515811461009b57600080fd5b600082601f830112610138578081fd5b813567ffffffffffffffff81111561014e578182fd5b610161601f8201601f191660200161031b565b915080825283602082850101111561017857600080fd5b8060208401602084013760009082016020015292915050565b6000602082840312156101a2578081fd5b813567ffffffffffffffff808211156101b9578283fd5b6102009184018086038313156101cd578384fd5b6101d68361031b565b81358152602082013560208201526101f18760408401610118565b60408201526102038760608401610084565b60608201526102158760808401610084565b60808201526102278760a08401610084565b60a08201526102398760c08401610084565b60c082015260e08281013590820152610100808301359082015261012080830135908201526101408083013590820152610160808301359082015261018093508382013583811115610289578586fd5b610295888285016100a1565b948201949094526101a082810135908201526101c080830135908201526101e0935083820135838111156102c7578586fd5b6102d388828501610128565b948201949094529695505050505050565b6020808252601e908201527f476173207573656420646964206e6f7420657863656564206c696d69742e0000604082015260600190565b60405181810167ffffffffffffffff8111828210171561033a57600080fd5b60405291905056fea264697066735822122075dc91f9dd0ed6f1a9a92cea9934d10870c0f0b54e4c9ae13e7572f405a6669464736f6c634300060b0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c8063e7f997af1461003a575b600080fd5b61004d610048366004610191565b61004f565b005b806101200151816101400151116100815760405162461bcd60e51b8152600401610078906102e4565b60405180910390fd5b50565b80356001600160a01b038116811461009b57600080fd5b92915050565b600082601f8301126100b1578081fd5b813567ffffffffffffffff8111156100c7578182fd5b60206100d6818284020161031b565b828152925080830184820160005b8481101561010d576100fb888584358a0101610128565b835291830191908301906001016100e4565b505050505092915050565b8035801515811461009b57600080fd5b600082601f830112610138578081fd5b813567ffffffffffffffff81111561014e578182fd5b610161601f8201601f191660200161031b565b915080825283602082850101111561017857600080fd5b8060208401602084013760009082016020015292915050565b6000602082840312156101a2578081fd5b813567ffffffffffffffff808211156101b9578283fd5b6102009184018086038313156101cd578384fd5b6101d68361031b565b81358152602082013560208201526101f18760408401610118565b60408201526102038760608401610084565b60608201526102158760808401610084565b60808201526102278760a08401610084565b60a08201526102398760c08401610084565b60c082015260e08281013590820152610100808301359082015261012080830135908201526101408083013590820152610160808301359082015261018093508382013583811115610289578586fd5b610295888285016100a1565b948201949094526101a082810135908201526101c080830135908201526101e0935083820135838111156102c7578586fd5b6102d388828501610128565b948201949094529695505050505050565b6020808252601e908201527f476173207573656420646964206e6f7420657863656564206c696d69742e0000604082015260600190565b60405181810167ffffffffffffffff8111828210171561033a57600080fd5b60405291905056fea264697066735822122075dc91f9dd0ed6f1a9a92cea9934d10870c0f0b54e4c9ae13e7572f405a6669464736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "226:312:29:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "226:312:29:-:0;;;;;;;;;;;;;;;;;;;;;;;;346:190;;;;;;:::i;:::-;;:::i;:::-;;;476:7;:20;;;458:7;:15;;;:38;450:81;;;;-1:-1:-1;;;450:81:29;;;;;;;:::i;:::-;;;;;;;;;346:190;:::o;5:130:-1:-;72:20;;-1:-1;;;;;7163:54;;7521:35;;7511:2;;7570:1;;7560:12;7511:2;57:78;;;;:::o;158:705::-;;284:3;277:4;269:6;265:17;261:27;251:2;;-1:-1;;292:12;251:2;339:6;326:20;6180:18;6172:6;6169:30;6166:2;;;-1:-1;;6202:12;6166:2;6247:4;361:89;6247:4;;6239:6;6235:17;6300:15;361:89;:::i;:::-;478:21;;;352:98;-1:-1;535:14;;;510:17;;;630:1;615:242;640:6;637:1;634:13;615:242;;;747:46;789:3;6247:4;723:3;710:17;514:6;698:30;;747:46;:::i;:::-;735:59;;808:14;;;;836;;;;662:1;655:9;615:242;;;619:14;;;;;244:619;;;;:::o;871:124::-;935:20;;6996:13;;6989:21;7642:32;;7632:2;;7688:1;;7678:12;1140:440;;1241:3;1234:4;1226:6;1222:17;1218:27;1208:2;;-1:-1;;1249:12;1208:2;1296:6;1283:20;6475:18;6467:6;6464:30;6461:2;;;-1:-1;;6497:12;6461:2;1318:64;6570:9;6551:17;;-1:-1;;6547:33;6638:4;6628:15;1318:64;:::i;:::-;1309:73;;1402:6;1395:5;1388:21;1506:3;6638:4;1497:6;1430;1488:16;;1485:25;1482:2;;;1523:1;;1513:12;1482:2;7390:6;6638:4;1430:6;1426:17;6638:4;1464:5;1460:16;7367:30;7446:1;7428:16;;;6638:4;7428:16;7421:27;1464:5;1201:379;-1:-1;;1201:379::o;4589:391::-;;4725:2;4713:9;4704:7;4700:23;4696:32;4693:2;;;-1:-1;;4731:12;4693:2;4789:17;4776:31;4827:18;;4819:6;4816:30;4813:2;;;-1:-1;;4849:12;4813:2;1755:6;;4932:22;;1734:19;;;1730:32;-1:-1;1727:2;;;-1:-1;;1765:12;1727:2;1793:22;1755:6;1793:22;:::i;:::-;1928;1069:20;1889:16;1882:75;4725:2;2086:9;2082:22;1069:20;4725:2;2047:5;2043:16;2036:75;2209:46;2251:3;2176:2;2231:9;2227:22;2209:46;:::i;:::-;2176:2;2195:5;2191:16;2184:72;2352:49;2397:3;2319:2;2377:9;2373:22;2352:49;:::i;:::-;2319:2;2338:5;2334:16;2327:75;2499:49;2544:3;2465;2524:9;2520:22;2499:49;:::i;:::-;2465:3;2485:5;2481:16;2474:75;2642:49;2687:3;2608;2667:9;2663:22;2642:49;:::i;:::-;2608:3;2628:5;2624:16;2617:75;2790:49;2835:3;2756;2815:9;2811:22;2790:49;:::i;:::-;2756:3;2772:16;;2765:75;2906:3;2961:22;;;4519:20;2922:16;;;2915:75;3055:3;3112:22;;;4519:20;3071:18;;;3064:77;3210:3;3267:22;;;4519:20;3226:18;;;3219:77;3360:3;3417:22;;;4519:20;3376:18;;;3369:77;3512:3;3569:22;;;4519:20;3528:18;;;3521:77;3694:3;;-1:-1;3679:19;;;3666:33;3708:30;;;3705:2;;;-1:-1;;3741:12;3705:2;3788:83;3867:3;3858:6;3847:9;3843:22;3788:83;:::i;:::-;3768:18;;;3761:111;;;;3935:3;3992:22;;;4519:20;3951:18;;;3944:77;4092:3;4149:22;;;1069:20;4108:18;;;4101:77;4271:3;;-1:-1;4256:19;;;4243:33;4285:30;;;4282:2;;;-1:-1;;4318:12;4282:2;4365:58;4419:3;4410:6;4399:9;4395:22;4365:58;:::i;:::-;4345:18;;;4338:86;;;;4349:5;4687:293;-1:-1;;;;;;4687:293::o;5326:416::-;5526:2;5540:47;;;5212:2;5511:18;;;6764:19;5248:32;6804:14;;;5228:53;5300:12;;;5497:245::o;5749:256::-;5811:2;5805:9;5837:17;;;5912:18;5897:34;;5933:22;;;5894:62;5891:2;;;5969:1;;5959:12;5891:2;5811;5978:22;5789:216;;-1:-1;5789:216::o",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\nimport { MessageWitnessLib as Message } from \"../common/witness/MessageWitnessLib.sol\";\nimport { ISO_HeaderLib as Header } from \"../common/blocks/ISO_HeaderLib.sol\";\n\nlibrary WitnessErrorLib {\n  // function validateWitnessErrorProof_StateRoot(\n    \n  // ) internal pure {\n    \n  // }\n\n  function validateGasExceededErrorProof(\n    Message.MessageWitness memory witness\n  ) public pure {\n    require(witness.gasUsed > witness.gasAvailable, \"Gas used did not exceed limit.\");\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/fraud-proofs/WitnessErrorLib.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/fraud-proofs/WitnessErrorLib.sol",
+    "exportedSymbols": {
+      "WitnessErrorLib": [
+        9677
+      ]
+    },
+    "id": 9678,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9656,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:29"
+      },
+      {
+        "id": 9657,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:29"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/witness/MessageWitnessLib.sol",
+        "file": "../common/witness/MessageWitnessLib.sol",
+        "id": 9659,
+        "nodeType": "ImportDirective",
+        "scope": 9678,
+        "sourceUnit": 5651,
+        "src": "59:87:29",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 9658,
+              "name": "MessageWitnessLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "68:17:29",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Message"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/ISO_HeaderLib.sol",
+        "file": "../common/blocks/ISO_HeaderLib.sol",
+        "id": 9661,
+        "nodeType": "ImportDirective",
+        "scope": 9678,
+        "sourceUnit": 1536,
+        "src": "147:77:29",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 9660,
+              "name": "ISO_HeaderLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "156:13:29",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Header"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 9677,
+        "linearizedBaseContracts": [
+          9677
+        ],
+        "name": "WitnessErrorLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 9675,
+              "nodeType": "Block",
+              "src": "444:92:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 9671,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9667,
+                            "name": "witness",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9663,
+                            "src": "458:7:29",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                              "typeString": "struct MessageWitnessLib.MessageWitness memory"
+                            }
+                          },
+                          "id": 9668,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "gasUsed",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5271,
+                          "src": "458:15:29",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9669,
+                            "name": "witness",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9663,
+                            "src": "476:7:29",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                              "typeString": "struct MessageWitnessLib.MessageWitness memory"
+                            }
+                          },
+                          "id": 9670,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "gasAvailable",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5269,
+                          "src": "476:20:29",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "458:38:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "476173207573656420646964206e6f7420657863656564206c696d69742e",
+                        "id": 9672,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "498:32:29",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_034ca081d3ee7674113bf34f814cf528d13da890860ac1fcd87fdd3ee9d2d591",
+                          "typeString": "literal_string \"Gas used did not exceed limit.\""
+                        },
+                        "value": "Gas used did not exceed limit."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_034ca081d3ee7674113bf34f814cf528d13da890860ac1fcd87fdd3ee9d2d591",
+                          "typeString": "literal_string \"Gas used did not exceed limit.\""
+                        }
+                      ],
+                      "id": 9666,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "450:7:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 9673,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "450:81:29",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9674,
+                  "nodeType": "ExpressionStatement",
+                  "src": "450:81:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "e7f997af",
+            "id": 9676,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validateGasExceededErrorProof",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9664,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9663,
+                  "mutability": "mutable",
+                  "name": "witness",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9676,
+                  "src": "390:37:29",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                    "typeString": "struct MessageWitnessLib.MessageWitness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9662,
+                    "name": "Message.MessageWitness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5283,
+                    "src": "390:22:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MessageWitness_$5283_storage_ptr",
+                      "typeString": "struct MessageWitnessLib.MessageWitness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "384:47:29"
+            },
+            "returnParameters": {
+              "id": 9665,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "444:0:29"
+            },
+            "scope": 9677,
+            "src": "346:190:29",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 9678,
+        "src": "226:312:29"
+      }
+    ],
+    "src": "0:538:29"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/fraud-proofs/WitnessErrorLib.sol",
+    "exportedSymbols": {
+      "WitnessErrorLib": [
+        9677
+      ]
+    },
+    "id": 9678,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9656,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:29"
+      },
+      {
+        "id": 9657,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:29"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/witness/MessageWitnessLib.sol",
+        "file": "../common/witness/MessageWitnessLib.sol",
+        "id": 9659,
+        "nodeType": "ImportDirective",
+        "scope": 9678,
+        "sourceUnit": 5651,
+        "src": "59:87:29",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 9658,
+              "name": "MessageWitnessLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "68:17:29",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Message"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/ISO_HeaderLib.sol",
+        "file": "../common/blocks/ISO_HeaderLib.sol",
+        "id": 9661,
+        "nodeType": "ImportDirective",
+        "scope": 9678,
+        "sourceUnit": 1536,
+        "src": "147:77:29",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 9660,
+              "name": "ISO_HeaderLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "156:13:29",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Header"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 9677,
+        "linearizedBaseContracts": [
+          9677
+        ],
+        "name": "WitnessErrorLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 9675,
+              "nodeType": "Block",
+              "src": "444:92:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 9671,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9667,
+                            "name": "witness",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9663,
+                            "src": "458:7:29",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                              "typeString": "struct MessageWitnessLib.MessageWitness memory"
+                            }
+                          },
+                          "id": 9668,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "gasUsed",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5271,
+                          "src": "458:15:29",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 9669,
+                            "name": "witness",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9663,
+                            "src": "476:7:29",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                              "typeString": "struct MessageWitnessLib.MessageWitness memory"
+                            }
+                          },
+                          "id": 9670,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "gasAvailable",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5269,
+                          "src": "476:20:29",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "458:38:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "476173207573656420646964206e6f7420657863656564206c696d69742e",
+                        "id": 9672,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "498:32:29",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_034ca081d3ee7674113bf34f814cf528d13da890860ac1fcd87fdd3ee9d2d591",
+                          "typeString": "literal_string \"Gas used did not exceed limit.\""
+                        },
+                        "value": "Gas used did not exceed limit."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_034ca081d3ee7674113bf34f814cf528d13da890860ac1fcd87fdd3ee9d2d591",
+                          "typeString": "literal_string \"Gas used did not exceed limit.\""
+                        }
+                      ],
+                      "id": 9666,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "450:7:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 9673,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "450:81:29",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9674,
+                  "nodeType": "ExpressionStatement",
+                  "src": "450:81:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "e7f997af",
+            "id": 9676,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validateGasExceededErrorProof",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 9664,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9663,
+                  "mutability": "mutable",
+                  "name": "witness",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 9676,
+                  "src": "390:37:29",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MessageWitness_$5283_memory_ptr",
+                    "typeString": "struct MessageWitnessLib.MessageWitness"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9662,
+                    "name": "Message.MessageWitness",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5283,
+                    "src": "390:22:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_MessageWitness_$5283_storage_ptr",
+                      "typeString": "struct MessageWitnessLib.MessageWitness"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "384:47:29"
+            },
+            "returnParameters": {
+              "id": 9665,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "444:0:29"
+            },
+            "scope": 9677,
+            "src": "346:190:29",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 9678,
+        "src": "226:312:29"
+      }
+    ],
+    "src": "0:538:29"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.624Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

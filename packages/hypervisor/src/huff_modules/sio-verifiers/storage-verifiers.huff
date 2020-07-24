@@ -1,0 +1,39 @@
+/**
+ * @title sload
+ * @notice verify slot and put value on stack
+ * @dev Stack: [slot]
+ * @dev SIO Block Structure:
+ *  - opcode (1 byte) offset = 0
+ *  - slot (32 bytes) offset = 1
+ *  - value (32 bytes) offset = 33
+ * @dev Verification:
+ *  - slot == stack[0]
+ * @return
+ *  - @param value - storage value added to stack
+ */
+template <sio_revert_label>
+#define macro VERIFY_ACCESS_SLOAD = takes(1) returns(1) {
+                                                              // [ slot ]
+  VERIFY_ACCESS_ONE_RETURN_ONE<sio_revert_label, 0x54>()    // [ value ]
+}
+
+/**
+ * @title sstore
+ * @dev Stack: [slot, value]
+ * @dev Access Record: { opcode, stateRoot, target, value, gasRefund }
+ * @notice Verification:
+ *  - slot == stack[0]
+ *  - value == stack[1]
+ * @notice Substitution:
+ *  - Increment gas refund
+ */
+template <sio_revert_label>
+#define macro VERIFY_ACCESS_SSTORE = takes(2) returns(0) {
+                                            // [ slot, value ]
+  SIO_START<sio_revert_label, 0x55>()       // [ record_meta_ptr, slot, value ]
+  // increment gas refund
+  dup1 0x80 add calldataload ADD_REFUND()  // [ record_meta_ptr, slot, value ]
+  // skip state root
+  0x20 add                                  // [ record_body_ptr, slot, value ]
+  VERIFY_ACCESS_TWO_INTERNAL<sio_revert_label>()
+}

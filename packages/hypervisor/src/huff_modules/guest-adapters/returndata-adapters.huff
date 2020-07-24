@@ -1,0 +1,37 @@
+#define macro GUEST_RETURNDATASIZE = takes(0) returns(1) {
+  GET_LAST_RETURNDATASIZE()
+}
+
+template <safemath_error_label>
+#define macro GUEST_RETURNDATACOPY = takes(3) returns(0) {
+                                                  // [ destOffset, offset, length ]
+  GET_LAST_RETURNDATASIZE()                       // [ vm_returndatasize, destOffset, offset, length ]
+  dup4                                            // [ length, vm_returndatasize, destOffset, offset, length ]
+  dup2                                            // [ vm_returndatasize, length, vm_returndatasize, destOffset, offset, length ]
+  0x01                                            // [ 1, vm_returndatasize, length, vm_returndatasize, destOffset, offset, length ]
+  add                                             // [ 1 + vm_returndatasize, length, vm_returndatasize, destOffset, offset, length ]
+  gt                                              // [ 1 + vm_returndatasize > length, vm_returndatasize, destOffset, offset, length ]
+  do_vm_returndatacopy                            // [ do_label, 1 + vm_returndatasize > length, vm_returndatasize, destOffset, offset, length ]
+  jumpi                                           // [ vm_returndatasize, destOffset, offset, length ]
+  /*
+    if length > returndatasize we need to calldatacopy from cd[returndatasize:(length-returndatasize)]
+    to mem[destOffset+returndatasize]
+    and adjust the length we give to vm_returndatacopy
+  */
+  dup1                                            // [ vm_returndatasize, vm_returndatasize, destOffset, offset, length ]
+  swap4                                           // [ length, vm_returndatasize, destOffset, offset, vm_returndatasize ]
+  sub                                             // [ (length - vm_returndatasize), destOffset, offset, vm_returndatasize ]
+  dup4                                            // [ vm_returndatasize, (length - vm_returndatasize), destOffset, offset, vm_returndatasize ]
+  dup1                                            // [ vm_returndatasize, vm_returndatasize, (length - vm_returndatasize), destOffset, offset, vm_returndatasize ]
+  dup4                                            // [ destOffset, vm_returndatasize, vm_returndatasize, (length - vm_returndatasize), destOffset, offset, vm_returndatasize ]
+  add                                             // [ (destOffset + vm_returndatasize), vm_returndatasize, (length - vm_returndatasize), destOffset, offset, vm_returndatasize ]
+  calldatacopy                                    // [ destOffset, offset, vm_returndatasize ]
+  msize                                           /* gets popped */
+
+  do_vm_returndatacopy:
+  ADD_GUEST_PTR_OFFSET<safemath_error_label>() // [ destOffset+memOffset, offset, length ]
+  swap1
+  ADD_GUEST_RETURNDATA_PTR_OFFSET()
+  swap1 // [ destOffset+memOffset, srcOffset + returndataOffset, length ]
+  calldatacopy
+}

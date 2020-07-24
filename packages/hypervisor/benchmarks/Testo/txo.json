@@ -1,0 +1,64 @@
+{
+  "origin": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "transactionHash": "0x443116feac2952647609c172be650f7af0a2c72b9afb2357b62b242a06744378",
+  "path": [],
+  "to": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "context": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "caller": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "callData": "0x35ac0468",
+  "callvalue": "0x",
+  "contractAddress": "0xb8602d19bdd9339975290224a46f45624431fdd4",
+  "link": null,
+  "internal": [
+    "0x5fa718ff2b13f0a7fe561d8509db059535cb846ddee63c76856675030d92bbb5"
+  ],
+  "logs": [],
+  "sio": [
+    {
+      "opcode": "sload",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "value": "0x0000000000000000000000003fa89944e11022fc67d12a9d2bf35ebe1164f7ef"
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x00000000000000000000000000000000000000000000000000000000005b35e0"
+      }
+    },
+    {
+      "opcode": "call",
+      "metadata": {
+        "receipthash": "0x5fa718ff2b13f0a7fe561d8509db059535cb846ddee63c76856675030d92bbb5",
+        "gas": "5977568",
+        "address": "0x3fa89944e11022fc67d12a9d2bf35ebe1164f7ef",
+        "calldatahash": "0x8aaee9e5739343125cd76ee3028b2403ac87c66b4189d4700d2510e4b909093a",
+        "stateRoot": "0x7414efd7e2a238aa1c4addf2edba89bc3ae4f104749e0e4b9f16e1ba034f6dac",
+        "callvalue": "0",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000989680",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "sstore",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0000000000000000000000000000000000000000000000000000000000989680",
+        "stateRoot": "0x00c5e952ef6ffb7f1823f4c7f1d8339727d6405ff4a9be9520f8495786025b32"
+      }
+    },
+    {
+      "opcode": "sload",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0000000000000000000000000000000000000000000000000000000000989680"
+      }
+    }
+  ],
+  "stateRootEnter": "0x81c76b20ff8441fd91cb1a52ff36e3bacd32dd5573e58fe318c7c6f0c763b46f",
+  "callsuccess": true,
+  "returndata": "0x0000000000000000000000000000000000000000000000000000000000989680",
+  "stateRootLeave": "0x00c5e952ef6ffb7f1823f4c7f1d8339727d6405ff4a9be9520f8495786025b32"
+}

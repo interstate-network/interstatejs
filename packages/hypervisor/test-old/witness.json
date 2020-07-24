@@ -1,0 +1,41 @@
+[
+  {
+    "state_access_list": [],
+    "abiTypes": [
+      "bytes32",
+      "bytes32",
+      "bool",
+      "address",
+      "address",
+      "address",
+      "address",
+      "uint256",
+      "uint256",
+      "uint256",
+      "uint256",
+      "uint256",
+      "bytes[]",
+      "uint256",
+      "bytes32",
+      "bytes"
+    ],
+    "isStatic": false,
+    "origin": "be862ad9abfe6f22bcb087716c7d89a26051f74c",
+    "caller": "be862ad9abfe6f22bcb087716c7d89a26051f74c",
+    "to": "696e74657273746174652d312d6d616368696e65",
+    "context": "696e74657273746174652d312d6d616368696e65",
+    "stateRootEnter": "987db1a36ee8b3c8da08669c5f94bb4ee1b7fe729ceec5466de2f5530ca0a7c3",
+    "stateRootLeave": "987db1a36ee8b3c8da08669c5f94bb4ee1b7fe729ceec5466de2f5530ca0a7c3",
+    "callvalue": "0de0b6b3a7640000",
+    "gasPrice": "01",
+    "gasAvailable": "5b3b78",
+    "gasUsed": "12",
+    "refund": "00",
+    "returndataHash": "d85472fc12d93f399a71d26bc1f53d0d86c727ee59076ee7df2cc26b2fc2e375",
+    "calldata": {
+      "type": "Buffer",
+      "data": []
+    },
+    "status": 1
+  }
+]

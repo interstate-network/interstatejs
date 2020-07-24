@@ -1,0 +1,33 @@
+// template <cdptr_lookbehind>
+/* #define macro CDLOAD = takes(0) returns(1) {
+  CDLOAD<cdptr_lookbehind>() PUSH20_MASK() and
+} */
+
+
+
+#define macro GET_ORIGIN = takes(0) returns(1) { CDLOAD<ORIGIN_CDPTR>() }
+#define macro GET_CALLER = takes(0) returns(1) { CDLOAD<CALLER_CDPTR>() }
+#define macro GET_GUEST_ADDRESS = takes(0) returns(0)   { CDLOAD<TO_CDPTR>() }
+#define macro GET_CONTEXT_ADDRESS = takes(0) returns(0)   { CDLOAD<CONTEXT_CDPTR>() }
+
+#define macro GET_STATE_ROOT_ENTER = takes(0) returns(0)   { CDLOAD<STATE_ROOT_ENTER_CDPTR>() }
+#define macro GET_STATE_ROOT_LEAVE = takes(0) returns(0)   { CDLOAD<STATE_ROOT_LEAVE_CDPTR>() }
+
+#define macro GET_CALLVALUE = takes(0) returns(1) { CDLOAD<CALLVALUE_CDPTR>() }
+#define macro GET_GASPRICE = takes(0) returns(1)  { CDLOAD<GASPRICE_CDPTR>() }
+#define macro GET_GAS_AVAILABLE = takes(0) returns(1)  { CDLOAD<GAS_AVAILABLE_CDPTR>() }
+#define macro GET_GAS_USED = takes(0) returns(1)  { CDLOAD<GAS_USED_CDPTR>() }
+
+#define macro GET_CALLDATASIZE_CDPTR = takes(0) returns(1) { CDLOAD<CALLDATASIZE_CDPPTR>() }
+#define macro GET_CALLDATASIZE = takes(0) returns(1)       { CDLOAD<GET_CALLDATASIZE_CDPTR>() }
+
+#define macro GET_CALLDATA_CDPTR = takes(0) returns(1) { GET_CALLDATASIZE_CDPTR() 0x20 add }
+#define macro ADD_CALLDATA_CDPTR_OFFSET = takes(1) returns(1) { GET_CALLDATA_CDPTR() add }
+
+#define macro GET_TX_STATUS = takes(0) returns(1) { CDLOAD<TX_STATUS_CDPTR>() }
+
+#define macro GET_TX_RETURNDATAHASH = takes(0) returns(1) { CDLOAD<TX_RETURNDATAHASH_CDPTR>() }
+
+#define macro GET_TX_SIO_SIZE_CDPTR = takes(0) returns(1) { CDLOAD<SIO_SIZE_CDPPTR>() }
+#define macro GET_TX_SIO_SIZE = takes(0) returns(1)       { CDLOAD<GET_TX_SIO_SIZE_CDPTR>() }
+#define macro GET_TX_SIO_CDPTR = takes(0) returns(1)      { GET_TX_SIO_SIZE_CDPTR() 0x20 add }

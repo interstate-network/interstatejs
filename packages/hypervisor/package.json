@@ -1,0 +1,34 @@
+{
+  "name": "@interstatejs/huff-hypervisor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/build.json",
+  "scripts": {
+    "mocha:ts": "mocha --require ts-node/register",
+    "build": "ts-node ./scripts/build",
+    "test:calldata": "yarn mocha:ts ./test/tests/calldata.spec.ts --timeout 5000",
+    "test:access": "yarn mocha:ts ./test/tests/access.spec.ts --timeout 5000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "huff.js": "0.0.3",
+    "chai": "^4.2.0",
+    "core-js-pure": "^3.2.1",
+    "easy-solc": "^1.0.1",
+    "emasm": "^0.1.7",
+    "ethereumjs-util": "^6.2.0",
+    "@interstatejs/vm": "^4.1.2",
+    "kool-makerpccall": "^0.1.1",
+    "table": "^5.4.6",
+    "util.promisify": "^1.0.0",
+    "web3": "^1.2.1",
+    "web3-eth-abi": "^1.2.1",
+    "web3-eth-contract": "^1.2.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "solc": "^0.6.2"
+  }
+}

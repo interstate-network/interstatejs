@@ -1,0 +1,28 @@
+/*
+  Pointer to current virtual program counter.
+  This stores the hypervisor's offset into code as opposed to a real virtual pc which would store the guest's pc.
+*/
+#define macro PC_PTR = takes(0) returns(1)                            { 0x2000 }
+
+/* Pointer to body of state access array. Reference is saved because ABI array item offsets are relative to the start of the body. */
+// #define macro STATE_ACCESS_BODY_CDPPTR = takes(0) returns(1)          { 0x2020 }
+
+
+#define macro VIRTUAL_GAS_REFUND = takes(0) returns(1)                { 0x2020 }
+
+#define macro VIRTUAL_GAS_USED = takes(0) returns(1)                  { 0x2040 }
+
+/* Pointer to current offset into SIO array */
+#define macro CURRENT_SIO_CDPPTR = takes(0) returns(1)                { 0x2060 }
+
+/* Pointer to most recent returndatasize for the guest */
+#define macro LAST_RETURNDATASIZE_CDPTR_PTR = takes(0) returns(1)     { 0x2080 }
+
+/* Pointer to offset for guest memory */
+#define macro GUEST_MEM_PPTR = takes(0) returns(1)                    { 0x20a0 }
+
+/* Pointer to codesize of guest code */
+#define macro CODESIZE_PTR = takes(0) returns(1)                      { 0x20c0 }
+
+/* Pointer to first byte of guest code */
+#define macro GUEST_CODE_PTR = takes(0) returns(1)                    { 0x20e0 }

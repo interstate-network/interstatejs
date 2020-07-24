@@ -1,0 +1,21 @@
+{
+  "outputPath": "./lib",
+  "contracts": {
+    "MockFraudProver": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/MockFraudProver.json"
+    },
+    "ChainPeg": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ChainPeg.json"
+    },
+    "MockParentRelay": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/MockParentRelay.json"
+    },
+    "ChildRelay": {
+      "source": "truffle",
+      "buildFile": "./build/contracts/ChildRelay.json"
+    }
+  }
+}

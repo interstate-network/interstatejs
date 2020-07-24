@@ -1,0 +1,2893 @@
+{
+  "contractName": "StateQueries",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "isBlockConfirmed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "getConfirmedBlockhash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "parentHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "childIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPendingChild",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "parentHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getPendingChildren",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "parentHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "childIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "blockNumber",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "submittedAt",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "exitsRoot",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "coinbase",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "blockHash",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct CommitmentHeaderLib.CommitmentHeader",
+              "name": "commitment",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct CommitmentHeaderLib.CommitmentHeaderQuery",
+          "name": "_query",
+          "type": "tuple"
+        }
+      ],
+      "name": "hasPendingBlock",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_blockHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "hasPendingChallenge",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"getConfirmedBlockhash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"parentHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"childIndex\",\"type\":\"uint256\"}],\"name\":\"getPendingChild\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"parentHash\",\"type\":\"bytes32\"}],\"name\":\"getPendingChildren\",\"outputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"parentHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"childIndex\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"submittedAt\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"exitsRoot\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"coinbase\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"}],\"internalType\":\"struct CommitmentHeaderLib.CommitmentHeader\",\"name\":\"commitment\",\"type\":\"tuple\"}],\"internalType\":\"struct CommitmentHeaderLib.CommitmentHeaderQuery\",\"name\":\"_query\",\"type\":\"tuple\"}],\"name\":\"hasPendingBlock\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_blockHash\",\"type\":\"bytes32\"}],\"name\":\"hasPendingChallenge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"isBlockConfirmed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/peg/StateQueries.sol\":\"StateQueries\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/challenge/ChallengeLib.sol\":{\"keccak256\":\"0x7548f7041e6b06e9b69a5a49365d22cf253c5ff7714176cd655a423636a42a57\",\"urls\":[\"bzz-raw://1ab4a66b268df4c3a1cbbe21780c2b3d6e07588c51e243e6e58e5acb03ae1401\",\"dweb:/ipfs/QmSUUhq8Ry5hNcYfuZEjwswSWR255siEbQZ7j7qRsXTH2h\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/challenge/ChallengeManager.sol\":{\"keccak256\":\"0xc3ef2b010bb8dd5ce49f2b157a43b9d2a3bbe1cfbc4b517f0a948632eea493a2\",\"urls\":[\"bzz-raw://675b2e7f2a045bf843394b82469958e761d9cc61e2e30a0e6434c9bfd2a29d78\",\"dweb:/ipfs/QmNZMH2qSKwQPCZDaL74ezdT7kAfrbLeaq7ACTBr81mB8d\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol\":{\"keccak256\":\"0xddbb364ebd7cc6a9508b80197addfd9dd60322e8a5eaad3c918524a20bfb3b48\",\"urls\":[\"bzz-raw://ffe80084c5a1894b577f85d5a25ff6d6141b66a1166fcfc7af516004edff74c4\",\"dweb:/ipfs/QmdZBTEXe3Cpu4gwf5Ub2yYmmWCRKneB8pUTiNKBa2Ljk1\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol\":{\"keccak256\":\"0x8cc89b1bc347ea6f7eaa7e5f05e5b0de1e7e96ff81552c5fb21742627f2dd4c6\",\"urls\":[\"bzz-raw://b588e3806c7e1a1ae25b419c462f0e0d942f89151f6c4def47cd6ffdd488ce3e\",\"dweb:/ipfs/QmWEgY1C3Sp9eXUGbvbpnHYMjV6EsqKQ8sq43VduqVBWbx\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol\":{\"keccak256\":\"0x2be6de7a673cd22e24917d72aa2a532aa0ce9edc593b1da23a778dca14b998e1\",\"urls\":[\"bzz-raw://5239c501bb18361f2a31d0676b6f4142d774089bbb80533a931ad6fa718771ce\",\"dweb:/ipfs/QmNxteoQDEdekZwhDjpg8gsGFtRs3hhEPxeCrejkVeDDtC\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/ISO_HeaderLib.sol\":{\"keccak256\":\"0xfdb154c1f7df2af5cdc2020d6644628842702b2f39874094088da960b7ecd0a4\",\"urls\":[\"bzz-raw://2ac22e6168c7d8382e606253e8005d4c8dd0622f4b020f3533ad1a9282115137\",\"dweb:/ipfs/QmSYUYpTpBtdpxE9XGkJTun8gGYSnmpm6DNfQTPZFmHpha\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/ConfigLib.sol\":{\"keccak256\":\"0xd62309035a5a8759543ee98c0f9d2e0dacd18197a51ea46209d523de8606442f\",\"urls\":[\"bzz-raw://dc7ca523e90f14377587479a54e11a2637e5191bd84239be6fabdf569c0e968d\",\"dweb:/ipfs/Qmb888wE24gyEVGKdLxBqzRPWUioGeqJn7sabGndhASG9K\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol\":{\"keccak256\":\"0xca85bde5ca4669d5fec21cd5c7005d305468056dd69f53b1d5c7a31d67aca152\",\"urls\":[\"bzz-raw://7a23a644e2bc1b32d577a148a45e2f082fb8472d0113ae674ba0df5484201d9f\",\"dweb:/ipfs/QmQFuFASYHCtTYi7XM79Zfvo1k6oxg492jQeEKf1i2brhF\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/DefaultHashes.sol\":{\"keccak256\":\"0xc5f2f502aa0c4d779e98bf4645fd433d60c6971ab754632d011803fda61f55f1\",\"urls\":[\"bzz-raw://e4a23244281cc1c5c53ca7da74cb168cf55138304adec45672c01b02702109b1\",\"dweb:/ipfs/QmZybfoLb8fTFCFfiNYjsmpk6vJ7i4qc8wpK7X5MUWTuhZ\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/MerkleProofLib.sol\":{\"keccak256\":\"0x535f15037edd52d86808142ca24dc4ca3b954752dc5b3d67d7f7c4ca803fd80e\",\"urls\":[\"bzz-raw://947a8bde3c332ca023cf151676f2ea7066183d5428f6d9157582cf3c331ab8b0\",\"dweb:/ipfs/QmRchFrz3d3WpiR6tuZa6rnEYZ2SEvxCYty1xRj7Q6ybtw\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/SparseMerkleTree.sol\":{\"keccak256\":\"0xc92dc0b2acd86cf6d9320216bb6ae01b4292d212af8988a8c2dc77ebd5a1af70\",\"urls\":[\"bzz-raw://4295227ea80b3f3654373b4972ee48516c58bd9262b43c3d8057cde66a71ef5b\",\"dweb:/ipfs/QmUjEVK8iZWGT5LxPR6pYJzFEMREfvTLQG4EmyQYGGX3dC\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol\":{\"keccak256\":\"0x455a0395200a107bab019734ec680df3c5e1b1825d691f1cb566e631db757299\",\"urls\":[\"bzz-raw://9157c9fc5b3baf22131f90903c7dcaf777f8c023f154f5bd4c3b5b8c78cc8b55\",\"dweb:/ipfs/QmTKFTLdqj8LR5YeNamuQ3PMLKnSEZQC1mZHBt7q2jc4oc\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/witness/MessageWitnessLib.sol\":{\"keccak256\":\"0xcbbcc2edb8679ae761b6b031b65928b960715e80d25fa6e87a3ccf91943fb55b\",\"urls\":[\"bzz-raw://f7783a0c7d4a25b37d281034856774ad8fb451dbc35b48e1a25f1f5b545d2d98\",\"dweb:/ipfs/QmT3w1GWa9zBsraJ3NDDB57w7axJ89k8AH91ZBzyhpXB3N\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/peg/StateQueries.sol\":{\"keccak256\":\"0xc20605ec32fa0aa5ac51ed0c89ba2e22967064b4769a4c3bbeab5bede9f1686e\",\"urls\":[\"bzz-raw://aa213e512c9dcef2100bcafff0ac53ec2fd6a77dc7c9f45fb63e3bc3c5b5619a\",\"dweb:/ipfs/Qmbyu3hXsD6hEL8n7dQCqrFQVHDTTqcnpgTxvdKhBiEDMz\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/relay/ArchiveFactory.sol\":{\"keccak256\":\"0xf10aa6fbb344f4b1c23e0e44cb12788f56c47c531fb76849f7174ac8f829619a\",\"urls\":[\"bzz-raw://b69aa1d5f35a6407c8407f69c0d572ea27095ba66e65a6ff61581375f4a7b328\",\"dweb:/ipfs/Qmad2hfzdk9irbhDHtFetTCUSkxoFsFsgbrQuWzygRxvvZ\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/relay/IParentRelay.sol\":{\"keccak256\":\"0x3632c8543bee85e535a0bfccb9c8bfa08388d79ebff29bc78d7e066eeab45a05\",\"urls\":[\"bzz-raw://916daf7861577ba948527822242515fd4bd31e71b137fbf2df75c3beefdfa796\",\"dweb:/ipfs/QmP1rCAjie9Hdb2egejGsxdQLjqUCC5TnNyjybcC4BfsM1\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061046a806100206000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80630ff7b9671461006757806324dce3621461009057806393c5183b146100b05780639705f9c1146100d0578063eadca6ff146100e3578063ecadb686146100f6575b600080fd5b61007a6100753660046102a2565b610109565b60405161008791906103b8565b60405180910390f35b6100a361009e3660046102a2565b61012c565b6040516100879190610369565b6100c36100be3660046102a2565b610194565b60405161008791906103ad565b6100c36100de3660046102a2565b6101bb565b61007a6100f13660046102ba565b6101d3565b6100c36101043660046102db565b610200565b600080600c01828154811061011a57fe5b90600052602060002001549050919050565b6000818152600d6020908152604091829020805483518184028101840190945280845260609384939092919083018282801561018757602002820191906000526020600020905b815481526020019060010190808311610173575b5093979650505050505050565b600c80546000918291849081106101a757fe5b906000526020600020015414159050919050565b60006101cd818363ffffffff61021216565b92915050565b6000828152600d602052604081208054839081106101ed57fe5b9060005260206000200154905092915050565b60006101cd818363ffffffff61022c16565b6000908152600e9091016020526040902060010154151590565b600061023b8260600151610272565b82516000908152600d850160209081526040909120908401518154811061025e57fe5b906000526020600020015414905092915050565b60008160405160200161028591906103c1565b604051602081830303815290604052805190602001209050919050565b6000602082840312156102b3578081fd5b5035919050565b600080604083850312156102cc578081fd5b50508035926020909101359150565b600081830360e08112156102ed578182fd5b6102f760806103f5565b8335815260208401356020820152604084013560408201526080605f1983011215610320578283fd5b61032a60806103f5565b9150606084013582526080840135602083015260a084013561034b8161041c565b604083015260c0939093013560608083019190915283015250919050565b6020808252825182820181905260009190848201906040850190845b818110156103a157835183529284019291840191600101610385565b50909695505050505050565b901515815260200190565b90815260200190565b81518152602080830151908201526040808301516001600160a01b0316908201526060918201519181019190915260800190565b60405181810167ffffffffffffffff8111828210171561041457600080fd5b604052919050565b6001600160a01b038116811461043157600080fd5b5056fea2646970667358221220ba9b480a39e80fd824b450bc9e0b248546fc53f21ba5abed16f2a80af978228864736f6c634300060b0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80630ff7b9671461006757806324dce3621461009057806393c5183b146100b05780639705f9c1146100d0578063eadca6ff146100e3578063ecadb686146100f6575b600080fd5b61007a6100753660046102a2565b610109565b60405161008791906103b8565b60405180910390f35b6100a361009e3660046102a2565b61012c565b6040516100879190610369565b6100c36100be3660046102a2565b610194565b60405161008791906103ad565b6100c36100de3660046102a2565b6101bb565b61007a6100f13660046102ba565b6101d3565b6100c36101043660046102db565b610200565b600080600c01828154811061011a57fe5b90600052602060002001549050919050565b6000818152600d6020908152604091829020805483518184028101840190945280845260609384939092919083018282801561018757602002820191906000526020600020905b815481526020019060010190808311610173575b5093979650505050505050565b600c80546000918291849081106101a757fe5b906000526020600020015414159050919050565b60006101cd818363ffffffff61021216565b92915050565b6000828152600d602052604081208054839081106101ed57fe5b9060005260206000200154905092915050565b60006101cd818363ffffffff61022c16565b6000908152600e9091016020526040902060010154151590565b600061023b8260600151610272565b82516000908152600d850160209081526040909120908401518154811061025e57fe5b906000526020600020015414905092915050565b60008160405160200161028591906103c1565b604051602081830303815290604052805190602001209050919050565b6000602082840312156102b3578081fd5b5035919050565b600080604083850312156102cc578081fd5b50508035926020909101359150565b600081830360e08112156102ed578182fd5b6102f760806103f5565b8335815260208401356020820152604084013560408201526080605f1983011215610320578283fd5b61032a60806103f5565b9150606084013582526080840135602083015260a084013561034b8161041c565b604083015260c0939093013560608083019190915283015250919050565b6020808252825182820181905260009190848201906040850190845b818110156103a157835183529284019291840191600101610385565b50909695505050505050565b901515815260200190565b90815260200190565b81518152602080830151908201526040808301516001600160a01b0316908201526060918201519181019190915260800190565b60405181810167ffffffffffffffff8111828210171561041457600080fd5b604052919050565b6001600160a01b038116811461043157600080fd5b5056fea2646970667358221220ba9b480a39e80fd824b450bc9e0b248546fc53f21ba5abed16f2a80af978228864736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "302:1040:44:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "302:1040:44:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;542:142;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;855:185;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;390:148::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;1202:138::-;;;;;;:::i;:::-;;:::i;688:163::-;;;;;;:::i;:::-;;:::i;1044:154::-;;;;;;:::i;:::-;;:::i;542:142::-;618:7;640:10;:26;;667:11;640:39;;;;;;;;;;;;;;;;633:46;;542:142;;;:::o;855:185::-;978:10;:36;;;:24;:36;;;;;;;;;950:64;;;;;;;;;;;;;;;;;926:16;;;;950:64;;978:36;950:64;;;978:36;950:64;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;950:64:44;;855:185;-1:-1:-1;;;;;;;855:185:44:o;390:148::-;480:26;:39;;461:4;;;;507:11;;480:39;;;;;;;;;;;;;;:53;;473:60;;390:148;;;:::o;1202:138::-;1274:4;1293:42;1274:4;1324:10;1293:42;:30;:42;:::i;:::-;1286:49;1202:138;-1:-1:-1;;1202:138:44:o;688:163::-;776:7;798:36;;;:24;:36;;;;;:48;;835:10;;798:48;;;;;;;;;;;;;;791:55;;688:163;;;;:::o;1044:154::-;1140:4;1159:34;1140:4;1186:6;1159:34;:26;:34;:::i;4348:203:4:-;4449:18;4491:36;;;:24;;;;:36;;;;;:51;;;:55;;;4348:203::o;4090:254::-;4207:14;4304:34;:6;:17;;;:32;:34::i;:::-;4263:17;;4242:39;;;;:20;;;:39;;;;;;;;4282:17;;;;4242:58;;;;;;;;;;;;;;;;:96;4229:110;;4090:254;;;;:::o;969:172:6:-;1054:23;1124:10;1113:22;;;;;;;;:::i;:::-;;;;;;;;;;;;;1103:33;;;;;;1085:51;;969:172;;;:::o;2148:241:-1:-;;2252:2;2240:9;2231:7;2227:23;2223:32;2220:2;;;-1:-1;;2258:12;2220:2;-1:-1;209:20;;2214:175;-1:-1;2214:175::o;2396:366::-;;;2517:2;2505:9;2496:7;2492:23;2488:32;2485:2;;;-1:-1;;2523:12;2485:2;-1:-1;;209:20;;;2675:2;2714:22;;;2078:20;;-1:-1;2479:283::o;2769:320::-;;2900:9;2891:7;2887:23;2912:3;2887:23;2883:33;2880:2;;;-1:-1;;2919:12;2880:2;498:20;513:4;498:20;:::i;:::-;222:6;209:20;588:16;581:75;723:2;781:9;777:22;2078:20;723:2;742:5;738:16;731:75;874:2;932:9;928:22;2078:20;874:2;893:5;889:16;882:75;513:4;1321:19;;;;1317:30;1314:2;;;-1:-1;;1350:12;1314:2;1378:20;513:4;1378:20;:::i;:::-;1369:29;;1024:2;1116:9;1112:22;2078:20;1469:16;1462:75;513:4;1116:9;1657:22;209:20;723:2;1622:5;1618:16;1611:75;1805:22;1116:9;1805:22;72:20;97:33;124:5;97:33;:::i;:::-;874:2;1766:16;;1759:75;1954:22;;;;;209:20;1024:2;1915:16;;;1908:75;;;;1039:16;;1032:109;-1:-1;1043:5;2874:215;-1:-1;2874:215::o;5743:370::-;5920:2;5934:47;;;7456:12;;5905:18;;;7731:19;;;5743:370;;5920:2;7310:14;;;;7771;;;;5743:370;4075:260;4100:6;4097:1;4094:13;4075:260;;;4161:13;;4537:37;;7586:14;;;;3498;;;;4122:1;4115:9;4075:260;;;-1:-1;5987:116;;5891:222;-1:-1;;;;;;5891:222::o;6120:210::-;7963:13;;7956:21;4430:34;;6241:2;6226:18;;6212:118::o;6337:222::-;4537:37;;;6464:2;6449:18;;6435:124::o;6566:359::-;5037:23;;4537:37;;5213:4;5202:16;;;5196:23;5273:14;;;4537:37;5371:4;5360:16;;;5354:23;-1:-1;;;;;8130:54;5431:14;;;3587:37;5530:4;5519:16;;;5513:23;5590:14;;;4537:37;;;;6761:3;6746:19;;6732:193::o;6932:256::-;6994:2;6988:9;7020:17;;;7095:18;7080:34;;7116:22;;;7077:62;7074:2;;;7152:1;;7142:12;7074:2;6994;7161:22;6972:216;;-1:-1;6972:216::o;8275:117::-;-1:-1;;;;;8130:54;;8334:35;;8324:2;;8383:1;;8373:12;8324:2;8318:74;:::o",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\nimport { ChainStateImplementer } from \"../common/ChainStateImplementer.sol\";\nimport { ChainStateLib as State } from \"../common/ChainStateLib.sol\";\nimport { CommitmentHeaderLib as Commitment } from \"../common/blocks/CommitmentHeaderLib.sol\";\n\n\ncontract StateQueries is ChainStateImplementer {\n  using State for State.ChainState;\n\n  function isBlockConfirmed(uint256 blockNumber)\n  external view returns(bool) {\n    return chainState.confirmedBlocks[blockNumber] != bytes32(0);\n  }\n\n  function getConfirmedBlockhash(uint256 blockNumber)\n  external view returns(bytes32) {\n    return chainState.confirmedBlocks[blockNumber];\n  }\n\n  function getPendingChild(bytes32 parentHash, uint256 childIndex)\n  public view returns (bytes32) {\n    return chainState.pendingBlocks[parentHash][childIndex];\n  }\n\n  function getPendingChildren(bytes32 parentHash)\n  public view returns (bytes32[] memory) {\n    bytes32[] memory children = chainState.pendingBlocks[parentHash];\n    return children;\n  }\n\n  function hasPendingBlock(Commitment.CommitmentHeaderQuery memory _query)\n  public view returns (bool) {\n    return chainState.hasPendingBlock(_query);\n  }\n\n  function hasPendingChallenge(bytes32 _blockHash)\n  public view returns (bool) {\n    return chainState.hasPendingChallenge(_blockHash);\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/peg/StateQueries.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/peg/StateQueries.sol",
+    "exportedSymbols": {
+      "StateQueries": [
+        13460
+      ]
+    },
+    "id": 13461,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13352,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:44"
+      },
+      {
+        "id": 13353,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:44"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol",
+        "file": "../common/ChainStateImplementer.sol",
+        "id": 13355,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 635,
+        "src": "59:76:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13354,
+              "name": "ChainStateImplementer",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "68:21:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol",
+        "file": "../common/ChainStateLib.sol",
+        "id": 13357,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 1166,
+        "src": "136:69:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13356,
+              "name": "ChainStateLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "145:13:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "State"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol",
+        "file": "../common/blocks/CommitmentHeaderLib.sol",
+        "id": 13359,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 1284,
+        "src": "206:93:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13358,
+              "name": "CommitmentHeaderLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "215:19:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Commitment"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 13360,
+              "name": "ChainStateImplementer",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 634,
+              "src": "327:21:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ChainStateImplementer_$634",
+                "typeString": "contract ChainStateImplementer"
+              }
+            },
+            "id": 13361,
+            "nodeType": "InheritanceSpecifier",
+            "src": "327:21:44"
+          }
+        ],
+        "contractDependencies": [
+          634
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 13460,
+        "linearizedBaseContracts": [
+          13460,
+          634
+        ],
+        "name": "StateQueries",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 13364,
+            "libraryName": {
+              "contractScope": null,
+              "id": 13362,
+              "name": "State",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1165,
+              "src": "359:5:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ChainStateLib_$1165",
+                "typeString": "library ChainStateLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "353:33:44",
+            "typeName": {
+              "contractScope": null,
+              "id": 13363,
+              "name": "State.ChainState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 730,
+              "src": "369:16:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ChainState_$730_storage_ptr",
+                "typeString": "struct ChainStateLib.ChainState"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 13381,
+              "nodeType": "Block",
+              "src": "467:71:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    },
+                    "id": 13379,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13371,
+                          "name": "chainState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 633,
+                          "src": "480:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                            "typeString": "struct ChainStateLib.ChainState storage ref"
+                          }
+                        },
+                        "id": 13372,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "confirmedBlocks",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 716,
+                        "src": "480:26:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                          "typeString": "bytes32[] storage ref"
+                        }
+                      },
+                      "id": 13374,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 13373,
+                        "name": "blockNumber",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13366,
+                        "src": "507:11:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "480:39:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 13377,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "531:1:44",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 13376,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "523:7:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_bytes32_$",
+                          "typeString": "type(bytes32)"
+                        },
+                        "typeName": {
+                          "id": 13375,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "523:7:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 13378,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "523:10:44",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "480:53:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13370,
+                  "id": 13380,
+                  "nodeType": "Return",
+                  "src": "473:60:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "93c5183b",
+            "id": 13382,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isBlockConfirmed",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13367,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13366,
+                  "mutability": "mutable",
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13382,
+                  "src": "416:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13365,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "416:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "415:21:44"
+            },
+            "returnParameters": {
+              "id": 13370,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13369,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13382,
+                  "src": "461:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13368,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "461:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "460:6:44"
+            },
+            "scope": 13460,
+            "src": "390:148:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 13394,
+              "nodeType": "Block",
+              "src": "627:57:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13389,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "640:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13390,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "confirmedBlocks",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 716,
+                      "src": "640:26:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                        "typeString": "bytes32[] storage ref"
+                      }
+                    },
+                    "id": 13392,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13391,
+                      "name": "blockNumber",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13384,
+                      "src": "667:11:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "640:39:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 13388,
+                  "id": 13393,
+                  "nodeType": "Return",
+                  "src": "633:46:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "0ff7b967",
+            "id": 13395,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getConfirmedBlockhash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13385,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13384,
+                  "mutability": "mutable",
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13395,
+                  "src": "573:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13383,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "572:21:44"
+            },
+            "returnParameters": {
+              "id": 13388,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13387,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13395,
+                  "src": "618:7:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13386,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "618:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "617:9:44"
+            },
+            "scope": 13460,
+            "src": "542:142:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 13411,
+              "nodeType": "Block",
+              "src": "785:66:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13404,
+                          "name": "chainState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 633,
+                          "src": "798:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                            "typeString": "struct ChainStateLib.ChainState storage ref"
+                          }
+                        },
+                        "id": 13405,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pendingBlocks",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 721,
+                        "src": "798:24:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_bytes32_$dyn_storage_$",
+                          "typeString": "mapping(bytes32 => bytes32[] storage ref)"
+                        }
+                      },
+                      "id": 13407,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 13406,
+                        "name": "parentHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13397,
+                        "src": "823:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "798:36:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                        "typeString": "bytes32[] storage ref"
+                      }
+                    },
+                    "id": 13409,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13408,
+                      "name": "childIndex",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13399,
+                      "src": "835:10:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "798:48:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 13403,
+                  "id": 13410,
+                  "nodeType": "Return",
+                  "src": "791:55:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "eadca6ff",
+            "id": 13412,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPendingChild",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13397,
+                  "mutability": "mutable",
+                  "name": "parentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "713:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13396,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "713:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13399,
+                  "mutability": "mutable",
+                  "name": "childIndex",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "733:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13398,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "733:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "712:40:44"
+            },
+            "returnParameters": {
+              "id": 13403,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13402,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "776:7:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13401,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "776:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "775:9:44"
+            },
+            "scope": 13460,
+            "src": "688:163:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13432,
+              "nodeType": "Block",
+              "src": "944:96:44",
+              "statements": [
+                {
+                  "assignments": [
+                    13424
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 13424,
+                      "mutability": "mutable",
+                      "name": "children",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 13432,
+                      "src": "950:25:44",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                        "typeString": "bytes32[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 13422,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "950:7:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "id": 13423,
+                        "length": null,
+                        "nodeType": "ArrayTypeName",
+                        "src": "950:9:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                          "typeString": "bytes32[]"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 13429,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13425,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "978:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13426,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pendingBlocks",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 721,
+                      "src": "978:24:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_bytes32_$dyn_storage_$",
+                        "typeString": "mapping(bytes32 => bytes32[] storage ref)"
+                      }
+                    },
+                    "id": 13428,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13427,
+                      "name": "parentHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13414,
+                      "src": "1003:10:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "978:36:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                      "typeString": "bytes32[] storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "950:64:44"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13430,
+                    "name": "children",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 13424,
+                    "src": "1027:8:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                      "typeString": "bytes32[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 13419,
+                  "id": 13431,
+                  "nodeType": "Return",
+                  "src": "1020:15:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "24dce362",
+            "id": 13433,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPendingChildren",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13415,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13414,
+                  "mutability": "mutable",
+                  "name": "parentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13433,
+                  "src": "883:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13413,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "883:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "882:20:44"
+            },
+            "returnParameters": {
+              "id": 13419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13418,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13433,
+                  "src": "926:16:44",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 13416,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "926:7:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 13417,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "926:9:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "925:18:44"
+            },
+            "scope": 13460,
+            "src": "855:185:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13445,
+              "nodeType": "Block",
+              "src": "1146:52:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 13442,
+                        "name": "_query",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13435,
+                        "src": "1186:6:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                          "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                          "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13440,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "1159:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13441,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "hasPendingBlock",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 902,
+                      "src": "1159:26:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_ChainState_$730_storage_ptr_$_t_struct$_CommitmentHeaderQuery_$1255_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_ChainState_$730_storage_ptr_$",
+                        "typeString": "function (struct ChainStateLib.ChainState storage pointer,struct CommitmentHeaderLib.CommitmentHeaderQuery memory) view returns (bool)"
+                      }
+                    },
+                    "id": 13443,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1159:34:44",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13439,
+                  "id": 13444,
+                  "nodeType": "Return",
+                  "src": "1152:41:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "ecadb686",
+            "id": 13446,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasPendingBlock",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13436,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13435,
+                  "mutability": "mutable",
+                  "name": "_query",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13446,
+                  "src": "1069:46:44",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 13434,
+                    "name": "Commitment.CommitmentHeaderQuery",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1255,
+                    "src": "1069:32:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_storage_ptr",
+                      "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1068:48:44"
+            },
+            "returnParameters": {
+              "id": 13439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13438,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13446,
+                  "src": "1140:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13437,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1140:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1139:6:44"
+            },
+            "scope": 13460,
+            "src": "1044:154:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13458,
+              "nodeType": "Block",
+              "src": "1280:60:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 13455,
+                        "name": "_blockHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13448,
+                        "src": "1324:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13453,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "1293:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13454,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "hasPendingChallenge",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 922,
+                      "src": "1293:30:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_ChainState_$730_storage_ptr_$_t_bytes32_$returns$_t_bool_$bound_to$_t_struct$_ChainState_$730_storage_ptr_$",
+                        "typeString": "function (struct ChainStateLib.ChainState storage pointer,bytes32) view returns (bool)"
+                      }
+                    },
+                    "id": 13456,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1293:42:44",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13452,
+                  "id": 13457,
+                  "nodeType": "Return",
+                  "src": "1286:49:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9705f9c1",
+            "id": 13459,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasPendingChallenge",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13449,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13448,
+                  "mutability": "mutable",
+                  "name": "_blockHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13459,
+                  "src": "1231:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13447,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1231:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1230:20:44"
+            },
+            "returnParameters": {
+              "id": 13452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13451,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13459,
+                  "src": "1274:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13450,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1274:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1273:6:44"
+            },
+            "scope": 13460,
+            "src": "1202:138:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13461,
+        "src": "302:1040:44"
+      }
+    ],
+    "src": "0:1342:44"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/peg/StateQueries.sol",
+    "exportedSymbols": {
+      "StateQueries": [
+        13460
+      ]
+    },
+    "id": 13461,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13352,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:44"
+      },
+      {
+        "id": 13353,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:44"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol",
+        "file": "../common/ChainStateImplementer.sol",
+        "id": 13355,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 635,
+        "src": "59:76:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13354,
+              "name": "ChainStateImplementer",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "68:21:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol",
+        "file": "../common/ChainStateLib.sol",
+        "id": 13357,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 1166,
+        "src": "136:69:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13356,
+              "name": "ChainStateLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "145:13:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "State"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol",
+        "file": "../common/blocks/CommitmentHeaderLib.sol",
+        "id": 13359,
+        "nodeType": "ImportDirective",
+        "scope": 13461,
+        "sourceUnit": 1284,
+        "src": "206:93:44",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13358,
+              "name": "CommitmentHeaderLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "215:19:44",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "Commitment"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 13360,
+              "name": "ChainStateImplementer",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 634,
+              "src": "327:21:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ChainStateImplementer_$634",
+                "typeString": "contract ChainStateImplementer"
+              }
+            },
+            "id": 13361,
+            "nodeType": "InheritanceSpecifier",
+            "src": "327:21:44"
+          }
+        ],
+        "contractDependencies": [
+          634
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 13460,
+        "linearizedBaseContracts": [
+          13460,
+          634
+        ],
+        "name": "StateQueries",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 13364,
+            "libraryName": {
+              "contractScope": null,
+              "id": 13362,
+              "name": "State",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1165,
+              "src": "359:5:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ChainStateLib_$1165",
+                "typeString": "library ChainStateLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "353:33:44",
+            "typeName": {
+              "contractScope": null,
+              "id": 13363,
+              "name": "State.ChainState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 730,
+              "src": "369:16:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ChainState_$730_storage_ptr",
+                "typeString": "struct ChainStateLib.ChainState"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 13381,
+              "nodeType": "Block",
+              "src": "467:71:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    },
+                    "id": 13379,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13371,
+                          "name": "chainState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 633,
+                          "src": "480:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                            "typeString": "struct ChainStateLib.ChainState storage ref"
+                          }
+                        },
+                        "id": 13372,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "confirmedBlocks",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 716,
+                        "src": "480:26:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                          "typeString": "bytes32[] storage ref"
+                        }
+                      },
+                      "id": 13374,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 13373,
+                        "name": "blockNumber",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13366,
+                        "src": "507:11:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "480:39:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 13377,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "531:1:44",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 13376,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "523:7:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_bytes32_$",
+                          "typeString": "type(bytes32)"
+                        },
+                        "typeName": {
+                          "id": 13375,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "523:7:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 13378,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "523:10:44",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "480:53:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13370,
+                  "id": 13380,
+                  "nodeType": "Return",
+                  "src": "473:60:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "93c5183b",
+            "id": 13382,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isBlockConfirmed",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13367,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13366,
+                  "mutability": "mutable",
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13382,
+                  "src": "416:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13365,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "416:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "415:21:44"
+            },
+            "returnParameters": {
+              "id": 13370,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13369,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13382,
+                  "src": "461:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13368,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "461:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "460:6:44"
+            },
+            "scope": 13460,
+            "src": "390:148:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 13394,
+              "nodeType": "Block",
+              "src": "627:57:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13389,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "640:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13390,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "confirmedBlocks",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 716,
+                      "src": "640:26:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                        "typeString": "bytes32[] storage ref"
+                      }
+                    },
+                    "id": 13392,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13391,
+                      "name": "blockNumber",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13384,
+                      "src": "667:11:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "640:39:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 13388,
+                  "id": 13393,
+                  "nodeType": "Return",
+                  "src": "633:46:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "0ff7b967",
+            "id": 13395,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getConfirmedBlockhash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13385,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13384,
+                  "mutability": "mutable",
+                  "name": "blockNumber",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13395,
+                  "src": "573:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13383,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "572:21:44"
+            },
+            "returnParameters": {
+              "id": 13388,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13387,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13395,
+                  "src": "618:7:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13386,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "618:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "617:9:44"
+            },
+            "scope": 13460,
+            "src": "542:142:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 13411,
+              "nodeType": "Block",
+              "src": "785:66:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13404,
+                          "name": "chainState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 633,
+                          "src": "798:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                            "typeString": "struct ChainStateLib.ChainState storage ref"
+                          }
+                        },
+                        "id": 13405,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pendingBlocks",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 721,
+                        "src": "798:24:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_bytes32_$dyn_storage_$",
+                          "typeString": "mapping(bytes32 => bytes32[] storage ref)"
+                        }
+                      },
+                      "id": 13407,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 13406,
+                        "name": "parentHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13397,
+                        "src": "823:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "798:36:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                        "typeString": "bytes32[] storage ref"
+                      }
+                    },
+                    "id": 13409,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13408,
+                      "name": "childIndex",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13399,
+                      "src": "835:10:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "798:48:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 13403,
+                  "id": 13410,
+                  "nodeType": "Return",
+                  "src": "791:55:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "eadca6ff",
+            "id": 13412,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPendingChild",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13397,
+                  "mutability": "mutable",
+                  "name": "parentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "713:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13396,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "713:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13399,
+                  "mutability": "mutable",
+                  "name": "childIndex",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "733:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13398,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "733:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "712:40:44"
+            },
+            "returnParameters": {
+              "id": 13403,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13402,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13412,
+                  "src": "776:7:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13401,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "776:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "775:9:44"
+            },
+            "scope": 13460,
+            "src": "688:163:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13432,
+              "nodeType": "Block",
+              "src": "944:96:44",
+              "statements": [
+                {
+                  "assignments": [
+                    13424
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 13424,
+                      "mutability": "mutable",
+                      "name": "children",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 13432,
+                      "src": "950:25:44",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                        "typeString": "bytes32[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 13422,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "950:7:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "id": 13423,
+                        "length": null,
+                        "nodeType": "ArrayTypeName",
+                        "src": "950:9:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                          "typeString": "bytes32[]"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 13429,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13425,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "978:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13426,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pendingBlocks",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 721,
+                      "src": "978:24:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_bytes32_$dyn_storage_$",
+                        "typeString": "mapping(bytes32 => bytes32[] storage ref)"
+                      }
+                    },
+                    "id": 13428,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 13427,
+                      "name": "parentHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13414,
+                      "src": "1003:10:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "978:36:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+                      "typeString": "bytes32[] storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "950:64:44"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13430,
+                    "name": "children",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 13424,
+                    "src": "1027:8:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                      "typeString": "bytes32[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 13419,
+                  "id": 13431,
+                  "nodeType": "Return",
+                  "src": "1020:15:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "24dce362",
+            "id": 13433,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPendingChildren",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13415,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13414,
+                  "mutability": "mutable",
+                  "name": "parentHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13433,
+                  "src": "883:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13413,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "883:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "882:20:44"
+            },
+            "returnParameters": {
+              "id": 13419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13418,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13433,
+                  "src": "926:16:44",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 13416,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "926:7:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 13417,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "926:9:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "925:18:44"
+            },
+            "scope": 13460,
+            "src": "855:185:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13445,
+              "nodeType": "Block",
+              "src": "1146:52:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 13442,
+                        "name": "_query",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13435,
+                        "src": "1186:6:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                          "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                          "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13440,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "1159:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13441,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "hasPendingBlock",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 902,
+                      "src": "1159:26:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_ChainState_$730_storage_ptr_$_t_struct$_CommitmentHeaderQuery_$1255_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_ChainState_$730_storage_ptr_$",
+                        "typeString": "function (struct ChainStateLib.ChainState storage pointer,struct CommitmentHeaderLib.CommitmentHeaderQuery memory) view returns (bool)"
+                      }
+                    },
+                    "id": 13443,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1159:34:44",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13439,
+                  "id": 13444,
+                  "nodeType": "Return",
+                  "src": "1152:41:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "ecadb686",
+            "id": 13446,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasPendingBlock",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13436,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13435,
+                  "mutability": "mutable",
+                  "name": "_query",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13446,
+                  "src": "1069:46:44",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_memory_ptr",
+                    "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 13434,
+                    "name": "Commitment.CommitmentHeaderQuery",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1255,
+                    "src": "1069:32:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_CommitmentHeaderQuery_$1255_storage_ptr",
+                      "typeString": "struct CommitmentHeaderLib.CommitmentHeaderQuery"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1068:48:44"
+            },
+            "returnParameters": {
+              "id": 13439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13438,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13446,
+                  "src": "1140:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13437,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1140:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1139:6:44"
+            },
+            "scope": 13460,
+            "src": "1044:154:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 13458,
+              "nodeType": "Block",
+              "src": "1280:60:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 13455,
+                        "name": "_blockHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13448,
+                        "src": "1324:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13453,
+                        "name": "chainState",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 633,
+                        "src": "1293:10:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ChainState_$730_storage",
+                          "typeString": "struct ChainStateLib.ChainState storage ref"
+                        }
+                      },
+                      "id": 13454,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "hasPendingChallenge",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 922,
+                      "src": "1293:30:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_ChainState_$730_storage_ptr_$_t_bytes32_$returns$_t_bool_$bound_to$_t_struct$_ChainState_$730_storage_ptr_$",
+                        "typeString": "function (struct ChainStateLib.ChainState storage pointer,bytes32) view returns (bool)"
+                      }
+                    },
+                    "id": 13456,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1293:42:44",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 13452,
+                  "id": 13457,
+                  "nodeType": "Return",
+                  "src": "1286:49:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9705f9c1",
+            "id": 13459,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasPendingChallenge",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13449,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13448,
+                  "mutability": "mutable",
+                  "name": "_blockHash",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13459,
+                  "src": "1231:18:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 13447,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1231:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1230:20:44"
+            },
+            "returnParameters": {
+              "id": 13452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13451,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13459,
+                  "src": "1274:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 13450,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1274:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1273:6:44"
+            },
+            "scope": 13460,
+            "src": "1202:138:44",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13461,
+        "src": "302:1040:44"
+      }
+    ],
+    "src": "0:1342:44"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.666Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

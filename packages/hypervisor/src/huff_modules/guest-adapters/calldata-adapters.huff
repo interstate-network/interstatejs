@@ -1,0 +1,42 @@
+#define macro GUEST_CALLDATASIZE = takes(0) returns(1) {
+  GET_CALLDATASIZE()
+}
+
+#define macro GUEST_CALLDATALOAD = takes(1) returns(1) {
+  // [loc]
+  ADD_CALLDATA_CDPTR_OFFSET()
+  calldataload
+}
+
+template <safemath_error_label>
+#define macro GUEST_CALLDATACOPY = takes(3) returns(0) {
+                          // [destOffset, offset, length]
+  GET_CALLDATASIZE()      // [vm_calldatasize, destOffset, offset, length]
+  dup4                    // [length, vm_calldatasize, destOffset, offset, length]
+  dup2                    // [vm_calldatasize, length, vm_calldatasize, destOffset, offset, length]
+  0x01                    // [0x01, vm_calldatasize, length, vm_calldatasize, destOffset, offset, length]
+  add                     // [0x01 + vm_calldatasize, length, vm_calldatasize, destOffset, offset, length]
+  gt                      // [vm_calldatasize >= length, vm_calldatasize, destOffset, offset, length]
+  do_copy                 // [do_copy_jumpdest, vm_calldatasize >= length, vm_calldatasize, destOffset, offset, length]
+  jumpi                   // [vm_calldatasize, destOffset, offset, length]
+/* if length > calldatasize we need to calldatacopy from cd[calldatasize:(length-calldatasize)] */
+/* to mem[destOffset+calldatasize and adjust the length we give to calldatacopy */
+  dup1                    // [vm_calldatasize, vm_calldatasize, destOffset, offset, length]
+  swap4                   // [length, vm_calldatasize, destOffset, offset, vm_calldatasize]
+  sub                     // [(length - vm_calldatasize), destOffset, offset, vm_calldatasize]
+  dup4                    // [vm_calldatasize, (length - vm_calldatasize), destOffset, offset, vm_calldatasize]
+  dup1                    // [vm_calldatasize, vm_calldatasize, (length - vm_calldatasize), destOffset, offset, vm_calldatasize]
+  dup4                    // [destOffset, vm_calldatasize, vm_calldatasize, (length - vm_calldatasize), destOffset, offset, vm_calldatasize]
+  add                     // [(destOffset + vm_calldatasize), vm_calldatasize, (length - vm_calldatasize), destOffset, offset, vm_calldatasize]
+  calldatacopy            // [destOffset, offset, vm_calldatasize]
+  msize /* gets popped */
+
+  do_copy:
+    /* continue to the standard copy */
+    pop                                                 // [ destOffset, offset, length ]
+    ADD_GUEST_PTR_OFFSET<safemath_error_label>()        // [ destOffset + memPtr, offset, length ]
+    swap1                                               // [ offset, destOffset + memPtr, length ]
+    ADD_CALLDATA_CDPTR_OFFSET()                         // [ offset + cdptr, destOffset + memPtr, length ]
+    swap1                                               // [ destOffset + memPtr, offset + cdptr, length ]
+    calldatacopy                                        // []
+}

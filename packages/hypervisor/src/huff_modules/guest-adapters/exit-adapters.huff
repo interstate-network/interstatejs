@@ -1,0 +1,14 @@
+template <safemath_error_label, return_revert_label>
+#define macro GUEST_REVERT = takes(0) returns(0) {
+  VERIFY_ACCESS_TX_REVERT<safemath_error_label, return_revert_label>()
+}
+
+template <safemath_error_label, return_revert_label>
+#define macro GUEST_RETURN = takes(0) returns(0) {
+  VERIFY_ACCESS_TX_RETURN<safemath_error_label, return_revert_label>()
+}
+
+template <return_revert_label>
+#define macro GUEST_STOP = takes(0) returns(0) {
+  VERIFY_ACCESS_TX_STOP<return_revert_label>()
+}

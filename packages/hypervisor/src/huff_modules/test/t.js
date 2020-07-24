@@ -1,0 +1,27 @@
+const arr = [
+'GET_ORIGIN',
+'GET_CALLER',
+'GET_GUEST_ADDRESS',
+'GET_CONTEXT_ADDRESS',
+'GET_STATE_ROOT_ENTER',
+'GET_STATE_ROOT_LEAVE',
+'GET_CALLVALUE',
+'GET_GASPRICE',
+'GET_GAS_AVAILABLE',
+'GET_GAS_USED',
+// 'GET_CALLDATASIZE_CDPTR',
+'GET_CALLDATASIZE',
+// 'GET_CALLDATA_CDPTR',
+'GET_TX_STATUS',
+'GET_TX_RETURNDATAHASH',
+// 'GET_TX_SIO_SIZE_CDPTR',
+'GET_TX_SIO_SIZE',
+// 'GET_TX_SIO_CDPTR',
+]
+
+let i = 0;
+
+for (let x of arr) {
+  console.log(`${x}() 0x${i.toString(16)} mstore`)
+  i += 32;
+}

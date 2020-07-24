@@ -1,0 +1,249 @@
+{
+  "contractName": "DeploymentRecordLib",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/DeploymentRecordLib.sol\":\"DeploymentRecordLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/DeploymentRecordLib.sol\":{\"keccak256\":\"0xb85741d1ae0d1c750e2ac799ecc20ea6b27af9005738b3821756c3efdae3d507\",\"urls\":[\"bzz-raw://cc8f47b2f2194c708559b28b292c84ae7170b8adabc13325d8045562943ca748\",\"dweb:/ipfs/QmQQMzs8PmVXAazjmH1WotUcxATePXqjvpPKJFz4pmXNfq\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220a36f040a9b82d340da96dda77ac8a74b0c3e7050bec5a24afc06393c2eec0e8d64736f6c634300060b0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220a36f040a9b82d340da96dda77ac8a74b0c3e7050bec5a24afc06393c2eec0e8d64736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "25:118:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:118:17:-:0;;;;;;;;",
+  "source": "pragma solidity ^0.6.0;\n\nlibrary DeploymentRecordLib {\n  struct DeploymentRecord {\n    uint128 blockNumber;\n    uint128 transactionIndex;\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/DeploymentRecordLib.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/DeploymentRecordLib.sol",
+    "exportedSymbols": {
+      "DeploymentRecordLib": [
+        3031
+      ]
+    },
+    "id": 3032,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3025,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3031,
+        "linearizedBaseContracts": [
+          3031
+        ],
+        "name": "DeploymentRecordLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DeploymentRecordLib.DeploymentRecord",
+            "id": 3030,
+            "members": [
+              {
+                "constant": false,
+                "id": 3027,
+                "mutability": "mutable",
+                "name": "blockNumber",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3030,
+                "src": "87:19:17",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 3026,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "87:7:17",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3029,
+                "mutability": "mutable",
+                "name": "transactionIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3030,
+                "src": "112:24:17",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 3028,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:17",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "DeploymentRecord",
+            "nodeType": "StructDefinition",
+            "scope": 3031,
+            "src": "57:84:17",
+            "visibility": "public"
+          }
+        ],
+        "scope": 3032,
+        "src": "25:118:17"
+      }
+    ],
+    "src": "0:143:17"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/DeploymentRecordLib.sol",
+    "exportedSymbols": {
+      "DeploymentRecordLib": [
+        3031
+      ]
+    },
+    "id": 3032,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3025,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3031,
+        "linearizedBaseContracts": [
+          3031
+        ],
+        "name": "DeploymentRecordLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DeploymentRecordLib.DeploymentRecord",
+            "id": 3030,
+            "members": [
+              {
+                "constant": false,
+                "id": 3027,
+                "mutability": "mutable",
+                "name": "blockNumber",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3030,
+                "src": "87:19:17",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 3026,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "87:7:17",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3029,
+                "mutability": "mutable",
+                "name": "transactionIndex",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3030,
+                "src": "112:24:17",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 3028,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:17",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "DeploymentRecord",
+            "nodeType": "StructDefinition",
+            "scope": 3031,
+            "src": "57:84:17",
+            "visibility": "public"
+          }
+        ],
+        "scope": 3032,
+        "src": "25:118:17"
+      }
+    ],
+    "src": "0:143:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.556Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

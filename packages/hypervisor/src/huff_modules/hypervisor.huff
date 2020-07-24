@@ -1,0 +1,58 @@
+/* VARIABLES */
+#include "./opcode-table.huff"
+#include "./utils/safemath.huff"
+#include "./utils/integers.huff"
+#include "./utils/bytecode.huff"
+#include "./io/header.huff"
+#include "./setup.huff"
+#include "./vm.huff"
+
+/**
+ * @title ACCESS_ERROR
+ * @dev Triggered when a state access record is invalid
+ * @return Returns a tuple of:
+ * @param error code - 0xAE
+ * @param pc - last program counter
+ * @param access offset
+*/
+#define macro ACCESS_ERROR = takes(0) returns(1) {
+  0xae 0x00 mstore
+  GET_PC() 0x20 mstore
+  GET_CURRENT_SIO_CDPTR() calldataload GET_TX_SIO_CDPTR() add 0x40 mstore
+  0x60 0x00 revert
+}
+
+template <oog_error_label>
+#define macro VERIFY_OOG = takes(0) returns(0) {
+  GET_GAS_AVAILABLE() GET_GAS_USED() eq // [ gas_used_match ]
+  GET_TX_STATUS() iszero                // [ status_match, gas_used_match ]
+  // if not(and(status_exception, all_gas_used)): fail with oog_error
+  and iszero <oog_error_label> jumpi
+  0x1 0x0 mstore 0x20 0x0 return
+}
+
+#define macro INITIALIZE_HYPERVISOR = takes(0) returns(0) {
+  do_start jump
+  sio_error: ACCESS_ERROR()
+  verify_oog_label: VERIFY_OOG<oog_error>()
+  oog_error: 0xea3b mstore 0x20 0x00 revert
+  safemath_error: 0x1337 0x00 mstore 0x20 0x00 revert
+  return_status_or_data_error: 0x2020ffff 0x00 mstore 0x20 0x00 revert
+  execute_jump: EXECUTE_JUMP()
+  do_start:
+  PREPARE_HYPERVISOR()
+  GET_PC() RUN_NEXT_INSTRUCTION()
+  CHECK_GAS<verify_oog_label>()
+  VM__MAIN<sio_error, safemath_error, execute_jump, return_status_or_data_error, verify_oog_label>()
+}
+
+/* module.exports = (ary) => [
+  'bytes:runtime-code:size',
+	'dup1',
+	'bytes:runtime-code:ptr',
+	'0x0',
+	'codecopy',
+	'0x0',
+	'return',
+	[ 'bytes:runtime-code', [ emasm(ary) ] ]
+]; */

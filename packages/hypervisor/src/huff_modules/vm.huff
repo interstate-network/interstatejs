@@ -1,0 +1,216 @@
+#include "./utils/integers.huff"
+#include "./utils/gas.huff"
+#include "./sio-verifiers/header.huff"
+#include "./guest-adapters/header.huff"
+#include "./utils/gas-fees.huff"
+
+#define macro MATH_OPERATIONS = takes(0) returns(0) {
+  op_add:               INCR_GAS<FEE_ADD>() add INCREMENT_AND_RUN()
+  op_mul:               INCR_GAS<FEE_MUL>() mul INCREMENT_AND_RUN()
+  op_sub:               INCR_GAS<FEE_SUB>() sub INCREMENT_AND_RUN()
+  op_div:               INCR_GAS<FEE_DIV>() div INCREMENT_AND_RUN()
+  op_sdiv:              INCR_GAS<FEE_SDIV>() sdiv INCREMENT_AND_RUN()
+  op_mod:               INCR_GAS<FEE_MOD>() mod INCREMENT_AND_RUN()
+  op_smod:              INCR_GAS<FEE_SMOD>() smod INCREMENT_AND_RUN()
+  op_addmod:            INCR_GAS<FEE_ADDMOD>() addmod INCREMENT_AND_RUN()
+  op_mulmod:            INCR_GAS<FEE_MULMOD>() mulmod INCREMENT_AND_RUN()
+  op_exp:               INCR_GAS<FEE_EXP>() exp INCREMENT_AND_RUN()
+  op_signextend:        INCR_GAS<FEE_SIGNEXTEND>() signextend INCREMENT_AND_RUN()
+  op_lt:                INCR_GAS<FEE_LT>() lt INCREMENT_AND_RUN()
+  op_gt:                INCR_GAS<FEE_GT>() gt INCREMENT_AND_RUN()
+  op_slt:               INCR_GAS<FEE_SLT>() slt INCREMENT_AND_RUN()
+  op_sgt:               INCR_GAS<FEE_SGT>() sgt INCREMENT_AND_RUN()
+  op_eq:                INCR_GAS<FEE_EQ>() eq INCREMENT_AND_RUN()
+  op_iszero:            INCR_GAS<FEE_ISZERO>() iszero INCREMENT_AND_RUN()
+}
+
+template <safemath_error_label>
+#define macro BIT_OPERATIONS = takes(0) returns(0) {
+  op_and:               INCR_GAS<FEE_AND>() and INCREMENT_AND_RUN()
+  op_or:                INCR_GAS<FEE_OR>() or INCREMENT_AND_RUN()
+  op_xor:               INCR_GAS<FEE_XOR>() xor INCREMENT_AND_RUN()
+  op_not:               INCR_GAS<FEE_NOT>() not INCREMENT_AND_RUN()
+  op_byte:              INCR_GAS<FEE_BYTE>() byte INCREMENT_AND_RUN()
+  op_shr:               INCR_GAS<FEE_SHR>() shr INCREMENT_AND_RUN()
+  op_shl:               INCR_GAS<FEE_SHL>() shl INCREMENT_AND_RUN()
+  op_sar:               INCR_GAS<FEE_SAR>() sar INCREMENT_AND_RUN()
+  op_sha3:                INCR_GAS<FEE_SHA3>() GUEST_SHA3<safemath_error_label>() INCREMENT_AND_RUN()
+}
+
+template <safemath_error_label>
+#define macro TX_OPERATIONS = takes(0) returns(0) {
+  op_origin:            INCR_GAS<FEE_ORIGIN>() origin INCREMENT_AND_RUN()
+  op_caller:            INCR_GAS<FEE_CALLER>() caller INCREMENT_AND_RUN()
+  op_callvalue:         INCR_GAS<FEE_CALLVALUE>() callvalue INCREMENT_AND_RUN()
+  op_calldataload:        INCR_GAS<FEE_CALLDATALOAD>() GUEST_CALLDATALOAD() INCREMENT_AND_RUN()
+  op_calldatasize:        INCR_GAS<FEE_CALLDATASIZE>() GUEST_CALLDATASIZE() INCREMENT_AND_RUN()
+  op_calldatacopy:        INCR_GAS<FEE_CALLDATACOPY>() GUEST_CALLDATACOPY<safemath_error_label>() INCREMENT_AND_RUN()
+  op_gasprice:          INCR_GAS<FEE_GASPRICE>() GUEST_GASPRICE() INCREMENT_AND_RUN()
+}
+
+template <sio_error_label, safemath_error_label, oog_label>
+#define macro EXTERNAL_OPERATIONS = takes(0) returns(0) {
+  op_balance:             INCR_AND_CHECK_GAS<FEE_BALANCE, oog_label>() GUEST_BALANCE<sio_error_label>() INCREMENT_AND_RUN()
+  op_extcodesize:         INCR_AND_CHECK_GAS<FEE_EXTCODESIZE, oog_label>() GUEST_EXTCODESIZE<sio_error_label>() INCREMENT_AND_RUN()
+  op_extcodehash:         INCR_AND_CHECK_GAS<FEE_EXTCODEHASH, oog_label>() GUEST_EXTCODEHASH<sio_error_label>() INCREMENT_AND_RUN()
+
+  //TODO:@nsw no verification in GUEST_EXTCODECOPY?
+  op_extcodecopy:         INCR_GAS<FEE_EXTCODECOPY>() GUEST_EXTCODECOPY<sio_error_label, safemath_error_label>() INCREMENT_AND_RUN()
+
+  op_returndatasize:      INCR_GAS<FEE_RETURNDATASIZE>() GUEST_RETURNDATASIZE() INCREMENT_AND_RUN()
+  op_returndatacopy:      INCR_GAS<FEE_RETURNDATACOPY>() GUEST_RETURNDATACOPY<safemath_error_label>() INCREMENT_AND_RUN()
+  op_call:                INCR_AND_CHECK_GAS<FEE_CALL, oog_label>() GUEST_CALL<sio_error_label, safemath_error_label>() INCREMENT_AND_RUN()
+  op_callcode:            INCR_AND_CHECK_GAS<FEE_CALLCODE, oog_label>() GUEST_CALLCODE<sio_error_label, safemath_error_label>() INCREMENT_AND_RUN()
+  op_delegatecall:        INCR_AND_CHECK_GAS<FEE_DELEGATECALL, oog_label>() GUEST_DELEGATECALL<sio_error_label, safemath_error_label>() INCREMENT_AND_RUN()
+  op_staticcall:          INCR_AND_CHECK_GAS<FEE_STATICCALL, oog_label>() GUEST_STATICCALL<sio_error_label, safemath_error_label>() INCREMENT_AND_RUN()
+  op_chainid:             INCR_AND_CHECK_GAS<FEE_CHAINID, oog_label>() GUEST_CHAINID<sio_error_label>() INCREMENT_AND_RUN()
+}
+
+template <safemath_error_label, return_status_or_data_error, oog_label>
+#define macro EXIT_OPERATIONS = takes(0) returns(0) {
+  op_return:              INCR_AND_CHECK_GAS<FEE_RETURN, oog_label>() GUEST_RETURN<safemath_error_label, return_status_or_data_error>()
+  op_revert:              INCR_AND_CHECK_GAS<FEE_REVERT, oog_label>() GUEST_REVERT<safemath_error_label, return_status_or_data_error>()
+  op_stop:                INCR_AND_CHECK_GAS<FEE_STOP, oog_label>() VERIFY_ACCESS_TX_STOP<return_status_or_data_error>()
+}
+
+template <safemath_error_label>
+#define macro CONTEXT_OPERATIONS = takes(0) returns(0) {
+  op_address:             INCR_GAS<FEE_ADDRESS>() GUEST_ADDRESS() INCREMENT_AND_RUN()
+  op_codesize:            INCR_GAS<FEE_CODESIZE>() GUEST_CODESIZE() INCREMENT_AND_RUN()
+  op_codecopy:            INCR_GAS<FEE_CODECOPY>() GUEST_CODECOPY<safemath_error_label>() INCREMENT_AND_RUN()
+}
+
+template <safemath_error_label>
+#define macro MEMORY_OPERATIONS = takes(0) returns(0) {
+  op_mload:               INCR_GAS<FEE_MLOAD>() GUEST_MLOAD<safemath_error_label>() INCREMENT_AND_RUN()
+  op_mstore:              INCR_GAS<FEE_MSTORE>() GUEST_MSTORE<safemath_error_label>() INCREMENT_AND_RUN()
+  op_mstore8:             INCR_GAS<FEE_MSTORE8>() GUEST_MSTORE8<safemath_error_label>() INCREMENT_AND_RUN()
+  op_msize:               INCR_GAS<FEE_MSIZE>() GUEST_MSIZE() INCREMENT_AND_RUN()
+}
+
+template <sio_error_label, oog_label>
+#define macro STORAGE_OPERATIONS = takes(0) returns(0) {
+  op_sload:             INCR_AND_CHECK_GAS<FEE_SLOAD, oog_label>() GUEST_SLOAD<sio_error_label>() INCREMENT_AND_RUN()
+  op_sstore:            INCR_AND_CHECK_GAS<FEE_SSTORE, oog_label>() GUEST_SSTORE<sio_error_label>() INCREMENT_AND_RUN()
+}
+
+template <sio_error_label, oog_label>
+#define macro BLOCK_OPERATIONS = takes(0) returns(0) {
+  op_blockhash:         INCR_AND_CHECK_GAS<FEE_BLOCKHASH, oog_label>() GUEST_BLOCKHASH<sio_error_label>() INCREMENT_AND_RUN()
+  op_coinbase:          INCR_AND_CHECK_GAS<FEE_COINBASE, oog_label>() GUEST_COINBASE<sio_error_label>() INCREMENT_AND_RUN()
+  op_timestamp:         INCR_AND_CHECK_GAS<FEE_TIMESTAMP, oog_label>() GUEST_TIMESTAMP<sio_error_label>() INCREMENT_AND_RUN()
+  op_number:            INCR_AND_CHECK_GAS<FEE_NUMBER, oog_label>() GUEST_NUMBER<sio_error_label>() INCREMENT_AND_RUN()
+  op_gaslimit:          INCR_AND_CHECK_GAS<FEE_GASLIMIT, oog_label>() GUEST_GASLIMIT<sio_error_label>() INCREMENT_AND_RUN()
+  op_gas:               INCR_AND_CHECK_GAS<FEE_GAS, oog_label>() GUEST_GAS<sio_error_label>() INCREMENT_AND_RUN()
+}
+
+template <execute_jump_label, oog_label>
+#define macro VM_OPERATIONS = takes(0) returns(0) {
+  op_invalid:           INCR_AND_CHECK_GAS<FEE_INVALID, oog_label>() invalid
+  op_pop:               INCR_GAS<FEE_POP>() pop INCREMENT_AND_RUN()
+  op_jump:                INCR_GAS<FEE_JUMP>() GUEST_JUMP<execute_jump_label>()
+  op_jumpi:               INCR_GAS<FEE_JUMPI>() GUEST_JUMPI<execute_jump_label>() INCREMENT_AND_RUN()
+  op_pc:                  INCR_GAS<FEE_PC>() GUEST_PC() RUN_NEXT_INSTRUCTION()
+  op_jumpdest:          INCR_GAS<FEE_JUMPDEST>() INCREMENT_AND_RUN()
+}
+
+#define macro PUSH_OPERATIONS = takes(0) returns(0) {
+  op_push1:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH1_MASK, 0x1, 0x1e>() INCREMENT_AND_RUN()
+  op_push2:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH2_MASK, 0x2, 0x1d>() INCREMENT_AND_RUN()
+  op_push3:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH3_MASK, 0x3, 0x1c>() INCREMENT_AND_RUN()
+  op_push4:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH4_MASK, 0x4, 0x1b>() INCREMENT_AND_RUN()
+  op_push5:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH5_MASK, 0x5, 0x1a>() INCREMENT_AND_RUN()
+  op_push6:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH6_MASK, 0x6, 0x19>() INCREMENT_AND_RUN()
+  op_push7:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH7_MASK, 0x7, 0x18>() INCREMENT_AND_RUN()
+  op_push8:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH8_MASK, 0x8, 0x17>() INCREMENT_AND_RUN()
+  op_push9:                   INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH9_MASK, 0x9, 0x16>() INCREMENT_AND_RUN()
+  op_push10:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH10_MASK, 0xa, 0x15>() INCREMENT_AND_RUN()
+  op_push11:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH11_MASK, 0xb, 0x14>() INCREMENT_AND_RUN()
+  op_push12:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH12_MASK, 0xc, 0x13>() INCREMENT_AND_RUN()
+  op_push13:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH13_MASK, 0xd, 0x12>() INCREMENT_AND_RUN()
+  op_push14:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH14_MASK, 0xe, 0x11>() INCREMENT_AND_RUN()
+  op_push15:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH15_MASK, 0xf, 0x10>() INCREMENT_AND_RUN()
+  op_push16:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH16_MASK, 0x10, 0xf>() INCREMENT_AND_RUN()
+  op_push17:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH17_MASK, 0x11, 0xe>() INCREMENT_AND_RUN()
+  op_push18:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH18_MASK, 0x12, 0xd>() INCREMENT_AND_RUN()
+  op_push19:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH19_MASK, 0x13, 0xc>() INCREMENT_AND_RUN()
+  op_push20:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH20_MASK, 0x14, 0xb>() INCREMENT_AND_RUN()
+  op_push21:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH21_MASK, 0x15, 0xa>() INCREMENT_AND_RUN()
+  op_push22:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH22_MASK, 0x16, 0x9>() INCREMENT_AND_RUN()
+  op_push23:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH23_MASK, 0x17, 0x8>() INCREMENT_AND_RUN()
+  op_push24:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH24_MASK, 0x18, 0x7>() INCREMENT_AND_RUN()
+  op_push25:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH25_MASK, 0x19, 0x6>() INCREMENT_AND_RUN()
+  op_push26:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH26_MASK, 0x1a, 0x5>() INCREMENT_AND_RUN()
+  op_push27:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH27_MASK, 0x1b, 0x4>() INCREMENT_AND_RUN()
+  op_push28:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH28_MASK, 0x1c, 0x3>() INCREMENT_AND_RUN()
+  op_push29:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH29_MASK, 0x1d, 0x2>() INCREMENT_AND_RUN()
+  op_push30:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH30_MASK, 0x1e, 0x1>() INCREMENT_AND_RUN()
+  op_push31:                  INCR_GAS<FEE_PUSH>() READ_PUSH<PUSH31_MASK, 0x1f, 0x0>() INCREMENT_AND_RUN()
+  op_push32:                  INCR_GAS<FEE_PUSH>() READ_PUSH32() INCREMENT_AND_RUN()
+}
+
+#define macro DUP_OPERATIONS = takes(0) returns(0) {
+  op_dup1:            INCR_GAS<FEE_DUP>() dup1 INCREMENT_AND_RUN()
+  op_dup2:            INCR_GAS<FEE_DUP>() dup2 INCREMENT_AND_RUN()
+  op_dup3:            INCR_GAS<FEE_DUP>() dup3 INCREMENT_AND_RUN()
+  op_dup4:            INCR_GAS<FEE_DUP>() dup4 INCREMENT_AND_RUN()
+  op_dup5:            INCR_GAS<FEE_DUP>() dup5 INCREMENT_AND_RUN()
+  op_dup6:            INCR_GAS<FEE_DUP>() dup6 INCREMENT_AND_RUN()
+  op_dup7:            INCR_GAS<FEE_DUP>() dup7 INCREMENT_AND_RUN()
+  op_dup8:            INCR_GAS<FEE_DUP>() dup8 INCREMENT_AND_RUN()
+  op_dup9:            INCR_GAS<FEE_DUP>() dup9 INCREMENT_AND_RUN()
+  op_dup10:           INCR_GAS<FEE_DUP>() dup10 INCREMENT_AND_RUN()
+  op_dup11:           INCR_GAS<FEE_DUP>() dup11 INCREMENT_AND_RUN()
+  op_dup12:           INCR_GAS<FEE_DUP>() dup12 INCREMENT_AND_RUN()
+  op_dup13:           INCR_GAS<FEE_DUP>() dup13 INCREMENT_AND_RUN()
+  op_dup14:           INCR_GAS<FEE_DUP>() dup14 INCREMENT_AND_RUN()
+  op_dup15:           INCR_GAS<FEE_DUP>() dup15 INCREMENT_AND_RUN()
+  op_dup16:           INCR_GAS<FEE_DUP>() dup16 INCREMENT_AND_RUN()
+}
+
+#define macro SWAP_OPERATIONS = takes(0) returns(0) {
+  op_swap1:           INCR_GAS<FEE_SWAP>() swap1 INCREMENT_AND_RUN()
+  op_swap2:           INCR_GAS<FEE_SWAP>() swap2 INCREMENT_AND_RUN()
+  op_swap3:           INCR_GAS<FEE_SWAP>() swap3 INCREMENT_AND_RUN()
+  op_swap4:           INCR_GAS<FEE_SWAP>() swap4 INCREMENT_AND_RUN()
+  op_swap5:           INCR_GAS<FEE_SWAP>() swap5 INCREMENT_AND_RUN()
+  op_swap6:           INCR_GAS<FEE_SWAP>() swap6 INCREMENT_AND_RUN()
+  op_swap7:           INCR_GAS<FEE_SWAP>() swap7 INCREMENT_AND_RUN()
+  op_swap8:           INCR_GAS<FEE_SWAP>() swap8 INCREMENT_AND_RUN()
+  op_swap9:           INCR_GAS<FEE_SWAP>() swap9 INCREMENT_AND_RUN()
+  op_swap10:          INCR_GAS<FEE_SWAP>() swap10 INCREMENT_AND_RUN()
+  op_swap11:          INCR_GAS<FEE_SWAP>() swap11 INCREMENT_AND_RUN()
+  op_swap12:          INCR_GAS<FEE_SWAP>() swap12 INCREMENT_AND_RUN()
+  op_swap13:          INCR_GAS<FEE_SWAP>() swap13 INCREMENT_AND_RUN()
+  op_swap14:          INCR_GAS<FEE_SWAP>() swap14 INCREMENT_AND_RUN()
+  op_swap15:          INCR_GAS<FEE_SWAP>() swap15 INCREMENT_AND_RUN()
+  op_swap16:          INCR_GAS<FEE_SWAP>() swap16 INCREMENT_AND_RUN()
+}
+
+template <safemath_error_label>
+#define macro LOG_OPERATIONS = takes(0) returns(0) {
+  op_log0:                    /* GUEST_LOG0<safemath_error_label>() */ INCR_GAS<FEE_LOG>() log0 INCREMENT_AND_RUN()
+  op_log1:                    /* GUEST_LOG1<safemath_error_label>() */ INCR_GAS<FEE_LOG>() log1 INCREMENT_AND_RUN()
+  op_log2:                    /* GUEST_LOG2<safemath_error_label>() */ INCR_GAS<FEE_LOG>() log2 INCREMENT_AND_RUN()
+  op_log3:                    /* GUEST_LOG3<safemath_error_label>() */ INCR_GAS<FEE_LOG>() log3 INCREMENT_AND_RUN()
+  op_log4:                    /* GUEST_LOG4<safemath_error_label>() */ INCR_GAS<FEE_LOG>() log4 INCREMENT_AND_RUN()
+}
+
+
+template <sio_error_label, safemath_error_label, execute_jump_label, return_status_or_data_error, oog_label>
+#define macro VM__MAIN = takes(0) returns(0) {
+  MATH_OPERATIONS()
+  BIT_OPERATIONS<safemath_error_label>()
+  TX_OPERATIONS<safemath_error_label>()
+  EXTERNAL_OPERATIONS<sio_error_label, safemath_error_label, oog_label>()
+  CONTEXT_OPERATIONS<safemath_error_label>()
+  MEMORY_OPERATIONS<safemath_error_label>()
+  STORAGE_OPERATIONS<sio_error_label, oog_label>()
+  BLOCK_OPERATIONS<sio_error_label, oog_label>()
+  VM_OPERATIONS<execute_jump_label, oog_label>()
+  EXIT_OPERATIONS<safemath_error_label, return_status_or_data_error, oog_label>()
+  PUSH_OPERATIONS()
+  DUP_OPERATIONS()
+  SWAP_OPERATIONS()
+  LOG_OPERATIONS<safemath_error_label>()
+}

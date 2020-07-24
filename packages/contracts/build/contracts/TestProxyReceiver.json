@@ -1,0 +1,1281 @@
+{
+  "contractName": "TestProxyReceiver",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_allowOnly",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "received",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "hasReceived",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "reset",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "receiveCall",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_allowOnly\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"hasReceived\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"receiveCall\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"received\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reset\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Only accepts receipt when sender is a specific address.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"TestProxyReceiver\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/mock/testData/TestProxyReceiver.sol\":\"TestProxyReceiver\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/mock/testData/TestProxyReceiver.sol\":{\"keccak256\":\"0x645adfa862bfa279ac6f5979d5e02ac9ab3cf51cd5ce574eea703a7b3fe8403c\",\"urls\":[\"bzz-raw://697c6a8bfb2bce3cde1839ee4843b29e3487e2c39058b71895a8da6a0aade7fd\",\"dweb:/ipfs/QmSn7BYse2XFzmGHpV63f1TMzuLBNqEdnrBcLsx2JqizDT\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516101b33803806101b38339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b031990921691909117905561014e806100656000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80636226f35b1461005157806383a6deb51461006d5780639cc8dc4b14610075578063d826f88f1461007f575b600080fd5b610059610087565b604080519115158252519081900360200190f35b610059610097565b61007d6100a7565b005b61007d610109565b600054600160a01b900460ff1690565b600054600160a01b900460ff1681565b6000546001600160a01b031633146100f4576040805162461bcd60e51b815260206004820152600b60248201526a4261642073656e6465722160a81b604482015290519081900360640190fd5b6000805460ff60a01b1916600160a01b179055565b6000805460ff60a01b1916905556fea2646970667358221220b3684c0edff657de2c8e29a78401269cf3ecc993b6d017249bb8501b2a6a4a4b64736f6c634300060b0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80636226f35b1461005157806383a6deb51461006d5780639cc8dc4b14610075578063d826f88f1461007f575b600080fd5b610059610087565b604080519115158252519081900360200190f35b610059610097565b61007d6100a7565b005b61007d610109565b600054600160a01b900460ff1690565b600054600160a01b900460ff1681565b6000546001600160a01b031633146100f4576040805162461bcd60e51b815260206004820152600b60248201526a4261642073656e6465722160a81b604482015290519081900360640190fd5b6000805460ff60a01b1916600160a01b179055565b6000805460ff60a01b1916905556fea2646970667358221220b3684c0edff657de2c8e29a78401269cf3ecc993b6d017249bb8501b2a6a4a4b64736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "125:425:41:-:0;;;214:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;214:76:41;259:13;:26;;-1:-1:-1;;;;;259:26:41;;;-1:-1:-1;;;;;;259:26:41;;;;;;;;;125:425;;;;;;",
+  "deployedSourceMap": "125:425:41:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;294:78;;;:::i;:::-;;;;;;;;;;;;;;;;;;189:20;;;:::i;433:115::-;;;:::i;:::-;;376:53;;;:::i;294:78::-;340:4;359:8;-1:-1:-1;;;359:8:41;;;;;294:78::o;189:20::-;;;-1:-1:-1;;;189:20:41;;;;;:::o;433:115::-;493:13;;-1:-1:-1;;;;;493:13:41;479:10;:27;471:51;;;;;-1:-1:-1;;;471:51:41;;;;;;;;;;;;-1:-1:-1;;;471:51:41;;;;;;;;;;;;;;;528:8;:15;;-1:-1:-1;;;;528:15:41;-1:-1:-1;;;528:15:41;;;433:115::o;376:53::-;419:5;408:16;;-1:-1:-1;;;;408:16:41;;;376:53::o",
+  "source": "pragma solidity ^0.6.0;\n\n/**\n * @title TestProxyReceiver\n * @dev Only accepts receipt when sender is a specific address.\n */\ncontract TestProxyReceiver {\n  address private allowedSender;\n  bool public received;\n\n  constructor(address _allowOnly) public {\n    allowedSender = _allowOnly;\n  }\n\n  function hasReceived() external view returns (bool) {\n    return received;\n  }\n\n  function reset() external {\n    received = false;\n  }\n\n  function receiveCall() external {\n    require(msg.sender == allowedSender, \"Bad sender!\");\n    received = true;\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/mock/testData/TestProxyReceiver.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/mock/testData/TestProxyReceiver.sol",
+    "exportedSymbols": {
+      "TestProxyReceiver": [
+        12907
+      ]
+    },
+    "id": 12908,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 12859,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:41"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 12860,
+          "nodeType": "StructuredDocumentation",
+          "src": "25:99:41",
+          "text": " @title TestProxyReceiver\n @dev Only accepts receipt when sender is a specific address."
+        },
+        "fullyImplemented": true,
+        "id": 12907,
+        "linearizedBaseContracts": [
+          12907
+        ],
+        "name": "TestProxyReceiver",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 12862,
+            "mutability": "mutable",
+            "name": "allowedSender",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 12907,
+            "src": "156:29:41",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 12861,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "156:7:41",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "functionSelector": "83a6deb5",
+            "id": 12864,
+            "mutability": "mutable",
+            "name": "received",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 12907,
+            "src": "189:20:41",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 12863,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "189:4:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12873,
+              "nodeType": "Block",
+              "src": "253:37:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12869,
+                      "name": "allowedSender",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12862,
+                      "src": "259:13:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 12870,
+                      "name": "_allowOnly",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12866,
+                      "src": "275:10:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "259:26:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 12872,
+                  "nodeType": "ExpressionStatement",
+                  "src": "259:26:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 12874,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12867,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12866,
+                  "mutability": "mutable",
+                  "name": "_allowOnly",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12874,
+                  "src": "226:18:41",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12865,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:7:41",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "225:20:41"
+            },
+            "returnParameters": {
+              "id": 12868,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "253:0:41"
+            },
+            "scope": 12907,
+            "src": "214:76:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12881,
+              "nodeType": "Block",
+              "src": "346:26:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12879,
+                    "name": "received",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 12864,
+                    "src": "359:8:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 12878,
+                  "id": 12880,
+                  "nodeType": "Return",
+                  "src": "352:15:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "6226f35b",
+            "id": 12882,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasReceived",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12875,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "314:2:41"
+            },
+            "returnParameters": {
+              "id": 12878,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12877,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12882,
+                  "src": "340:4:41",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 12876,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "340:4:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "339:6:41"
+            },
+            "scope": 12907,
+            "src": "294:78:41",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 12889,
+              "nodeType": "Block",
+              "src": "402:27:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12887,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12885,
+                      "name": "received",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12864,
+                      "src": "408:8:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 12886,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "419:5:41",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "src": "408:16:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 12888,
+                  "nodeType": "ExpressionStatement",
+                  "src": "408:16:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "d826f88f",
+            "id": 12890,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "reset",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12883,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "390:2:41"
+            },
+            "returnParameters": {
+              "id": 12884,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "402:0:41"
+            },
+            "scope": 12907,
+            "src": "376:53:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 12905,
+              "nodeType": "Block",
+              "src": "465:83:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 12897,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 12894,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "479:3:41",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 12895,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "479:10:41",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 12896,
+                          "name": "allowedSender",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12862,
+                          "src": "493:13:41",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "479:27:41",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4261642073656e64657221",
+                        "id": 12898,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "508:13:41",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_ba46606faa775126972d3b130e938df90dd385fb0a3a083a3df47cc2d831fb0c",
+                          "typeString": "literal_string \"Bad sender!\""
+                        },
+                        "value": "Bad sender!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_ba46606faa775126972d3b130e938df90dd385fb0a3a083a3df47cc2d831fb0c",
+                          "typeString": "literal_string \"Bad sender!\""
+                        }
+                      ],
+                      "id": 12893,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "471:7:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 12899,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "471:51:41",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 12900,
+                  "nodeType": "ExpressionStatement",
+                  "src": "471:51:41"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12903,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12901,
+                      "name": "received",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12864,
+                      "src": "528:8:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 12902,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "539:4:41",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "528:15:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 12904,
+                  "nodeType": "ExpressionStatement",
+                  "src": "528:15:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9cc8dc4b",
+            "id": 12906,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "receiveCall",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12891,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "453:2:41"
+            },
+            "returnParameters": {
+              "id": 12892,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "465:0:41"
+            },
+            "scope": 12907,
+            "src": "433:115:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 12908,
+        "src": "125:425:41"
+      }
+    ],
+    "src": "0:550:41"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/mock/testData/TestProxyReceiver.sol",
+    "exportedSymbols": {
+      "TestProxyReceiver": [
+        12907
+      ]
+    },
+    "id": 12908,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 12859,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:41"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 12860,
+          "nodeType": "StructuredDocumentation",
+          "src": "25:99:41",
+          "text": " @title TestProxyReceiver\n @dev Only accepts receipt when sender is a specific address."
+        },
+        "fullyImplemented": true,
+        "id": 12907,
+        "linearizedBaseContracts": [
+          12907
+        ],
+        "name": "TestProxyReceiver",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 12862,
+            "mutability": "mutable",
+            "name": "allowedSender",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 12907,
+            "src": "156:29:41",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 12861,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "156:7:41",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "functionSelector": "83a6deb5",
+            "id": 12864,
+            "mutability": "mutable",
+            "name": "received",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 12907,
+            "src": "189:20:41",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 12863,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "189:4:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12873,
+              "nodeType": "Block",
+              "src": "253:37:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12869,
+                      "name": "allowedSender",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12862,
+                      "src": "259:13:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 12870,
+                      "name": "_allowOnly",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12866,
+                      "src": "275:10:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "259:26:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 12872,
+                  "nodeType": "ExpressionStatement",
+                  "src": "259:26:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 12874,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12867,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12866,
+                  "mutability": "mutable",
+                  "name": "_allowOnly",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12874,
+                  "src": "226:18:41",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12865,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:7:41",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "225:20:41"
+            },
+            "returnParameters": {
+              "id": 12868,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "253:0:41"
+            },
+            "scope": 12907,
+            "src": "214:76:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12881,
+              "nodeType": "Block",
+              "src": "346:26:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12879,
+                    "name": "received",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 12864,
+                    "src": "359:8:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 12878,
+                  "id": 12880,
+                  "nodeType": "Return",
+                  "src": "352:15:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "6226f35b",
+            "id": 12882,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "hasReceived",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12875,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "314:2:41"
+            },
+            "returnParameters": {
+              "id": 12878,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12877,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12882,
+                  "src": "340:4:41",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 12876,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "340:4:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "339:6:41"
+            },
+            "scope": 12907,
+            "src": "294:78:41",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 12889,
+              "nodeType": "Block",
+              "src": "402:27:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12887,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12885,
+                      "name": "received",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12864,
+                      "src": "408:8:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 12886,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "419:5:41",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "src": "408:16:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 12888,
+                  "nodeType": "ExpressionStatement",
+                  "src": "408:16:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "d826f88f",
+            "id": 12890,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "reset",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12883,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "390:2:41"
+            },
+            "returnParameters": {
+              "id": 12884,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "402:0:41"
+            },
+            "scope": 12907,
+            "src": "376:53:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 12905,
+              "nodeType": "Block",
+              "src": "465:83:41",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 12897,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 12894,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "479:3:41",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 12895,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "479:10:41",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 12896,
+                          "name": "allowedSender",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12862,
+                          "src": "493:13:41",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "479:27:41",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4261642073656e64657221",
+                        "id": 12898,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "508:13:41",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_ba46606faa775126972d3b130e938df90dd385fb0a3a083a3df47cc2d831fb0c",
+                          "typeString": "literal_string \"Bad sender!\""
+                        },
+                        "value": "Bad sender!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_ba46606faa775126972d3b130e938df90dd385fb0a3a083a3df47cc2d831fb0c",
+                          "typeString": "literal_string \"Bad sender!\""
+                        }
+                      ],
+                      "id": 12893,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "471:7:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 12899,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "471:51:41",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 12900,
+                  "nodeType": "ExpressionStatement",
+                  "src": "471:51:41"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12903,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 12901,
+                      "name": "received",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12864,
+                      "src": "528:8:41",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 12902,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "539:4:41",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "528:15:41",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 12904,
+                  "nodeType": "ExpressionStatement",
+                  "src": "528:15:41"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "9cc8dc4b",
+            "id": 12906,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "receiveCall",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 12891,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "453:2:41"
+            },
+            "returnParameters": {
+              "id": 12892,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "465:0:41"
+            },
+            "scope": 12907,
+            "src": "433:115:41",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 12908,
+        "src": "125:425:41"
+      }
+    ],
+    "src": "0:550:41"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.659Z",
+  "devdoc": {
+    "details": "Only accepts receipt when sender is a specific address.",
+    "kind": "dev",
+    "methods": {},
+    "title": "TestProxyReceiver",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

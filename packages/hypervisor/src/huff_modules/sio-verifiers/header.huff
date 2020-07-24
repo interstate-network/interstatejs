@@ -1,0 +1,7 @@
+#include './sio-verifiers/sio-utils.huff'
+#include './sio-verifiers/call-verifiers.huff'
+#include './sio-verifiers/global-verifiers.huff'
+#include './sio-verifiers/storage-verifiers.huff'
+#include './sio-verifiers/exit-verifiers.huff'
+#include './sio-verifiers/header-verifiers.huff'
+#include './sio-verifiers/code-verifiers.huff'

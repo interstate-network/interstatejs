@@ -1,0 +1,2249 @@
+{
+  "contractName": "RelayTransactionLib",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol\":\"RelayTransactionLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol\":{\"keccak256\":\"0x455a0395200a107bab019734ec680df3c5e1b1825d691f1cb566e631db757299\",\"urls\":[\"bzz-raw://9157c9fc5b3baf22131f90903c7dcaf777f8c023f154f5bd4c3b5b8c78cc8b55\",\"dweb:/ipfs/QmTKFTLdqj8LR5YeNamuQ3PMLKnSEZQC1mZHBt7q2jc4oc\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122003b69fef4ea65458d196eab65e8cc35ee3fa866e44e51737f4eae162e3a388dd64736f6c634300060b0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122003b69fef4ea65458d196eab65e8cc35ee3fa866e44e51737f4eae162e3a388dd64736f6c634300060b0033",
+  "immutableReferences": {},
+  "sourceMap": "59:1084:19:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "59:1084:19:-:0;;;;;;;;",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\nlibrary RelayTransactionLib {\n  struct RelayTransaction {\n    address from;\n    address to;\n    uint256 gas;\n    uint256 value;\n    bytes data;\n  }\n  \n  /**\n   * @dev Data structure representing the full transaction\n   * after being processed by the sidechain.\n   * The stateRoot field is the only value actually represented\n   * in the block, this struct is only used to simplify fraud proofs.\n   */\n  struct IncomingTransaction {\n    address from;\n    address to;\n    uint256 gas;\n    uint256 value;\n    bytes data;\n    bytes32 stateRoot;\n  }\n\n  function toBytes(RelayTransaction memory _itx)\n  internal pure returns (bytes memory _encoded) {\n    _encoded = abi.encode(_itx);\n  }\n\n  function transactionHash(RelayTransaction memory _itx)\n  internal pure returns (bytes32) {\n    return keccak256(toBytes(_itx));\n  }\n\n  function transactionHash(IncomingTransaction memory _itx)\n  internal pure returns (bytes32) {\n    return transactionHash(RelayTransaction({\n      from: _itx.from,\n      to: _itx.to,\n      gas: _itx.gas,\n      value: _itx.value,\n      data: _itx.data\n    }));\n  }\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol",
+    "exportedSymbols": {
+      "RelayTransactionLib": [
+        3542
+      ]
+    },
+    "id": 3543,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3464,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:19"
+      },
+      {
+        "id": 3465,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:19"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3542,
+        "linearizedBaseContracts": [
+          3542
+        ],
+        "name": "RelayTransactionLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "RelayTransactionLib.RelayTransaction",
+            "id": 3476,
+            "members": [
+              {
+                "constant": false,
+                "id": 3467,
+                "mutability": "mutable",
+                "name": "from",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "121:12:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3466,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "121:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3469,
+                "mutability": "mutable",
+                "name": "to",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "139:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3468,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "139:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3471,
+                "mutability": "mutable",
+                "name": "gas",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "155:11:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3470,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "155:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3473,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "172:13:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3472,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3475,
+                "mutability": "mutable",
+                "name": "data",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "191:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3474,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "191:5:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RelayTransaction",
+            "nodeType": "StructDefinition",
+            "scope": 3542,
+            "src": "91:115:19",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "RelayTransactionLib.IncomingTransaction",
+            "id": 3489,
+            "members": [
+              {
+                "constant": false,
+                "id": 3478,
+                "mutability": "mutable",
+                "name": "from",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "495:12:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3477,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "495:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3480,
+                "mutability": "mutable",
+                "name": "to",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "513:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3479,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "513:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3482,
+                "mutability": "mutable",
+                "name": "gas",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "529:11:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3481,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "529:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3484,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "546:13:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3483,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "546:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3486,
+                "mutability": "mutable",
+                "name": "data",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "565:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3485,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "565:5:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3488,
+                "mutability": "mutable",
+                "name": "stateRoot",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "581:17:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 3487,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "581:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "IncomingTransaction",
+            "nodeType": "StructDefinition",
+            "scope": 3542,
+            "src": "462:141:19",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3503,
+              "nodeType": "Block",
+              "src": "702:38:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3501,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3496,
+                      "name": "_encoded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3494,
+                      "src": "708:8:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3499,
+                          "name": "_itx",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3491,
+                          "src": "730:4:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                            "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                            "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 3497,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -1,
+                          "src": "719:3:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 3498,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "encode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "719:10:19",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                          "typeString": "function () pure returns (bytes memory)"
+                        }
+                      },
+                      "id": 3500,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "719:16:19",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "src": "708:27:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "id": 3502,
+                  "nodeType": "ExpressionStatement",
+                  "src": "708:27:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3504,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "toBytes",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3492,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3491,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3504,
+                  "src": "624:28:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.RelayTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3490,
+                    "name": "RelayTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3476,
+                    "src": "624:16:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RelayTransaction_$3476_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.RelayTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:30:19"
+            },
+            "returnParameters": {
+              "id": 3495,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3494,
+                  "mutability": "mutable",
+                  "name": "_encoded",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3504,
+                  "src": "679:21:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3493,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "679:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "678:23:19"
+            },
+            "scope": 3542,
+            "src": "607:133:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 3517,
+              "nodeType": "Block",
+              "src": "833:42:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 3513,
+                            "name": "_itx",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3506,
+                            "src": "864:4:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                              "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                              "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                            }
+                          ],
+                          "id": 3512,
+                          "name": "toBytes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3504,
+                          "src": "856:7:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_struct$_RelayTransaction_$3476_memory_ptr_$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function (struct RelayTransactionLib.RelayTransaction memory) pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 3514,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "856:13:19",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 3511,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -8,
+                      "src": "846:9:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 3515,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "846:24:19",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 3510,
+                  "id": 3516,
+                  "nodeType": "Return",
+                  "src": "839:31:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3518,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transactionHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3506,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3518,
+                  "src": "769:28:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.RelayTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3505,
+                    "name": "RelayTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3476,
+                    "src": "769:16:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RelayTransaction_$3476_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.RelayTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "768:30:19"
+            },
+            "returnParameters": {
+              "id": 3510,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3509,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3518,
+                  "src": "824:7:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3508,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "824:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "823:9:19"
+            },
+            "scope": 3542,
+            "src": "744:131:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 3540,
+              "nodeType": "Block",
+              "src": "971:170:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3527,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1031:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3528,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "from",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3478,
+                            "src": "1031:9:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3529,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1052:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3530,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "to",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3480,
+                            "src": "1052:7:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3531,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1072:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3532,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "gas",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3482,
+                            "src": "1072:8:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3533,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1095:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3534,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "value",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3484,
+                            "src": "1095:10:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3535,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1119:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3536,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "data",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3486,
+                            "src": "1119:9:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          ],
+                          "id": 3526,
+                          "name": "RelayTransaction",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3476,
+                          "src": "1000:16:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_RelayTransaction_$3476_storage_ptr_$",
+                            "typeString": "type(struct RelayTransactionLib.RelayTransaction storage pointer)"
+                          }
+                        },
+                        "id": 3537,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "from",
+                          "to",
+                          "gas",
+                          "value",
+                          "data"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "1000:135:19",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                          "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                          "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                        }
+                      ],
+                      "id": 3525,
+                      "name": "transactionHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        3518,
+                        3541
+                      ],
+                      "referencedDeclaration": 3518,
+                      "src": "984:15:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_struct$_RelayTransaction_$3476_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (struct RelayTransactionLib.RelayTransaction memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 3538,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "984:152:19",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 3524,
+                  "id": 3539,
+                  "nodeType": "Return",
+                  "src": "977:159:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3541,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transactionHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3521,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3520,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3541,
+                  "src": "904:31:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.IncomingTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3519,
+                    "name": "IncomingTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3489,
+                    "src": "904:19:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncomingTransaction_$3489_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.IncomingTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "903:33:19"
+            },
+            "returnParameters": {
+              "id": 3524,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3523,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3541,
+                  "src": "962:7:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3522,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "962:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "961:9:19"
+            },
+            "scope": 3542,
+            "src": "879:262:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 3543,
+        "src": "59:1084:19"
+      }
+    ],
+    "src": "0:1143:19"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol",
+    "exportedSymbols": {
+      "RelayTransactionLib": [
+        3542
+      ]
+    },
+    "id": 3543,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3464,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:19"
+      },
+      {
+        "id": 3465,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:19"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3542,
+        "linearizedBaseContracts": [
+          3542
+        ],
+        "name": "RelayTransactionLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "RelayTransactionLib.RelayTransaction",
+            "id": 3476,
+            "members": [
+              {
+                "constant": false,
+                "id": 3467,
+                "mutability": "mutable",
+                "name": "from",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "121:12:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3466,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "121:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3469,
+                "mutability": "mutable",
+                "name": "to",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "139:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3468,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "139:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3471,
+                "mutability": "mutable",
+                "name": "gas",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "155:11:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3470,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "155:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3473,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "172:13:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3472,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3475,
+                "mutability": "mutable",
+                "name": "data",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3476,
+                "src": "191:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3474,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "191:5:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RelayTransaction",
+            "nodeType": "StructDefinition",
+            "scope": 3542,
+            "src": "91:115:19",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "RelayTransactionLib.IncomingTransaction",
+            "id": 3489,
+            "members": [
+              {
+                "constant": false,
+                "id": 3478,
+                "mutability": "mutable",
+                "name": "from",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "495:12:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3477,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "495:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3480,
+                "mutability": "mutable",
+                "name": "to",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "513:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3479,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "513:7:19",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3482,
+                "mutability": "mutable",
+                "name": "gas",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "529:11:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3481,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "529:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3484,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "546:13:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3483,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "546:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3486,
+                "mutability": "mutable",
+                "name": "data",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "565:10:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3485,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "565:5:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3488,
+                "mutability": "mutable",
+                "name": "stateRoot",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 3489,
+                "src": "581:17:19",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 3487,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "581:7:19",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "IncomingTransaction",
+            "nodeType": "StructDefinition",
+            "scope": 3542,
+            "src": "462:141:19",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3503,
+              "nodeType": "Block",
+              "src": "702:38:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3501,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3496,
+                      "name": "_encoded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3494,
+                      "src": "708:8:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3499,
+                          "name": "_itx",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3491,
+                          "src": "730:4:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                            "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                            "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 3497,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -1,
+                          "src": "719:3:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 3498,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "encode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "719:10:19",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                          "typeString": "function () pure returns (bytes memory)"
+                        }
+                      },
+                      "id": 3500,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "719:16:19",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "src": "708:27:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "id": 3502,
+                  "nodeType": "ExpressionStatement",
+                  "src": "708:27:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3504,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "toBytes",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3492,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3491,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3504,
+                  "src": "624:28:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.RelayTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3490,
+                    "name": "RelayTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3476,
+                    "src": "624:16:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RelayTransaction_$3476_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.RelayTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:30:19"
+            },
+            "returnParameters": {
+              "id": 3495,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3494,
+                  "mutability": "mutable",
+                  "name": "_encoded",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3504,
+                  "src": "679:21:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3493,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "679:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "678:23:19"
+            },
+            "scope": 3542,
+            "src": "607:133:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 3517,
+              "nodeType": "Block",
+              "src": "833:42:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 3513,
+                            "name": "_itx",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3506,
+                            "src": "864:4:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                              "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                              "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                            }
+                          ],
+                          "id": 3512,
+                          "name": "toBytes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3504,
+                          "src": "856:7:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_struct$_RelayTransaction_$3476_memory_ptr_$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function (struct RelayTransactionLib.RelayTransaction memory) pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 3514,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "856:13:19",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 3511,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -8,
+                      "src": "846:9:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 3515,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "846:24:19",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 3510,
+                  "id": 3516,
+                  "nodeType": "Return",
+                  "src": "839:31:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3518,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transactionHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3506,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3518,
+                  "src": "769:28:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.RelayTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3505,
+                    "name": "RelayTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3476,
+                    "src": "769:16:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RelayTransaction_$3476_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.RelayTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "768:30:19"
+            },
+            "returnParameters": {
+              "id": 3510,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3509,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3518,
+                  "src": "824:7:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3508,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "824:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "823:9:19"
+            },
+            "scope": 3542,
+            "src": "744:131:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 3540,
+              "nodeType": "Block",
+              "src": "971:170:19",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3527,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1031:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3528,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "from",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3478,
+                            "src": "1031:9:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3529,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1052:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3530,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "to",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3480,
+                            "src": "1052:7:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3531,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1072:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3532,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "gas",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3482,
+                            "src": "1072:8:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3533,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1095:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3534,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "value",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3484,
+                            "src": "1095:10:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3535,
+                              "name": "_itx",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3520,
+                              "src": "1119:4:19",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                                "typeString": "struct RelayTransactionLib.IncomingTransaction memory"
+                              }
+                            },
+                            "id": 3536,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "data",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3486,
+                            "src": "1119:9:19",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          ],
+                          "id": 3526,
+                          "name": "RelayTransaction",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3476,
+                          "src": "1000:16:19",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_RelayTransaction_$3476_storage_ptr_$",
+                            "typeString": "type(struct RelayTransactionLib.RelayTransaction storage pointer)"
+                          }
+                        },
+                        "id": 3537,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "from",
+                          "to",
+                          "gas",
+                          "value",
+                          "data"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "1000:135:19",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                          "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_RelayTransaction_$3476_memory_ptr",
+                          "typeString": "struct RelayTransactionLib.RelayTransaction memory"
+                        }
+                      ],
+                      "id": 3525,
+                      "name": "transactionHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        3518,
+                        3541
+                      ],
+                      "referencedDeclaration": 3518,
+                      "src": "984:15:19",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_struct$_RelayTransaction_$3476_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (struct RelayTransactionLib.RelayTransaction memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 3538,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "984:152:19",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 3524,
+                  "id": 3539,
+                  "nodeType": "Return",
+                  "src": "977:159:19"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3541,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transactionHash",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3521,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3520,
+                  "mutability": "mutable",
+                  "name": "_itx",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3541,
+                  "src": "904:31:19",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncomingTransaction_$3489_memory_ptr",
+                    "typeString": "struct RelayTransactionLib.IncomingTransaction"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3519,
+                    "name": "IncomingTransaction",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3489,
+                    "src": "904:19:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncomingTransaction_$3489_storage_ptr",
+                      "typeString": "struct RelayTransactionLib.IncomingTransaction"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "903:33:19"
+            },
+            "returnParameters": {
+              "id": 3524,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3523,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3541,
+                  "src": "962:7:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3522,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "962:7:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "961:9:19"
+            },
+            "scope": 3542,
+            "src": "879:262:19",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 3543,
+        "src": "59:1084:19"
+      }
+    ],
+    "src": "0:1143:19"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.560Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

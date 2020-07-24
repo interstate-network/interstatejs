@@ -1,0 +1,9 @@
+template <sio_revert_label>
+#define macro GUEST_SLOAD = takes(1) returns(1) {
+  VERIFY_ACCESS_SLOAD<sio_revert_label>()
+}
+
+template <sio_revert_label>
+#define macro GUEST_SSTORE = takes(2) returns(0) {
+  VERIFY_ACCESS_SSTORE<sio_revert_label>()
+}

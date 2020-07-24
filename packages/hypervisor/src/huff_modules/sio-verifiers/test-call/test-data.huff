@@ -1,0 +1,10 @@
+#include "./mock-machine.huff"
+
+#define macro TEST_CALLDATA_HASH = takes(0) returns(0) {
+  start:
+  0xffff 0x00 ADD_GUEST_PTR_OFFSET<start>() mstore
+  0x20 0x00 ADD_GUEST_PTR_OFFSET<start>()
+  dup2 dup2 sha3
+  dup2 mstore
+  return
+}

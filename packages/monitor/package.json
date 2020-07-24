@@ -1,0 +1,36 @@
+{
+  "name": "@interstatejs/monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mocha:ts": "mocha -r ts-node/register",
+    "build": "tsc",
+    "test:auditor": "yarn mocha:ts ./test/tests/auditor/*.spec.ts --timeout=20000",
+    "test:auditor:block": "yarn mocha:ts ./test/tests/auditor/block.spec.ts --timeout=20000",
+    "test:auditor:encoding": "yarn mocha:ts ./test/tests/auditor/encoding.spec.ts --timeout=20000",
+    "test:auditor:execution": "yarn mocha:ts ./test/tests/auditor/execution.spec.ts --timeout=20000",
+    "test:auditor:witness": "yarn mocha:ts ./test/tests/auditor/witness.spec.ts --timeout=20000",
+    "test:auditor:access": "yarn mocha:ts ./test/tests/auditor/access.spec.ts --timeout=20000",
+    "test:challenge": "yarn mocha:ts ./test/tests/challenge-monitor.spec.ts --timeout=20000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@interstatejs/block": "^2.2.2",
+    "@interstatejs/contracts": "^0.1.5",
+    "abstract-leveldown": "^6.3.0",
+    "ethereumjs-util": "^7.0.2",
+    "level-ws": "^2.0.0",
+    "leveldown": "^5.6.0",
+    "levelup": "^4.4.0",
+    "memdown": "^5.1.0",
+    "merkle-patricia-tree": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/leveldown": "^4.0.2",
+    "@types/levelup": "^4.3.0",
+    "@types/memdown": "^3.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VmError = exports.ERROR = void 0;
+var ERROR;
+(function (ERROR) {
+    ERROR["OUT_OF_GAS"] = "out of gas";
+    ERROR["STACK_UNDERFLOW"] = "stack underflow";
+    ERROR["STACK_OVERFLOW"] = "stack overflow";
+    ERROR["INVALID_JUMP"] = "invalid JUMP";
+    ERROR["INVALID_OPCODE"] = "invalid opcode";
+    ERROR["OUT_OF_RANGE"] = "value out of range";
+    ERROR["REVERT"] = "revert";
+    ERROR["STATIC_STATE_CHANGE"] = "static state change";
+    ERROR["INTERNAL_ERROR"] = "internal error";
+    ERROR["ATTEMPTED_CREATE"] = "attempted to execute create";
+    ERROR["CREATE_COLLISION"] = "create collision";
+    ERROR["STOP"] = "stop";
+    ERROR["REFUND_EXHAUSTED"] = "refund exhausted";
+    ERROR["INSUFFICIENT_BALANCE"] = "insufficient balance for call";
+    ERROR["INSUFFICIENT_VALUE_FOR_BOUNTY"] = "insufficient value for exit bounty";
+    ERROR["DISALLOWED_CALL_TARGET"] = "disallowed call target";
+})(ERROR = exports.ERROR || (exports.ERROR = {}));
+class VmError extends Error {
+    constructor(error) {
+        super(error.toString());
+        this.error = error;
+        this.errorType = 'VmError';
+    }
+}
+exports.VmError = VmError;
+//# sourceMappingURL=exceptions.js.map

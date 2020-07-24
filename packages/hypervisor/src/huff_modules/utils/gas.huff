@@ -1,0 +1,51 @@
+#include "./utils/integers.huff"
+#include "./io/calldata-pointers.huff"
+#include "./io/memory-pointers.huff"
+#include "./io/pointers.huff"
+
+
+#define macro ADD_REFUND = takes(1) returns(0) {
+  // [amount_to_add]
+  INT_PLUS_EQ<VIRTUAL_GAS_REFUND>()
+}
+
+#define macro ADD_GAS = takes(1) returns(0) {
+  // [amount_to_add]
+  INT_PLUS_EQ<VIRTUAL_GAS_USED>()
+}
+
+template <amount_to_add>
+#define macro INCR_GAS = takes(0) returns(0) {
+  <amount_to_add> ADD_GAS()
+}
+
+template <amount_to_add, oog_loc>
+#define macro INCR_AND_CHECK_GAS = takes(0) returns(0) {
+  LOAD<VIRTUAL_GAS_USED>()        // [ vgas ]
+  <amount_to_add> add dup1        // [ vgas+cost, vgas+cost ]
+  CDLOAD<GAS_AVAILABLE_CDPTR>()   // [ call_gas, vgas+cost, vgas+cost ]
+  /* if call_gas is less than what the new gas_used would be, jump to oog check */
+  lt <oog_loc> jumpi              // [ vgas+cost ]
+  STORE<VIRTUAL_GAS_USED>()       // []
+}
+
+template <oog_label>
+#define macro CHECK_GAS = takes(0) returns(0) {
+  LOAD<VIRTUAL_GAS_USED>()        // [ vgas ]
+  CDLOAD<GAS_AVAILABLE_CDPTR>()   // [ call_gas, vgas ]
+  /* if call_gas is less than what has been used, jump to oog check */
+  lt <oog_label> jumpi              // [ vgas+cost ]
+}
+
+#define macro MAX_CALL_GAS = takes(1) returns(1) {
+  // [ gas ]
+  LOAD<VIRTUAL_GAS_USED>()        // [ vgas, gas ]
+  CDLOAD<GAS_AVAILABLE_CDPTR>()   // [ call_gas, vgas, gas ]
+  sub                             // [ gas_left, gas ]
+  dup2 dup2 gt                    // [ gas_left > gas, gas_left, gas ]
+  gas_left_gt jumpi               // [ gas_left, gas ]
+    pop fin jump                  // [ gas ]
+  gas_left_gt:                    // [ gas_left, gas ]
+    swap1 pop                     // [ gas_left ]
+  fin:
+}

@@ -1,0 +1,59 @@
+{
+  "origin": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "transactionHash": "0xdfde801946042052063a50ea211e8f1f328d1a64990e687410f877846eb3e346",
+  "path": [],
+  "to": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "context": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "caller": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "callData": "0x17fa1141",
+  "callvalue": "0x",
+  "contractAddress": "0xb8602d19bdd9339975290224a46f45624431fdd4",
+  "link": null,
+  "internal": [],
+  "logs": [],
+  "sio": [
+    {
+      "opcode": "sload",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "opcode": "sstore",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "stateRoot": "0x480b77a57653dc4b0e433335597f2f8417f0b5831d7aff6c5bc6e4a3bc908f90"
+      }
+    },
+    {
+      "opcode": "sstore",
+      "metadata": {
+        "slot": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6",
+        "value": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c",
+        "stateRoot": "0xf7d34e9bbf124d5b0a441103bdc338d167ec9da6a605509c548eb21e916d5682"
+      }
+    },
+    {
+      "opcode": "sstore",
+      "metadata": {
+        "slot": "0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf7",
+        "value": "0x806317fa114114610030575b600080fd5b610000000000000000000000000000",
+        "stateRoot": "0xdf528ae73fa3cfc2bac71a267e62176d4fb83155d24de20ab66be120e4052f88"
+      }
+    },
+    {
+      "opcode": "sstore",
+      "metadata": {
+        "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "value": "0x1e0bcabf9598d1990297bdc58b8e73a360abd1177dcb7f01fc8ae624429abcac",
+        "stateRoot": "0x1b978f3a380d426270e2e15605b732b368cd3bbdfec4d509670c04bd7793009d"
+      }
+    }
+  ],
+  "stateRootEnter": "0xc69d17904f9ecedd6b82fd35878d1e18178ece161cd07d33f9e449eb60ed05c0",
+  "callsuccess": true,
+  "returndata": "0x",
+  "stateRootLeave": "0x1b978f3a380d426270e2e15605b732b368cd3bbdfec4d509670c04bd7793009d"
+}

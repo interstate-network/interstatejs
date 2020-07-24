@@ -1,0 +1,123 @@
+template <index>
+#define macro CHECK_BYTE = takes(3) returns(3) {
+  // [word, zero_count, non_zero_count]
+  dup1 <index> byte                   // [word[index], word, zero_count, non_zero_count]
+  /* if (byte == 0) goto byte_iszero */
+  0x00 eq byte_iszero jumpi           // [word, zero_count, non_zero_count]
+  swap2 0x01 add swap2 jump_next jump // [word, zero_count, non_zero_count + 1]
+  byte_iszero: swap1 0x01 add swap1   // [word, zero_count + 1, non_zero_count]
+  jump_next:
+}
+
+#define macro COST_WORD = takes(3) returns(2) {
+  // [word, zero_count, non_zero_count]
+  CHECK_BYTE<0>()
+  CHECK_BYTE<1>()
+  CHECK_BYTE<2>()
+  CHECK_BYTE<3>()
+  CHECK_BYTE<4>()
+  CHECK_BYTE<5>()
+  CHECK_BYTE<6>()
+  CHECK_BYTE<7>()
+  CHECK_BYTE<8>()
+  CHECK_BYTE<9>()
+  CHECK_BYTE<10>()
+  CHECK_BYTE<11>()
+  CHECK_BYTE<12>()
+  CHECK_BYTE<13>()
+  CHECK_BYTE<14>()
+  CHECK_BYTE<15>()
+  CHECK_BYTE<16>()
+  CHECK_BYTE<17>()
+  CHECK_BYTE<18>()
+  CHECK_BYTE<19>()
+  CHECK_BYTE<20>()
+  CHECK_BYTE<21>()
+  CHECK_BYTE<22>()
+  CHECK_BYTE<23>()
+  CHECK_BYTE<24>()
+  CHECK_BYTE<25>()
+  CHECK_BYTE<26>()
+  CHECK_BYTE<27>()
+  CHECK_BYTE<28>()
+  CHECK_BYTE<29>()
+  CHECK_BYTE<30>()
+  CHECK_BYTE<31>()
+  pop // [zero_count, non_zero_count]
+}
+
+#define macro READ_WORD = takes(0) returns(0) {
+  // [word_index, data_body_cdptr]
+  0x20 mul add            // [word_index * 32 + data_body_cdptr]
+  calldataload            // [word]
+}
+
+#define macro FOR_EACH_WORD = takes(2) returns(4) {
+  // [data_body_cdptr, word_count]
+  0x00 0x00 0x00 // [zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+  start_loop:
+    // <condition>
+    dup5 dup4       // [word_index, word_count, zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    lt iszero       // [word_index >= word_count, zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    end_loop jumpi  // [zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    // </condition>
+    dup4 dup4   // [word_index, data_body_cdptr, zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    READ_WORD() // [word, zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    COST_WORD() // [zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+    swap2 0x01 add swap2  // [zero_count, non_zero_count, word_index + 1, data_body_cdptr, word_count]
+    start_loop jump
+  end_loop:
+  // [zero_count, non_zero_count, word_index, data_body_cdptr, word_count]
+  swap2 pop // [non_zero_count, zero_count, data_body_cdptr, word_count]
+  swap1     // [zero_count, non_zero_count, data_body_cdptr, word_count]
+}
+
+#define macro DO_LAST_WORD = takes(2) returns(2) {
+  // [zero_count, non_zero_count, data_body_cdptr, word_count, data_len]
+  dup3 dup5   // [word_count, data_body_cdptr, zero_count, non_zero_count, data_body_cdptr, word_count, data_len]
+  READ_WORD() // [last_word, zero_count, non_zero_count, data_body_cdptr, word_count, data_len]
+  0x00 // [byte_index, last_word, zero_count, non_zero_count, data_body_cdptr, word_count, data_len]
+  swap4 pop // [last_word, zero_count, non_zero_count, byte_index, word_count, data_len]
+  swap5 0x20 swap1 mod // [data_len % 32, zero_count, non_zero_count, byte_index, word_count, last_word]
+  swap4 // [word_count, zero_count, non_zero_count, byte_index, byte_count, last_word]
+  swap5 // [last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+  start__loop:
+    dup5 dup5 // [byte_index, byte_count, last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    lt iszero // [byte_index >= byte_count, last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    end__loop jumpi // [last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    dup1 dup5 // [byte_index, last_word, last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    byte      // [byte, last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    0x00 eq   // [byte == 0, last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    byte__iszero jumpi // [last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+    /* if non-zero byte */
+    swap2 0x01 add swap2 // [last_word, zero_count, non_zero_count + 1, byte_index, byte_count, word_count]
+    swap3 0x01 add swap3 // [last_word, zero_count, non_zero_count + 1, byte_index + 1, byte_count, word_count]
+    start__loop jump
+    /* if zero byte */
+    byte__iszero: swap1 0x01 add swap1 // [last_word, zero_count + 1, non_zero_count, byte_index, byte_count, word_count]
+    swap3 0x01 add swap3 // [last_word, zero_count + 1, non_zero_count, byte_index + 1, byte_count, word_count]
+    start__loop jump
+  end__loop:  // [last_word, zero_count, non_zero_count, byte_index, byte_count, word_count]
+  pop         // [zero_count, non_zero_count, byte_index, byte_count, word_count]
+  0x00 mstore // [non_zero_count, byte_index, byte_count, word_count]
+  0x20 mstore // [byte_index, byte_count, word_count]
+  pop pop pop // []
+}
+
+/**
+ * @dev MAIN
+ * @notice Takes an encoded bytes array as calldata and returns a tuple of (uint256 zeroBytes, uint256 nonZeroBytes)
+ */
+#define macro MAIN = takes(0) returns(0) {
+  0x04 dup1         // [4, 4]
+  calldataload      // [data_len_offset, 4]
+  add               // [data_len_cdptr]
+  dup1 calldataload // [data_len, data_len_cdptr]
+  // now we get the number of complete words in the data
+  0x20 dup2 div     // [data_len / 32, data_len, data_len_cdptr]
+  dup3 0x20 add     // [data_body_cdptr, word_count, data_len, data_len_cdptr]
+  FOR_EACH_WORD()   // [zero_count, non_zero_count, data_body_cdptr, word_count, data_len, data_len_cdptr]
+  DO_LAST_WORD()    // [data_len_cdptr]
+  pop
+  0x40 0x00 return
+}

@@ -1,0 +1,9 @@
+template <sio_err_label>
+#define macro READ_EXTCODESIZE_RECORD = takes(1) returns(1) {
+  VERIFY_ACCESS_ONE_RETURN_ONE<sio_err_label, 0x3b>()
+}
+
+template <sio_err_label>
+#define macro READ_EXTCODEHASH_RECORD = takes(1) returns(1) {
+  VERIFY_ACCESS_ONE_RETURN_ONE<sio_err_label, 0x3f>()
+}

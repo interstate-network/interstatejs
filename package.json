@@ -1,0 +1,8 @@
+{
+  "name": "interstatejs",
+  "version": "alpha-0.1.0",
+  "main": "index.js",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [ "packages/**" ]
+}

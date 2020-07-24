@@ -1,0 +1,46 @@
+
+
+
+/**
+ * @title balance
+ * @notice Verify address matches the top of the stack,
+ * then put balance on the stack
+ * @dev SIO Block Structure:
+ *  - opcode (1 byte) offset = 0
+ *  - address (20 bytes) offset = 1
+ *  - balance (32 bytes) offset = 33
+ * @dev Verification:
+ *  - address == stack[0]
+ * @return
+ *  - @param blockhash
+ */
+template <sio_revert_label>
+#define macro VERIFY_ACCESS_BALANCE = takes(1) returns(0) {
+                                                        // [ address ]
+  VERIFY_ACCESS_ONE_RETURN_ONE<sio_revert_label, 0x31>()   // [ balance ]
+}
+
+/**
+ * @title blockhash
+ * @notice Verify block number matches the top of the stack,
+ * then put blockhash on the stack
+ * @dev SIO Block Structure:
+ *  - opcode (1 byte) offset = 0
+ *  - number (32 bytes) offset = 1
+ *  - blockhash (32 bytes) offset = 33
+ * @dev Verification:
+ *  - number == stack[0]
+ * @return
+ *  - @param blockhash
+ */
+template <sio_revert_label>
+#define macro VERIFY_ACCESS_BLOCKHASH = takes(0) returns(0) {
+                                                        // [ number ]
+  VERIFY_ACCESS_ONE_RETURN_ONE<sio_revert_label,  0x40>()  // [ blockhash ]
+}
+
+
+template <sio_revert_label>
+#define macro VERIFY_ACCESS_GAS = takes(1) returns(1) {
+  SIO_RETURN_ONE<sio_revert_label, 0x5a>()   // [ balance ]
+}

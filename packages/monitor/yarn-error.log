@@ -1,0 +1,71 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /home/dillon/.nix-profile/bin:/home/dillon/.local/bin:/home/dillon/.nix-profile/bin:/home/dillon/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/dillon/.dotnet/tools:/home/dillon/.dotnet/tools
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@interstatejs%2fblock: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66830:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140464:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141436:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141358:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1145:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "@interstatejs/monitor",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "mocha:ts": "mocha -r ts-node/register",
+      "build": "tsc",
+      "test:auditor": "yarn mocha:ts ./test/tests/auditor/*.spec.ts --timeout=20000",
+      "test:auditor:block": "yarn mocha:ts ./test/tests/auditor/block.spec.ts --timeout=20000",
+      "test:auditor:encoding": "yarn mocha:ts ./test/tests/auditor/encoding.spec.ts --timeout=20000",
+      "test:auditor:execution": "yarn mocha:ts ./test/tests/auditor/execution.spec.ts --timeout=20000",
+      "test:auditor:witness": "yarn mocha:ts ./test/tests/auditor/witness.spec.ts --timeout=20000",
+      "test:auditor:access": "yarn mocha:ts ./test/tests/auditor/access.spec.ts --timeout=20000",
+      "test:challenge": "yarn mocha:ts ./test/tests/challenge-monitor.spec.ts --timeout=20000"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@interstatejs/block": "^2.2.2",
+      "@interstatejs/contracts": "^0.1.5",
+      "abstract-leveldown": "^6.3.0",
+      "ethereumjs-util": "^7.0.2",
+      "level-ws": "^2.0.0",
+      "leveldown": "^5.6.0",
+      "levelup": "^4.4.0",
+      "memdown": "^5.1.0",
+      "merkle-patricia-tree": "^3.0.0"
+    },
+    "devDependencies": {
+      "@types/leveldown": "^4.0.2",
+      "@types/levelup": "^4.3.0",
+      "@types/memdown": "^3.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

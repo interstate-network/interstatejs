@@ -1,0 +1,20 @@
+
+template <sio_error_label, safemath_error_label>
+#define macro GUEST_CALL = takes(7) returns(1) {
+  VERIFY_ACCESS_CALL<sio_error_label, safemath_error_label>()
+}
+
+template <sio_error_label, safemath_error_label>
+#define macro GUEST_CALLCODE = takes(7) returns(1) {
+  VERIFY_ACCESS_CALLCODE<sio_error_label, safemath_error_label>()
+}
+
+template <sio_error_label, safemath_error_label>
+#define macro GUEST_STATICCALL = takes(7) returns(1) {
+  VERIFY_ACCESS_STATICCALL<sio_error_label, safemath_error_label>()
+}
+
+template <sio_error_label, safemath_error_label>
+#define macro GUEST_DELEGATECALL = takes(7) returns(1) {
+  VERIFY_ACCESS_DELEGATECALL<sio_error_label, safemath_error_label>()
+}

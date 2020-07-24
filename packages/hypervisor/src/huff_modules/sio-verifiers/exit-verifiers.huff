@@ -1,0 +1,26 @@
+#include "guest-adapters/memory-adapters.huff"
+
+template <return_error_label>
+#define macro VERIFY_ACCESS_TX_STOP = takes(2) returns(0) {
+  GET_TX_STATUS() 0x3 eq          // [status_match]
+  iszero <return_error_label> jumpi
+  0x1 0x0 mstore 0x20 0x0 return
+}
+
+template <safemath_error_label, return_error_label>
+#define macro VERIFY_ACCESS_TX_RETURN = takes(2) returns(0) {
+  GUEST_SHA3<safemath_error_label>()  // [expected_returndatahash]
+  GET_TX_RETURNDATAHASH() eq          // [returndatahash_match]
+  GET_TX_STATUS() 0x1 eq and          // [status_match & returndatahash_match]
+  iszero <return_error_label> jumpi
+  0x1 0x0 mstore 0x20 0x0 return
+}
+
+template <safemath_error_label, return_error_label>
+#define macro VERIFY_ACCESS_TX_REVERT = takes(2) returns(0) {
+  GUEST_SHA3<safemath_error_label>()  // [expected_returndatahash]
+  GET_TX_RETURNDATAHASH() eq          // [returndatahash_match]
+  GET_TX_STATUS() 0x2 eq and          // [status_match & returndatahash_match]
+  iszero <return_error_label> jumpi
+  0x1 0x0 mstore 0x20 0x0 return
+}

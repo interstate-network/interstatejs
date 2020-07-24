@@ -1,0 +1,230 @@
+{
+  "origin": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "transactionHash": "0xc22f7cc81baf541260da88998d05cf880b0da5d42c43a1800bf87ffbba26463b",
+  "path": [],
+  "to": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "context": "0x9bbfed6889322e016e0a02ee459d306fc19545d8",
+  "caller": "0xbe862ad9abfe6f22bcb087716c7d89a26051f74c",
+  "callData": "0x85e567d40722926fd2d6c8ffe57e686f2033cdeae67aedcd3437f30e3fa70e506c74ea140ca4d9cf75d193ff5cfe9d73b48ac15c31a89297ecdd90af9f46e729fd9583f7018feca55019fd374eacdb23234f0a6ba1edef556bffeb487cf0f9ab240b68480eb0022947db14ab95f2a2d44578ad80688ca2e244857b4667a83202d784cf2300f46d72e607050991764ac5818a591e0f0c984121aeb2e7230ba61f6633bb2b0db1c8560ad40ff734acf5b6c26b241c80ed87ace8d3c31683ec4f9ab417de1014d3f78d18921233b1c630e74fa69b6fb2c442801535cd3ef5a2a0e2baa5a9ca1064fdbee2663a0f20e3a8e2f044f791a26f77a0e9c8b0346b6cff076fc77a6e19206e67776503a6c39627a9131a2398edc5dc4fa28ade6a92fe04988395bccb29acb7b8a06ef957592e9b8e49f9db92c44b816c3f73d3f6c48eb575469e8dc502f9c20f501b56ca3fa32d19b75776e524876c502603d21a6ac90179c7fc2ffb1d65a88795d48324dd1d74d2f4c712fea1e43ff561dd4d322ba5cc1ff18461681c61799afc3a0a64da7840e7e4657e7543b845e1e38ebb264a62dd7e3da9ec1f1ea659a8d209692cc92ff56e24ad0bbf775f5f016bdd4530f644a4e96a6e5bb818082dd9bb466fb8d123d04f4141b397b966ee9f74b8b6969c8f65916e30d86220b33b616bbe26db2506061f97215026eac0ec69b8ff8c738f89fd18d0d22384034f0009503501f4fd1a2a89f19cfc8db61e0e41e7b3a7f1551910f3c7a4394812c2330621391d1e2e5d6ab8ab41f0ed947513fa8e8b7d90fac7a3a054ded758000000000000000000000000000000000000000000000000000016bc2f1b9703",
+  "callvalue": "0x",
+  "contractAddress": "0xb8602d19bdd9339975290224a46f45624431fdd4",
+  "link": null,
+  "internal": [
+    "0x9860c323816cb73d6edb071eeb2e5a8fa25320ce6585fe568cf8e0d08828618f",
+    "0xbf68a4455d5dc7c1c03d6b39a2629692edd01ceedb51626a2cee64dae35e6147",
+    "0x00edaa51641321931f4c664afea5938b93041836b196e858cd28e5cf09948f37",
+    "0x8b01da3ac95f7ed012ea439cad7438f78f574c82911d6f0a65b70535eca051a8",
+    "0xc634ed1dd39661e7dc713902d4c8cc8298218063bc8356fe801a70e803be9c44",
+    "0xd604a4493e7ff7ba0b61cdec52b3592c742d8828f95bfeb0596e0e1ca60409b4",
+    "0x7503d83b56778051ea26f223c12e57e5f8a73c61d26c1298d46824d8c7326181",
+    "0x7628ee59356e867dd3b76d8e03bb5aba01fb1d85de6b57e91a416ac51faddc94",
+    "0x43eb3d2c4c379a9695357101d75cc0dae81d615ec6481cbaa4ebd8b52675fb80",
+    "0x9ca5b925f24a8280a8e2bc5efd0a012f5cd678b9f13a4bbb14bede80e3ffb788",
+    "0x385f64bf3e1eefc1b8b00a16db16d5d961063c363b97d7a38386b9eae39ae898"
+  ],
+  "logs": [],
+  "sio": [
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x00000000000000000000000000000000000000000000000000000000005a72db"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x9860c323816cb73d6edb071eeb2e5a8fa25320ce6585fe568cf8e0d08828618f",
+        "gas": "5925643",
+        "address": "0x0000000000000000000000000000000000000007",
+        "calldatahash": "0x8c39b0159a744b82a0bbbe13198ab44d13f9dd465ea92f3b936b1b3669929051",
+        "returndatasize": 96,
+        "returndata": "0x076f7a35020869ae0bd1d01820bc581bb29cc1993b0adc933a74dde3e83f3d542d9d9c4b8b0c21938f97769d672e1bf566efe8adf05077016ce084c45d02ef4d26ab99134f680df3a2e3b5ff14366315e30a349dc14b5b113ad05464e30ca56e",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x000000000000000000000000000000000000000000000000000000000059d18b"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0xbf68a4455d5dc7c1c03d6b39a2629692edd01ceedb51626a2cee64dae35e6147",
+        "gas": "5884347",
+        "address": "0x0000000000000000000000000000000000000006",
+        "calldatahash": "0x8f97f5bdcd1d71e75269702f6f55949297bb7ad5d27408e6b123de467c5a2ca7",
+        "returndatasize": 96,
+        "returndata": "0x076f7a35020869ae0bd1d01820bc581bb29cc1993b0adc933a74dde3e83f3d542d9d9c4b8b0c21938f97769d672e1bf566efe8adf05077016ce084c45d02ef4d0000000000000000000000000000000000000000000000000000000000000000",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x000000000000000000000000000000000000000000000000000000000059ca01"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x00edaa51641321931f4c664afea5938b93041836b196e858cd28e5cf09948f37",
+        "gas": "5882417",
+        "address": "0x0000000000000000000000000000000000000006",
+        "calldatahash": "0x271ec06ed0a3bb568382dc5aba82263b4c38beab2f4af2e84f065bab1a8b3a9e",
+        "returndatasize": 96,
+        "returndata": "0x2180a0f5ceaaa7f8683794d9197d8dbf3a33b8509e26a43b3680aaea866d6cc50269fc3e857852a5ded20151d7e1ac3f79f913d0d7be21fd0680d96369b501a0076f7a35020869ae0bd1d01820bc581bb29cc1993b0adc933a74dde3e83f3d54",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x000000000000000000000000000000000000000000000000000000000059b1f7"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x8b01da3ac95f7ed012ea439cad7438f78f574c82911d6f0a65b70535eca051a8",
+        "gas": "5876263",
+        "address": "0x0000000000000000000000000000000000000008",
+        "calldatahash": "0xb7ffdcd19f3c96e8430fcc0cb2dc0284895e4226350728901e261d1e18d80f16",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x000000000000000000000000000000000000000000000000000000000055a3ce"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0xc634ed1dd39661e7dc713902d4c8cc8298218063bc8356fe801a70e803be9c44",
+        "gas": "5610494",
+        "address": "0x0000000000000000000000000000000000000008",
+        "calldatahash": "0xd3e783e4eb9f6e84e560ce1bd98e03802d55c54e42a302c2a652c3bace4e784c",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x000000000000000000000000000000000000000000000000000000000051959b"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0xd604a4493e7ff7ba0b61cdec52b3592c742d8828f95bfeb0596e0e1ca60409b4",
+        "gas": "5344715",
+        "address": "0x0000000000000000000000000000000000000008",
+        "calldatahash": "0xb326c03649e3f5b49c0541f503b59913ac61efbcbab93b75b0fcdde019fb7780",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x00000000000000000000000000000000000000000000000000000000004d983b"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x7503d83b56778051ea26f223c12e57e5f8a73c61d26c1298d46824d8c7326181",
+        "gas": "5083243",
+        "address": "0x0000000000000000000000000000000000000006",
+        "calldatahash": "0xd7f8a20435e27c1ef3a355ca86a3f31d6a10cefb5a3933aae7db9fe9a6e00641",
+        "returndatasize": 96,
+        "returndata": "0x29a1da5db13bbffaeca5611f9bfeb4a7896fa9f58d69352477c88134a5113c101152b74bc60ce15f593a61e8b080028168563501b86ef2a8f0f123cb2164b3560722926fd2d6c8ffe57e686f2033cdeae67aedcd3437f30e3fa70e506c74ea14",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x00000000000000000000000000000000000000000000000000000000004d9133"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x7628ee59356e867dd3b76d8e03bb5aba01fb1d85de6b57e91a416ac51faddc94",
+        "gas": "5081443",
+        "address": "0x0000000000000000000000000000000000000006",
+        "calldatahash": "0x763d309c391137781fdec6d3b3fa8415d5fb3a2c7ae4cf90197b5722c320bac9",
+        "returndatasize": 96,
+        "returndata": "0x0da2e6df0532c1181cabb4d33cfe0e2858fb84b5a9840605881789d4c32fb03d06fa9a8ff00be5181c6a6e91816627e6b07d5cae2c25e12a3e89d23a626a652f2180a0f5ceaaa7f8683794d9197d8dbf3a33b8509e26a43b3680aaea866d6cc5",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x00000000000000000000000000000000000000000000000000000000004d733f"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x43eb3d2c4c379a9695357101d75cc0dae81d615ec6481cbaa4ebd8b52675fb80",
+        "gas": "5073775",
+        "address": "0x0000000000000000000000000000000000000008",
+        "calldatahash": "0xff2a49f1a4cdd758a708bf448c2eeea850fb8c720e2740e8b1d9619ee98870e1",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x0000000000000000000000000000000000000000000000000000000000483d83"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x9ca5b925f24a8280a8e2bc5efd0a012f5cd678b9f13a4bbb14bede80e3ffb788",
+        "gas": "4732339",
+        "address": "0x0000000000000000000000000000000000000006",
+        "calldatahash": "0xe5e4b9cb9a185a26cb69e44157d9ad3f057a3a4914fc22f76d36d4295e6f7ee8",
+        "returndatasize": 96,
+        "returndata": "0x2180490d022cb4592fa506ca77adbcbdead20adf010be92a04399b8ea15539f904fb9d0aab7fd6fadd6824b4f4aa50ee9bf5ff25692b011b082d88679df69ccd2180a0f5ceaaa7f8683794d9197d8dbf3a33b8509e26a43b3680aaea866d6cc5",
+        "callsuccess": true
+      }
+    },
+    {
+      "opcode": "gas",
+      "metadata": {
+        "gas": "0x0000000000000000000000000000000000000000000000000000000000481d65"
+      }
+    },
+    {
+      "opcode": "staticcall",
+      "metadata": {
+        "receipthash": "0x385f64bf3e1eefc1b8b00a16db16d5d961063c363b97d7a38386b9eae39ae898",
+        "gas": "4724117",
+        "address": "0x0000000000000000000000000000000000000008",
+        "calldatahash": "0x6e1f3abaca1e2fb28959a7e4a51ed09206b397950d90ad489d0bec7cd8205193",
+        "returndatasize": 32,
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "callsuccess": true
+      }
+    }
+  ],
+  "stateRootEnter": "0xd13fee4290a6a7ea39ed3a5842d0527fc6ece5c6aaa44abb2047ae3ef186fe92",
+  "callsuccess": true,
+  "returndata": "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "stateRootLeave": "0x5ec136cfd4a6aac45b0c1c0a83308b3ed2f683e2480d59f92242d6196c9e5234"
+}

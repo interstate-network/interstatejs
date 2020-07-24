@@ -1,0 +1,231 @@
+{
+  "contractName": "ChainStateImplementer",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol\":\"ChainStateImplementer\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/challenge/ChallengeLib.sol\":{\"keccak256\":\"0x7548f7041e6b06e9b69a5a49365d22cf253c5ff7714176cd655a423636a42a57\",\"urls\":[\"bzz-raw://1ab4a66b268df4c3a1cbbe21780c2b3d6e07588c51e243e6e58e5acb03ae1401\",\"dweb:/ipfs/QmSUUhq8Ry5hNcYfuZEjwswSWR255siEbQZ7j7qRsXTH2h\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/challenge/ChallengeManager.sol\":{\"keccak256\":\"0xc3ef2b010bb8dd5ce49f2b157a43b9d2a3bbe1cfbc4b517f0a948632eea493a2\",\"urls\":[\"bzz-raw://675b2e7f2a045bf843394b82469958e761d9cc61e2e30a0e6434c9bfd2a29d78\",\"dweb:/ipfs/QmNZMH2qSKwQPCZDaL74ezdT7kAfrbLeaq7ACTBr81mB8d\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol\":{\"keccak256\":\"0xddbb364ebd7cc6a9508b80197addfd9dd60322e8a5eaad3c918524a20bfb3b48\",\"urls\":[\"bzz-raw://ffe80084c5a1894b577f85d5a25ff6d6141b66a1166fcfc7af516004edff74c4\",\"dweb:/ipfs/QmdZBTEXe3Cpu4gwf5Ub2yYmmWCRKneB8pUTiNKBa2Ljk1\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol\":{\"keccak256\":\"0x8cc89b1bc347ea6f7eaa7e5f05e5b0de1e7e96ff81552c5fb21742627f2dd4c6\",\"urls\":[\"bzz-raw://b588e3806c7e1a1ae25b419c462f0e0d942f89151f6c4def47cd6ffdd488ce3e\",\"dweb:/ipfs/QmWEgY1C3Sp9eXUGbvbpnHYMjV6EsqKQ8sq43VduqVBWbx\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/CommitmentHeaderLib.sol\":{\"keccak256\":\"0x2be6de7a673cd22e24917d72aa2a532aa0ce9edc593b1da23a778dca14b998e1\",\"urls\":[\"bzz-raw://5239c501bb18361f2a31d0676b6f4142d774089bbb80533a931ad6fa718771ce\",\"dweb:/ipfs/QmNxteoQDEdekZwhDjpg8gsGFtRs3hhEPxeCrejkVeDDtC\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/blocks/ISO_HeaderLib.sol\":{\"keccak256\":\"0xfdb154c1f7df2af5cdc2020d6644628842702b2f39874094088da960b7ecd0a4\",\"urls\":[\"bzz-raw://2ac22e6168c7d8382e606253e8005d4c8dd0622f4b020f3533ad1a9282115137\",\"dweb:/ipfs/QmSYUYpTpBtdpxE9XGkJTun8gGYSnmpm6DNfQTPZFmHpha\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/ConfigLib.sol\":{\"keccak256\":\"0xd62309035a5a8759543ee98c0f9d2e0dacd18197a51ea46209d523de8606442f\",\"urls\":[\"bzz-raw://dc7ca523e90f14377587479a54e11a2637e5191bd84239be6fabdf569c0e968d\",\"dweb:/ipfs/Qmb888wE24gyEVGKdLxBqzRPWUioGeqJn7sabGndhASG9K\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/config/byte-counter/IByteCounter.sol\":{\"keccak256\":\"0xca85bde5ca4669d5fec21cd5c7005d305468056dd69f53b1d5c7a31d67aca152\",\"urls\":[\"bzz-raw://7a23a644e2bc1b32d577a148a45e2f082fb8472d0113ae674ba0df5484201d9f\",\"dweb:/ipfs/QmQFuFASYHCtTYi7XM79Zfvo1k6oxg492jQeEKf1i2brhF\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/DefaultHashes.sol\":{\"keccak256\":\"0xc5f2f502aa0c4d779e98bf4645fd433d60c6971ab754632d011803fda61f55f1\",\"urls\":[\"bzz-raw://e4a23244281cc1c5c53ca7da74cb168cf55138304adec45672c01b02702109b1\",\"dweb:/ipfs/QmZybfoLb8fTFCFfiNYjsmpk6vJ7i4qc8wpK7X5MUWTuhZ\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/MerkleProofLib.sol\":{\"keccak256\":\"0x535f15037edd52d86808142ca24dc4ca3b954752dc5b3d67d7f7c4ca803fd80e\",\"urls\":[\"bzz-raw://947a8bde3c332ca023cf151676f2ea7066183d5428f6d9157582cf3c331ab8b0\",\"dweb:/ipfs/QmRchFrz3d3WpiR6tuZa6rnEYZ2SEvxCYty1xRj7Q6ybtw\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/rollup/SparseMerkleTree.sol\":{\"keccak256\":\"0xc92dc0b2acd86cf6d9320216bb6ae01b4292d212af8988a8c2dc77ebd5a1af70\",\"urls\":[\"bzz-raw://4295227ea80b3f3654373b4972ee48516c58bd9262b43c3d8057cde66a71ef5b\",\"dweb:/ipfs/QmUjEVK8iZWGT5LxPR6pYJzFEMREfvTLQG4EmyQYGGX3dC\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/transactions/RelayTransactionLib.sol\":{\"keccak256\":\"0x455a0395200a107bab019734ec680df3c5e1b1825d691f1cb566e631db757299\",\"urls\":[\"bzz-raw://9157c9fc5b3baf22131f90903c7dcaf777f8c023f154f5bd4c3b5b8c78cc8b55\",\"dweb:/ipfs/QmTKFTLdqj8LR5YeNamuQ3PMLKnSEZQC1mZHBt7q2jc4oc\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/witness/MessageWitnessLib.sol\":{\"keccak256\":\"0xcbbcc2edb8679ae761b6b031b65928b960715e80d25fa6e87a3ccf91943fb55b\",\"urls\":[\"bzz-raw://f7783a0c7d4a25b37d281034856774ad8fb451dbc35b48e1a25f1f5b545d2d98\",\"dweb:/ipfs/QmT3w1GWa9zBsraJ3NDDB57w7axJ89k8AH91ZBzyhpXB3N\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/relay/ArchiveFactory.sol\":{\"keccak256\":\"0xf10aa6fbb344f4b1c23e0e44cb12788f56c47c531fb76849f7174ac8f829619a\",\"urls\":[\"bzz-raw://b69aa1d5f35a6407c8407f69c0d572ea27095ba66e65a6ff61581375f4a7b328\",\"dweb:/ipfs/Qmad2hfzdk9irbhDHtFetTCUSkxoFsFsgbrQuWzygRxvvZ\"]},\"/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/relay/IParentRelay.sol\":{\"keccak256\":\"0x3632c8543bee85e535a0bfccb9c8bfa08388d79ebff29bc78d7e066eeab45a05\",\"urls\":[\"bzz-raw://916daf7861577ba948527822242515fd4bd31e71b137fbf2df75c3beefdfa796\",\"dweb:/ipfs/QmP1rCAjie9Hdb2egejGsxdQLjqUCC5TnNyjybcC4BfsM1\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\nimport { ChainStateLib as CS } from \"./ChainStateLib.sol\";\n\nabstract contract ChainStateImplementer {\n  CS.ChainState internal chainState;\n}",
+  "sourcePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol",
+  "ast": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol",
+    "exportedSymbols": {
+      "ChainStateImplementer": [
+        634
+      ]
+    },
+    "id": 635,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 629,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol",
+        "file": "./ChainStateLib.sol",
+        "id": 631,
+        "nodeType": "ImportDirective",
+        "scope": 635,
+        "sourceUnit": 1166,
+        "src": "24:58:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 630,
+              "name": "ChainStateLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "33:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "CS"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 634,
+        "linearizedBaseContracts": [
+          634
+        ],
+        "name": "ChainStateImplementer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 633,
+            "mutability": "mutable",
+            "name": "chainState",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 634,
+            "src": "128:33:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_ChainState_$730_storage",
+              "typeString": "struct ChainStateLib.ChainState"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 632,
+              "name": "CS.ChainState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 730,
+              "src": "128:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ChainState_$730_storage_ptr",
+                "typeString": "struct ChainStateLib.ChainState"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 635,
+        "src": "84:80:3"
+      }
+    ],
+    "src": "0:164:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateImplementer.sol",
+    "exportedSymbols": {
+      "ChainStateImplementer": [
+        634
+      ]
+    },
+    "id": 635,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 629,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "/home/dillon/sparse-iso/sparse-iso/packages/contracts/contracts/common/ChainStateLib.sol",
+        "file": "./ChainStateLib.sol",
+        "id": 631,
+        "nodeType": "ImportDirective",
+        "scope": 635,
+        "sourceUnit": 1166,
+        "src": "24:58:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 630,
+              "name": "ChainStateLib",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "33:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": "CS"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 634,
+        "linearizedBaseContracts": [
+          634
+        ],
+        "name": "ChainStateImplementer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 633,
+            "mutability": "mutable",
+            "name": "chainState",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 634,
+            "src": "128:33:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_ChainState_$730_storage",
+              "typeString": "struct ChainStateLib.ChainState"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 632,
+              "name": "CS.ChainState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 730,
+              "src": "128:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ChainState_$730_storage_ptr",
+                "typeString": "struct ChainStateLib.ChainState"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 635,
+        "src": "84:80:3"
+      }
+    ],
+    "src": "0:164:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.11+commit.5ef660b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.1",
+  "updatedAt": "2020-07-17T23:51:47.532Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,63 @@
+#include "../../utils/safemath.huff"
+#include "../../io/pointers.huff"
+
+/**
+[0-32] last returndatasize ptr
+[32-64] state access pt
+*/
+
+#define macro LAST_RETURNDATASIZE_CDPPTR = takes(0) returns(1) { 0x00 }
+#define macro GET_LAST_RETURNDATASIZE_CDPTR = takes(1) returns(0) { LOAD<LAST_RETURNDATASIZE_CDPPTR>() }
+#define macro SET_LAST_RETURNDATASIZE_CDPTR = takes(1) returns(0) { STORE<LAST_RETURNDATASIZE_CDPPTR>() }
+
+// #define macro GUEST_MEM_PTR = takes(0) returns(1) { 0x40 }
+#define macro GET_GUEST_MEM_PTR = takes(0) returns(1) { 0x40 }
+
+#define macro CURRENT_SIO_CDPPTR = takes(0) returns(1) { 0x20 }
+#define macro GET_CURRENT_SIO_CDPTR = takes(0) returns(1) { LOAD<CURRENT_SIO_CDPPTR>() }
+#define macro SET_CURRENT_SIO_CDPTR = takes(0) returns(1) { STORE<CURRENT_SIO_CDPPTR>() }
+
+#define macro GET_TX_SIO_CDPTR = takes(0) returns(1) { 0x00 }
+
+template <safemath_error_label>
+#define macro ADD_GUEST_PTR_OFFSET = takes(1) returns(1) {
+  GET_GUEST_MEM_PTR()
+  SM_ADD<safemath_error_label>()
+}
+
+
+/* #define macro SIO_NEXT_OFFSET = takes(0) returns(1) {
+  GET_CURRENT_SIO_CDPTR()   // [ sio_offset ]
+  dup1                      // [ sio_offset, sio_offset ]
+  0x20                      // [ 32, sio_offset, sio_offset ]
+  add                       // [ 32 + sio_offset, sio_offset ]
+  SET_CURRENT_SIO_CDPTR()   // [ sio_offset ]
+  calldataload              // [ rel_offset ]
+  GET_TX_SIO_CDPTR()
+  add                       // [ begin_sio_ptr ]
+  stop
+} */
+
+/*
+takes the cdptr for the start of the current SIO
+checks the opcode, throws if invalid
+returns cdptr to start of metadata
+currently ignoring length and not performing bounds checks because we will probably change the encoding
+*/
+template <sio_revert_label, opcode>
+#define macro SIO_CHECK_OPCODE = takes(0) returns(0) {
+  // [ record_opcode_ptr ]
+  /** skip length -- @dev TODO: verify length */
+  dup1                                        // [ record_body_ptr, record_body_ptr ]
+  calldataload                                // [ opcode, record_body_ptr ]
+  <opcode> eq iszero <sio_revert_label> jumpi // [ record_body_ptr ]
+  /* skip opcode */
+  0x20 add                                    // [ record_body_meta_ptr ]
+}
+
+/* get offset of next sio struct, check opcode is valid (or throw), return offset to beginning of meta */
+template <sio_revert_label, opcode>
+#define macro SIO_START = takes(0) returns(0) {
+  0x00 // [ record_opcode_ptr ]
+  SIO_CHECK_OPCODE<sio_revert_label, opcode>() // [ record_body_meta_ptr ]
+}

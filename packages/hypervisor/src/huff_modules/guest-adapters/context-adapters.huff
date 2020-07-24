@@ -1,0 +1,49 @@
+#define macro GUEST_PC = takes(0) returns(0) {
+  GET_PC()    // [pc]
+  GUEST_CODE_PTR()  // [0x2080, pc]
+  dup2        // [pc, 0x2080, pc]
+  sub         // [pc - 0x2080, pc]
+  swap1       // [pc, pc-0x2080]
+  0x1         // [1, pc, pc-0x2080]
+  add         // [pc+1, pc-0x2080]
+  dup1        // [pc+1, pc+1, pc-0x2080]
+  SET_PC()    // [pc+1, pc-0x2080]
+}
+
+#define macro GUEST_ADDRESS = takes(0) returns(0) {
+  GET_GUEST_ADDRESS()
+}
+
+template <sio_revert_label>
+#define macro GUEST_GAS = takes(0) returns(1) {
+  VERIFY_ACCESS_GAS<sio_revert_label>()
+}
+
+#define macro GUEST_GASPRICE = takes(0) returns(1) {
+  GET_GASPRICE()
+}
+
+template <sio_revert_label>
+#define macro GUEST_COINBASE = takes(0) returns(1) {
+  READ_COINBASE_RECORD<sio_revert_label>()
+}
+
+template <sio_revert_label>
+#define macro GUEST_NUMBER = takes(0) returns(1) {
+  READ_NUMBER_RECORD<sio_revert_label>()
+}
+
+template <sio_revert_label>
+#define macro GUEST_TIMESTAMP = takes(0) returns(1) {
+  READ_TIMESTAMP_RECORD<sio_revert_label>()
+}
+
+template <sio_revert_label>
+#define macro GUEST_GASLIMIT = takes(0) returns(1) {
+  READ_GASLIMIT_RECORD<sio_revert_label>()
+}
+
+template <sio_revert_label>
+#define macro GUEST_CHAINID = takes(0) returns(1) {
+  READ_CHAINID_RECORD<sio_revert_label>()
+}
